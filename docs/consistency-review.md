@@ -1,8 +1,9 @@
 # Ateliê Doces Bruna V2: Revisão global de consistência dos 8 concepts
 
-> **Status:** referência canônica antes da criação da Master Reference.
-> **Gate final:** **READY FOR MASTER REFERENCE**
+> **Status:** referência que orientou a criação da Master Reference. **As quatro Master Slices já passaram pelo gate** (ver §9 e `docs/master-reference/README.md`).
+> **Gate final:** **READY FOR MASTER REFERENCE** → Master Slices 01–04 `APPROVED`
 > **Escopo:** somente consolidação da direção visual. Nenhuma implementação, wireframe ou alteração dos concepts.
+> **Precedência:** onde esta revisão divergir das slices aprovadas, **a imagem aprovada prevalece**. As divergências estão registradas como `DESVIO ACEITO NO GATE` no documento de cada slice.
 
 Concepts analisados (`concepts/concept-01.webp` a `concept-08.webp`), lidos como seções consecutivas de uma única landing page longa:
 
@@ -293,13 +294,26 @@ Mobile é prioridade absoluta em leitura, foto grande, CTA e toque. Alvos de 44�
 
 Nenhum bloqueador real. Os problemas acima (ritmo, repetição de foto e ornamento, margens, nav/logo, copy, placeholders) são correções de montagem, e a própria Master resolve todos eles. O que depende de dados externos (contatos, Bruna real, depoimentos, arquivo oficial da logo) bloqueia a **produção**, não a Master Reference.
 
+### Resultado: gate das Master Slices
+
+A Master Reference foi produzida em quatro slices. Todas passaram pelo gate visual (fora do repositório):
+
+| Slice | Concepts | Status | Correções aplicadas no gate |
+|---|---|---|---|
+| 01 Hero + Manifesto | 01–02 | `APPROVED` | Aplicação da logo no header |
+| 02 Bruna + Criações | 03–04 | `APPROVED` | Bolo de chocolate repetido no 04 substituído por composição variada |
+| 03 Encomendas + Histórias Reais | 05–06 | `APPROVED` | Copy redundante da transição 05 → 06 removida |
+| 04 Bastidores + Fechamento | 07–08 | `APPROVED` | 07 em cacau; menos bolo no 08; fechamento como cena de embalagem; footer com placeholders |
+
+Detalhes, desvios aceitos e placeholders: `docs/master-reference/`.
+
 ---
 
 ## Próximo passo
 
-Criar a Master Reference desktop da homepage, consolidando os 8 concepts aprovados e aplicando todas as correções definidas nesta revisão.
+~~Criar a Master Reference desktop da homepage.~~ Concluído: Master Slices 01–04 `APPROVED`.
 
-Somente após aprovação da Master Reference:
-1. gerar wireframe;
-2. validar arquitetura;
-3. iniciar implementação.
+1. Stitch técnico das quatro slices em `docs/master-reference/master-reference.webp`;
+2. gerar wireframe;
+3. validar arquitetura;
+4. iniciar implementação.
