@@ -1,0 +1,296 @@
+================================================================================
+ ATELIÊ DOCES BRUNA · HOMEPAGE DESKTOP · WIREFRAME ESTRUTURAL CANÔNICO
+================================================================================
+ Fonte:      docs/master-reference/master-reference.webp (1440 x 8365 px)
+ Slices:     docs/master-reference/slice-01..04 (APPROVED)
+ Status:     RASCUNHO PARA REVISÃO. Implementação NÃO liberada.
+ Escopo:     estrutura, hierarquia, mídia e CTAs. Sem estilo final, sem código.
+
+ Convenções
+   y≈        faixa vertical aproximada na Master (px, ±40)
+   [IMG]     bloco de mídia (direção fotográfica; asset real substitui)
+   (( CTA )) botão pill preenchido (blush)
+   ( CTA )   botão pill outline
+   ~~~~~~~~  onda orgânica de transição (topo curvo pertence à seção de baixo)
+   [PH]      [PLACEHOLDER]: conteúdo não validado
+   *texto*   trecho em serif itálica caramelo
+   Grid      1440 de largura; conteúdo 1280; eixo esquerdo x≈80
+
+--------------------------------------------------------------------------------
+ MAPA DE SEÇÕES
+--------------------------------------------------------------------------------
+ #   id              Seção               Fundo            y≈            Slice
+ 00  header          Header              transp./cacau    0–135         01
+ 01  hero            Hero                cacau (foto)     0–940         01
+ 02  manifesto       Manifesto           creme            940–2000      01
+ 03  bruna           Bruna               creme→foto       2000–3010     02
+ 04  criacoes        Criações            creme            3010–4160     02
+ 05  encomendas      Encomendas          creme            4160–5140     03
+ 06  historias       Histórias Reais     creme            5140–6320     03
+ 07  bastidores      Bastidores          cacau            6320–7300     04
+ 08  cta-final       CTA final           cacau (foto)     7300–7940     04
+ 09  footer          Footer              creme            7940–8365     04
+
+ Ritmo:  ESCURO(01) → claro(02–06) → ESCURO(07–08) → claro(footer)
+
+================================================================================
+ 00 · HEADER                                                       y≈ 0–135
+================================================================================
+ Sobreposto à foto do Hero (fundo transparente sobre cacau).
+ +------------------------------------------------------------------------------+
+ | ATELIÊ            A MARCA  BRUNA  CRIAÇÕES  ENCOMENDAS  CONTATO               |
+ | d✿ces bruna                            [ig] INSTAGRAM  [wa] WHATSAPP | ((ENCOMENDAR →)) |
+ +------------------------------------------------------------------------------+
+   logo      wordmark horizontal (aplicação visual; logo oficial substitui)
+   nav       5 links: A Marca · Bruna · Criações · Encomendas · Contato
+   social    Instagram, WhatsApp (ícone + label)
+   CTA       (( ENCOMENDAR → ))  ← CTA-01 (primário do header)
+
+================================================================================
+ 01 · HERO                                                         y≈ 0–940
+================================================================================
+ +------------------------------------------------------------------------------+
+ |                                                             ( SELO CIRCULAR ) |
+ |  Mais que doces,                          +--------------------------------+ |
+ |  *momentos*                               | [IMG-01] bolo protagonista     | |
+ |  inesquecíveis.                           | em pedestal de cerâmica        | |
+ |                                           | (foto full-bleed de fundo,     | |
+ |  No Ateliê Doces Bruna, cada doce é       |  produto à direita)            | |
+ |  feito à mão para transformar ocasiões    +--------------------------------+ |
+ |  em lembranças que ficam para sempre.                                         |
+ |                                                                              |
+ |  (( CONHEÇA NOSSA HISTÓRIA → ))   ← CTA-02                                   |
+ +------------------------------------------------------------------------------+
+   headline  H1, 3 linhas, "momentos" em itálico
+   corpo     1 parágrafo curto
+   selo      ÚNICO selo da página: "ATELIÊ DOCES BRUNA · FEITO COM AFETO"
+   mídia     IMG-01 foto de fundo cacau + produto (scrim à esquerda p/ texto)
+
+ ~~~~~~~~~~~~~~~~~~~~~~~ ONDA creme sobe sobre o cacau ~~~~~~~~~~~~~~~~~~~~~~~~
+   faixa na crista (1x): — FEITO À MÃO · INGREDIENTES REAIS · HISTÓRIAS VERDADEIRAS —
+                         [PH] claims não validados
+
+================================================================================
+ 02 · MANIFESTO                                                    y≈ 940–2000
+================================================================================
+ +------------------------------------------------------------------------------+
+ |  —— NOSSA ESSÊNCIA                        +---------------------------+      |
+ |                                           | [IMG-02] mãos + bolo      |      |
+ |  Cada criação                             | (principal, alta)         |      |
+ |  carrega afeto,                           +---------------------------+      |
+ |  *cuidado e memória.*                +--------------+   +--------------+     |
+ |                                      | [IMG-03]     |   | [IMG-04]     |     |
+ |  Acreditamos no poder dos detalhes…  | brigadeiros  |   | chocolate +  |     |
+ |  (1 parágrafo)                       +--------------+   | cacau        |     |
+ |                                                         +--------------+     |
+ |  [base: tecido + cerâmica, decorativo]                                       |
+ +------------------------------------------------------------------------------+
+   layout    texto à esquerda (x 80–~640) | colagem de 3 molduras à direita
+   CTA       nenhum
+
+================================================================================
+ 03 · BRUNA                                                        y≈ 2000–3010
+================================================================================
+ +------------------------------------------------------------------------------+
+ |  —— SOBRE A BRUNA                   +-------------------------------------+  |
+ |                                     | [IMG-05] retrato da Bruna           |  |
+ |  A delicadeza                       | confeitando (full-bleed à direita,  |  |
+ |  da marca                           |  funde com o creme à esquerda)      |  |
+ |  começa em                          |  [PH] pessoa gerada ≠ Bruna real    |  |
+ |  *quem a criou.*                    |                                     |  |
+ |                                     |                                     |  |
+ |  Sou a Bruna, e cada doce…   [PH]   |                                     |  |
+ |  Acredito que a confeitaria… [PH]   |                                     |  |
+ |                                     |                                     |  |
+ |  ~Bruna~ (assinatura) ✿ flor grande +-------------------------------------+  |
+ +------------------------------------------------------------------------------+
+   corpo     2 parágrafos em 1ª pessoa [PH]
+   assinatura script "Bruna" [PH] + flor grande em linha (1ª de 2 ocorrências)
+   CTA       nenhum
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~ ONDA creme → creme (sem copy) ~~~~~~~~~~~~~~~~~~~~~~
+
+================================================================================
+ 04 · CRIAÇÕES                                                     y≈ 3010–4160
+================================================================================
+ +------------------------------------------------------------------------------+
+ |  —— NOSSAS CRIAÇÕES               +--------------------------+ +---------+   |
+ |                                   | [IMG-06] bolo claro com  | | [IMG-07]|   |
+ |  Criações que                     | morangos e pistache      | | close da|   |
+ |  começam                          | (principal)              | | fatia   |   |
+ |  *nos olhos e*                    +--------------------------+ +---------+   |
+ |  *ficam na memória.*          +------------------+   +-------------------+   |
+ |                               | [IMG-08]         |   | [IMG-09]          |   |
+ |  Bolos, doces e sobremesas…   | brigadeiros      |   | cheesecake com    |   |
+ |                               | variados         |   | morangos e calda  |   |
+ |  (( DESCUBRA AS CRIAÇÕES → ))  ← CTA-03          +-------------------+   |
+ |                               +------------------+                           |
+ |  [base: tecido + cerâmica, decorativo]                                       |
+ +------------------------------------------------------------------------------+
+   layout    texto à esquerda | galeria de 4 molduras sobrepostas à direita
+   mídia     4 produtos diferentes (portfólio real substitui)
+
+================================================================================
+ 05 · ENCOMENDAS                                                   y≈ 4160–5140
+================================================================================
+ +------------------------------------------------------------------------------+
+ |  —— ENCOMENDAS                          01             +-----------------+   |
+ |                                         CONVERSE       | [IMG-10] mãos   |   |
+ |  Cada celebração                        Conte sobre a  | esboçando bolos |   |
+ |  começa com                             ocasião…       +-----------------+   |
+ |  *uma ideia só sua.*                          \                              |
+ |                                   +--------+   \        03  ✿ flor grande   |
+ |  Cada encomenda começa com uma    |[IMG-11]|    \       CELEBRE              |
+ |  conversa… (1 parágrafo)          | mão +  |     `----  Tudo ganha forma…   |
+ |                                   | morango|           +-----------------+   |
+ |  (( [wa] COMEÇAR UMA ENCOMENDA → )) ← CTA-04          | [IMG-12] bolo   |   |
+ |                                   +--------+           | na mesa         |   |
+ |  ANIVERSÁRIOS · PRESENTES ·       02                   +-----------------+   |
+ |  CELEBRAÇÕES · MOMENTOS ESPECIAIS CRIAMOS                                    |
+ |                                   O Ateliê transforma…                       |
+ +------------------------------------------------------------------------------+
+   jornada   3 passos em zigue-zague ligados por linha fina caramelo
+             01 CONVERSE · 02 CRIAMOS · 03 CELEBRE   [PH] processo não validado
+   numerais  decorativos (o título do passo carrega a informação)
+   flor      flor grande em linha junto ao passo 03 (2ª e última ocorrência)
+   tags      4 ocasiões, uppercase (texto; comportamento a definir)
+   copy      imagem traz "ocsaião"; implementação usa "ocasião"
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~ ONDA creme → creme (sem copy) ~~~~~~~~~~~~~~~~~~~~~~
+
+================================================================================
+ 06 · HISTÓRIAS REAIS                                              y≈ 5140–6320
+================================================================================
+ Layout ESPELHADO (mídia à esquerda).
+ +------------------------------------------------------------------------------+
+ |  +--------------------------------+   —— HISTÓRIAS REAIS                     |
+ |  | [IMG-13] mesa de celebração:   |                                          |
+ |  | bolo com velas, caixa com a    |   Quem viveu,                            |
+ |  | marca, flores, pratos          |   lembra com                             |
+ |  |                                |   *doçura.*                              |
+ |  +---------+                      |                                          |
+ |  |[IMG-14] |                      |   Mais do que bolos e doces… (1 par.)    |
+ |  | fatia   |                      |                                          |
+ |  +---------+----------------------+   +-------------+  +-------------+       |
+ |                                       | “ Depoim. 1 |  | “ Depoim. 2 |       |
+ |                                       |   [PH]      |  |   [PH]      |       |
+ |                                       | CLIENTE…[PH]|  | CLIENTE…[PH]|       |
+ |                                       +-------------+  +-------------+       |
+ |                                          +---------------------------+       |
+ |                                          | “ Depoimento 3   [PH]     |       |
+ |                                          | CLIENTE…         [PH]     |       |
+ |                                          +---------------------------+       |
+ +------------------------------------------------------------------------------+
+   cards     3 citações; TODAS [PLACEHOLDER] até haver depoimentos autorizados
+   CTA       nenhum
+
+ ~~~~~~~~~~~~~~~~~~~~~~~ ONDA creme → cacau (virada escura) ~~~~~~~~~~~~~~~~~~~~
+
+================================================================================
+ 07 · BASTIDORES                                                   y≈ 6320–7300
+================================================================================
+ +------------------------------------------------------------------------------+
+ |  —— POR TRÁS DE CADA DETALHE         +-------------------------------------+ |
+ |                                      | [IMG-15] mãos confeitando bolo,     | |
+ |  O cuidado                           | avental com a marca (grande,        | |
+ |  que transforma                      |  full-bleed à direita)              | |
+ |  *ingredientes*                      +-------------------------------------+ |
+ |  *em memórias.*                      +----------------+ +------------------+ |
+ |                                      | [IMG-16]       | | [IMG-17] mãos    | |
+ |  Antes de cada entrega, existem…     | peneira + cacau| | laçando caixa    | |
+ |  (1 parágrafo)                       | sobre doces    | | com a marca      | |
+ |                                      +----------------+ +------------------+ |
+ +------------------------------------------------------------------------------+
+   fundo     cacau; texto em creme
+   CTA       nenhum
+
+ ~~~~~~~~~~~~~~~~~~~ ONDA cacau → cacau (fio caramelo na borda) ~~~~~~~~~~~~~~~~
+
+================================================================================
+ 08 · CTA FINAL                                                    y≈ 7300–7940
+================================================================================
+ +------------------------------------------------------------------------------+
+ |  —— AGORA FALTA APENAS               +-------------------------------------+ |
+ |                                      | [IMG-18] cena de celebração:        | |
+ |  *o seu*                             | caixa com a marca, velas, flores,   | |
+ |  *momento.*                          | pratos, taça, brigadeiros           | |
+ |                                      | (foto de fundo, à direita)          | |
+ |  Conte o que você imagina… (1 par.)  |                                     | |
+ |                                      |                                     | |
+ |  (( [wa] COMEÇAR UMA ENCOMENDA → ))  ← CTA-05 (primário)                  | |
+ |  (  [ig] ACOMPANHAR NO INSTAGRAM → ) ← CTA-06 (secundário, outline)       | |
+ +------------------------------------------------------------------------------+
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~ ONDA creme sobe sobre o cacau ~~~~~~~~~~~~~~~~~~~~~~~
+
+================================================================================
+ 09 · FOOTER                                                       y≈ 7940–8365
+================================================================================
+ +------------------------------------------------------------------------------+
+ |      ✿          |  NAVEGAÇÃO   |  CONTATO                  |  ATENDIMENTO     |
+ |    Ateliê       |  A Marca     |  [wa] [TELEFONE]     [PH] |  [⏲] [HORÁRIO] [PH]|
+ |  Doces Bruna    |  Bruna       |  [ig] [INSTAGRAM]    [PH] |                  |
+ |                 |  Criações    |       Acompanhe no Insta. |                  |
+ |  CONFEITARIA    |  Encomendas  |  [📍] [LOCALIZAÇÃO]  [PH] |                  |
+ |  ARTESANAL PARA |  Contato     |  [✉] [E-MAIL]        [PH] |                  |
+ |  MOMENTOS ESP.  |              |                           |                  |
+ +------------------------------------------------------------------------------+
+ |  © [ANO] Ateliê Doces Bruna. Todos os direitos reservados.  [PH]             |
+ |                                               FEITO COM CUIDADO. SEMPRE.     |
+ +------------------------------------------------------------------------------+
+   marca     lockup empilhado (aplicação visual; logo oficial substitui)
+   tagline   "Confeitaria artesanal para momentos especiais" (a confirmar)
+   nav       idêntica à do header (5 itens)
+
+================================================================================
+ INVENTÁRIO DE CTAs
+================================================================================
+ id      seção        rótulo                        tipo        destino (a definir)
+ CTA-01  header       ENCOMENDAR →                  pill blush  canal de encomenda
+ CTA-02  hero         CONHEÇA NOSSA HISTÓRIA →      pill blush  #manifesto ou #bruna
+ CTA-03  criacoes     DESCUBRA AS CRIAÇÕES →        pill blush  catálogo? (não existe)
+ CTA-04  encomendas   [wa] COMEÇAR UMA ENCOMENDA →  pill blush  WhatsApp [PH]
+ CTA-05  cta-final    [wa] COMEÇAR UMA ENCOMENDA →  pill blush  WhatsApp [PH]
+ CTA-06  cta-final    [ig] ACOMPANHAR NO INSTAGRAM → outline    Instagram [PH]
+ + links do header (Instagram, WhatsApp), nav do header e nav do footer.
+
+================================================================================
+ INVENTÁRIO DE MÍDIA (tudo é direção fotográfica; asset real substitui)
+================================================================================
+ IMG-01 hero: bolo protagonista (fundo)      IMG-10 encomendas: esboço/caderno
+ IMG-02 manifesto: mãos + bolo               IMG-11 encomendas: mão + morango
+ IMG-03 manifesto: brigadeiros               IMG-12 encomendas: bolo na mesa
+ IMG-04 manifesto: chocolate + cacau         IMG-13 histórias: mesa de celebração
+ IMG-05 bruna: retrato (Bruna real!)         IMG-14 histórias: fatia (inset)
+ IMG-06 criações: bolo claro (principal)     IMG-15 bastidores: confeitando (grande)
+ IMG-07 criações: close da fatia             IMG-16 bastidores: peneira + cacau
+ IMG-08 criações: brigadeiros variados       IMG-17 bastidores: laço na caixa
+ IMG-09 criações: cheesecake                 IMG-18 cta-final: cena de celebração
+ Decorativos: selo (hero), 2 flores grandes (bruna, encomendas), tecido/cerâmica
+ nas bases 02 e 04, linha da jornada (05), ícones de contato (footer).
+
+================================================================================
+ SEQUÊNCIA ESTRUTURAL
+================================================================================
+ header
+  └ hero ~onda~ manifesto → bruna ~onda~ criações → encomendas ~onda~
+    histórias ~onda escura~ bastidores ~onda~ cta-final ~onda~ footer
+
+ Headlines (H1 = hero; H2 = demais seções), todas com 1 trecho em itálico:
+   01 Mais que doces, *momentos* inesquecíveis.
+   02 Cada criação carrega afeto, *cuidado e memória.*
+   03 A delicadeza da marca começa em *quem a criou.*
+   04 Criações que começam *nos olhos e ficam na memória.*
+   05 Cada celebração começa com *uma ideia só sua.*
+   06 Quem viveu, lembra com *doçura.*
+   07 O cuidado que transforma *ingredientes em memórias.*
+   08 *o seu momento.*
+
+================================================================================
+ FORA DO ESCOPO DESTE WIREFRAME
+================================================================================
+ - Mobile/tablet (ver docs/consistency-review.md §7).
+ - Motion (ver docs/consistency-review.md §6 e docs de cada slice).
+ - Tokens finais de cor/tipografia (hex estimados; extrair do material oficial).
+ - As emendas retas entre slices na Master são artefato do stitch, não design.
+================================================================================
