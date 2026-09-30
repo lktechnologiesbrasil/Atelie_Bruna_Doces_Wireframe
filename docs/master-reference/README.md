@@ -83,5 +83,5 @@ SHA-256: `04e0a60109eea3ae51e006800b9327e2e05a60833d6df6b318d91e4fb49078fc`
 
 1. ~~Stitch técnico das quatro slices.~~ Concluído.
 2. ~~Gate técnico da Master Reference.~~ Aprovado.
-3. Wireframe estrutural a partir da Master.
-4. Só depois da revisão do wireframe: implementação.
+3. Wireframe estrutural a partir da Master: canônico em `design-systems/atelie-doces-bruna-v2/wireframe.txt` (`img-to-html` Etapa 1, ver `docs/wireframe/README.md`). Aguardando aprovação.
+4. Só depois da aprovação do wireframe e do plano: Etapas 2–5 do `img-to-html`.

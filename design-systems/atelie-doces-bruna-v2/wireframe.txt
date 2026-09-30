@@ -1,0 +1,208 @@
++--------------------------------------------------------------------------------------------------------------------------------------+
+| nav                                                                                                                                  |
+| [ico:logo-wordmark]   [lnk: A MARCA] [lnk: BRUNA] [lnk: CRIAÇÕES] [lnk: ENCOMENDAS] [lnk: CONTATO]                                   |
+|                       [lnk: [ico:instagram] INSTAGRAM] [lnk: [ico:whatsapp] WHATSAPP] [btn: ENCOMENDAR [ico:arrow]]                  |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| hero                                                                                                                                 |
+| [img: fundo fotográfico cacau: bolo de chocolate com drip em pedestal, flores, tecido]                                               |
+|                                                                                                                                      |
+| [h1: Mais que doces,]                                                    +------------------------------+                            |
+| [h3: momentos]                                                           | card2                        |                            |
+| [h1: inesquecíveis.]                                                     | [ico:flor]                   |                            |
+|                                                                          | [t3: ATELIÊ DOCES BRUNA ·]   |                            |
+| [t1: No Ateliê Doces Bruna, cada doce é feito à mão]                     | [t3: FEITO COM AFETO]        |                            |
+| [t1: para transformar ocasiões em lembranças]                            +------------------------------+                            |
+| [t1: que ficam para sempre.]                                                                                                         |
+|                                                                                                                                      |
+| [btn: CONHEÇA NOSSA HISTÓRIA [ico:arrow]]                                                                                            |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section                                                                                                                              |
+| [img: onda creme sobe sobre o hero]                                                                                                  |
+| +----------------------------------------------------------------------------------------------------------------------------------+ |
+| | card3                                                                                                                            | |
+| | [t3: FEITO À MÃO · INGREDIENTES REAIS · HISTÓRIAS VERDADEIRAS]                                                                   | |
+| +----------------------------------------------------------------------------------------------------------------------------------+ |
+|                                                                                                                                      |
+| [t3: NOSSA ESSÊNCIA]                                                 +-------------------------------------------------------------+ |
+| [h2: Cada criação]                                                   | media                                                       | |
+| [h2: carrega afeto,]                                                 | [img: mãos salpicando confeito sobre bolo de chocolate]     | |
+| [h3: cuidado e memória.]                                             +-------------------------------------------------------------+ |
+|                                                                      +----------------------------+  +-----------------------------+ |
+| [t1: Acreditamos no poder dos detalhes, no sabor]                    | media                      |  | media                       | |
+| [t1: das boas lembranças e na magia que um doce]                     | [img: brigadeiros em       |  | [img: chocolate + tigela de | |
+| [t1: pode despertar. Aqui, tradição e afeto se encontram]            |       prato]               |  |       cacau]                | |
+| [t1: em criações feitas com ingredientes reais, para]                +----------------------------+  +-----------------------------+ |
+| [t1: tornar cada momento ainda mais especial.]                                                                                       |
+|                                                                                                                                      |
+| [img: tecido rosado + prato de cerâmica (base decorativa)]                                                                           |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section                                                                                                                              |
+| [t3: SOBRE A BRUNA]                                                  +-------------------------------------------------------------+ |
+| [h2: A delicadeza]                                                   | media2                                                      | |
+| [h2: da marca]                                                       | [img: retrato: confeiteira de avental com a marca           | |
+| [h2: começa em]                                                      |       salpicando confeito sobre bolo de chocolate]          | |
+| [h3: quem a criou.]                                                  +-------------------------------------------------------------+ |
+|                                                                                                                                      |
+| [t1: Sou a Bruna, e cada doce que sai do ateliê]                                                                                     |
+| [t1: carrega um pouco da minha história, do meu]                                                                                     |
+| [t1: olhar atento aos detalhes e do carinho que coloco]                                                                              |
+| [t1: em tudo o que faço.]                                                                                                            |
+|                                                                                                                                      |
+| [t1: Acredito que a confeitaria vai além do sabor:]                                                                                  |
+| [t1: ela tem o poder de aproximar, acolher e transformar]                                                                            |
+| [t1: momentos simples em lembranças inesquecíveis.]                                                                                  |
+|                                                                                                                                      |
+| [img: assinatura "Bruna"] [img: flor em linha]                                                                                       |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section                                                                                                                              |
+| [img: onda creme]                                                                                                                    |
+|                                                                                                                                      |
+| [t3: NOSSAS CRIAÇÕES]                                                +-------------------------------------------+  +--------------+ |
+| [h2: Criações que]                                                   | media                                     |  | media        | |
+| [h2: começam]                                                        | [img: bolo claro com morangos e pistache] |  | [img: close  | |
+| [h3: nos olhos e]                                                    +-------------------------------------------+  |       da     | |
+| [h3: ficam na memória.]                                                                                             |       fatia] | |
+|                                                                                                                     +--------------+ |
+| [t1: Bolos, doces e sobremesas artesanais, feitos com]               +----------------------------+  +-----------------------------+ |
+| [t1: ingredientes selecionados, técnicas cuidadosas]                 | media                      |  | media                       | |
+| [t1: e muito afeto, para transformar cada ocasião]                   | [img: brigadeiros          |  | [img: cheesecake com        | |
+| [t1: em um momento especial.]                                        |       variados]            |  |       morangos e calda]     | |
+|                                                                      +----------------------------+  +-----------------------------+ |
+| [btn2: DESCUBRA AS CRIAÇÕES [ico:arrow]]                                                                                             |
+|                                                                                                                                      |
+| [img: tecido rosado + prato de cerâmica (base decorativa)]                                                                           |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section                                                                                                                              |
+| [t3: ENCOMENDAS]                                                     [img: linha orgânica caramelo ligando 01 -> 02 -> 03]           |
+| [h2: Cada celebração]                                                +-------------------------------------------------------------+ |
+| [h2: começa com]                                                     | card                                                        | |
+| [h3: uma ideia só sua.]                                              | [h3: 01]                                                    | |
+|                                                                      | [t3: CONVERSE]                                              | |
+| [t1: Cada encomenda começa com uma conversa.]                        | [t1: Conte sobre a ocasião,]                                | |
+| [t1: Você conta o momento, suas referências e preferências.]         | [t1: suas referências e o que]                              | |
+| [t1: O Ateliê cuida dos sabores, acabamentos e detalhes]             | [t1: você imagina.]                                         | |
+| [t1: para transformar tudo em uma criação especial.]                 | +---------------------------------------------------------+ | |
+|                                                                      | | media                                                   | | |
+| [btn: [ico:whatsapp] COMEÇAR UMA ENCOMENDA [ico:arrow]]              | | [img: mãos esboçando bolos em caderno]                  | | |
+|                                                                      | +---------------------------------------------------------+ | |
+| [t3: ANIVERSÁRIOS · PRESENTES · CELEBRAÇÕES · MOMENTOS ESPECIAIS]    +-------------------------------------------------------------+ |
+|                                                                      +-------------------------------------------------------------+ |
+|                                                                      | card                                                        | |
+|                                                                      | [h3: 02]                                                    | |
+|                                                                      | [t3: CRIAMOS]                                               | |
+|                                                                      | [t1: O Ateliê transforma essas]                             | |
+|                                                                      | [t1: ideias em sabores, acabamentos]                        | |
+|                                                                      | [t1: e detalhes pensados para você.]                        | |
+|                                                                      | +---------------------------------------------------------+ | |
+|                                                                      | | media                                                   | | |
+|                                                                      | | [img: mão colocando morango em bolo claro]              | | |
+|                                                                      | +---------------------------------------------------------+ | |
+|                                                                      +-------------------------------------------------------------+ |
+|                                                                      +-------------------------------------------------------------+ |
+|                                                                      | card                                                        | |
+|                                                                      | [h3: 03]                                                    | |
+|                                                                      | [t3: CELEBRE]                                               | |
+|                                                                      | [t1: Tudo ganha forma para]                                 | |
+|                                                                      | [t1: fazer parte de um momento]                             | |
+|                                                                      | [t1: que merece ser lembrado.]                              | |
+|                                                                      | [img: flor em linha]                                        | |
+|                                                                      | +---------------------------------------------------------+ | |
+|                                                                      | | media                                                   | | |
+|                                                                      | | [img: bolo claro com frutas na mesa]                    | | |
+|                                                                      | +---------------------------------------------------------+ | |
+|                                                                      +-------------------------------------------------------------+ |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section                                                                                                                              |
+| [img: onda creme]                                                                                                                    |
+|                                                                                                                                      |
+| +--------------------------------------------------+   [t3: HISTÓRIAS REAIS]                                                         |
+| | media2                                           |   [h2: Quem viveu,]                                                             |
+| | [img: mesa de celebração: bolo com velas, caixa  |   [h2: lembra com]                                                              |
+| |       com a marca e laço, flores]                |   [h3: doçura.]                                                                 |
+| |                                                  |                                                                                 |
+| | +--------------------+                           |   [t1: Mais do que bolos e doces, cada criação do Ateliê]                       |
+| | | media              |                           |   [t1: faz parte de histórias, encontros e celebrações]                         |
+| | | [img: fatia de     |                           |   [t1: que ficam na memória.]                                                   |
+| | |       bolo com     |                           |                                                                                 |
+| | |       morango]     |                           |   +-----------------------------------+  +------------------------------------+ |
+| | +--------------------+                           |   | quote                             |  | quote                              | |
+| +--------------------------------------------------+   | [ico:aspas]                       |  | [ico:aspas]                        | |
+|                                                        | [t1: O bolo ficou ainda]          |  | [t1: Tudo perfeito,]               | |
+|                                                        | [t1: mais lindo e delicioso]      |  | [t1: desde o primeiro]             | |
+|                                                        | [t1: do que eu imaginava.]        |  | [t1: atendimento até]              | |
+|                                                        | [t1: Fez toda a diferença]        |  | [t1: o último detalhe.]            | |
+|                                                        | [t1: no nosso dia!]               |  | [t1: Dá para sentir]               | |
+|                                                        | [t3: CLIENTE ATELIÊ DOCES BRUNA]  |  | [t1: o carinho em cada]            | |
+|                                                        | [t3: CELEBRAÇÃO ESPECIAL]         |  | [t1: etapa.]                       | |
+|                                                        +-----------------------------------+  | [t3: CLIENTE ATELIÊ DOCES BRUNA]   | |
+|                                                                                               | [t3: ENCOMENDA PERSONALIZADA]      | |
+|                                                                                               +------------------------------------+ |
+|                                                        +---------------------------------------------------------------------------+ |
+|                                                        | quote                                                                     | |
+|                                                        | [ico:aspas]                                                               | |
+|                                                        | [t1: Foi exatamente como eu sonhava.]                                     | |
+|                                                        | [t1: Além de delicioso, trouxe um toque]                                  | |
+|                                                        | [t1: muito especial para a nossa celebração.]                             | |
+|                                                        | [t3: CLIENTE ATELIÊ DOCES BRUNA]                                          | |
+|                                                        | [t3: PRESENTE AFETIVO]                                                    | |
+|                                                        +---------------------------------------------------------------------------+ |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section2                                                                                                                             |
+| [img: onda creme -> cacau (fim da seção anterior)]                                                                                   |
+|                                                                                                                                      |
+| [t3: POR TRÁS DE CADA DETALHE]                                       +-------------------------------------------------------------+ |
+| [h2: O cuidado]                                                      | media2                                                      | |
+| [h2: que transforma]                                                 | [img: mãos confeitando bolo de chocolate, avental com a     | |
+| [h3: ingredientes]                                                   |       marca]                                                | |
+| [h3: em memórias.]                                                   +-------------------------------------------------------------+ |
+|                                                                      +----------------------------+  +-----------------------------+ |
+| [t1: Antes de cada entrega, existem escolhas,]                       | media                      |  | media                       | |
+| [t1: ajustes e muito cuidado. São mãos que preparam,]                | [img: peneira polvilhando  |  | [img: mãos amarrando laço   | |
+| [t1: decoram, conferem e embalam, com o mesmo]                       |       cacau sobre          |  |       em caixa com a marca] | |
+| [t1: carinho que faz parte de cada criação]                          |       brigadeiros]         |  +-----------------------------+ |
+| [t1: do Ateliê Doces Bruna.]                                         +----------------------------+                                  |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section2                                                                                                                             |
+| [img: onda cacau com fio caramelo]                                                                                                   |
+|                                                                                                                                      |
+| [t3: AGORA FALTA APENAS]                                             +-------------------------------------------------------------+ |
+| [h3: o seu]                                                          | media2                                                      | |
+| [h3: momento.]                                                       | [img: cena de celebração: caixa com a marca e laço, velas,  | |
+|                                                                      |       flores, taça, pratos com talheres dourados,           | |
+| [t1: Conte o que você imagina. O Ateliê cuida]                       |       brigadeiros, tecido rosado]                           | |
+| [t1: dos detalhes para transformar sua celebração]                   +-------------------------------------------------------------+ |
+| [t1: em algo feito para ser lembrado.]                                                                                               |
+|                                                                                                                                      |
+| [btn: [ico:whatsapp] COMEÇAR UMA ENCOMENDA [ico:arrow]]                                                                              |
+| [btn3: [ico:instagram] ACOMPANHAR NO INSTAGRAM [ico:arrow]]                                                                          |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+| section3                                                                                                                             |
+| [img: onda creme sobe sobre o cacau]                                                                                                 |
+|                                                                                                                                      |
+| [ico:logo-lockup]                [t3: NAVEGAÇÃO]      [t3: CONTATO]                                    [t3: ATENDIMENTO]             |
+| [t3: CONFEITARIA ARTESANAL]      [lnk: A Marca]       [ico:whatsapp] [t1: [TELEFONE]]                  [ico:clock] [t1: [HORÁRIO]]   |
+| [t3: PARA MOMENTOS ESPECIAIS]    [lnk: Bruna]         [ico:instagram] [t1: [INSTAGRAM]]                                              |
+|                                  [lnk: Criações]                       [t2: Acompanhe no Instagram]                                  |
+|                                  [lnk: Encomendas]    [ico:pin] [t1: [LOCALIZAÇÃO]]                                                  |
+|                                  [lnk: Contato]       [ico:mail] [t1: [E-MAIL]]                                                      |
+|                                                                                                                                      |
+| [t2: © [ANO] Ateliê Doces Bruna. Todos os direitos reservados.]                    [t3: FEITO COM CUIDADO. SEMPRE.]                  |
++--------------------------------------------------------------------------------------------------------------------------------------+

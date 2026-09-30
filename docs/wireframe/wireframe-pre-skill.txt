@@ -1,9 +1,16 @@
+################################################################################
+ SUPERSEDED — generated before the canonical img-to-html/to-wireframe workflow
+ was available.
+ NÃO é o contrato estrutural. Mantido só para comparação.
+ Contrato canônico: design-systems/atelie-doces-bruna-v2/wireframe.txt
+################################################################################
+
 ================================================================================
- ATELIÊ DOCES BRUNA · HOMEPAGE DESKTOP · WIREFRAME ESTRUTURAL CANÔNICO
+ ATELIÊ DOCES BRUNA · HOMEPAGE DESKTOP · WIREFRAME ESTRUTURAL (PRÉ-SKILL)
 ================================================================================
  Fonte:      docs/master-reference/master-reference.webp (1440 x 8365 px)
  Slices:     docs/master-reference/slice-01..04 (APPROVED)
- Status:     RASCUNHO PARA REVISÃO. Implementação NÃO liberada.
+ Status:     SUPERSEDED (ver topo).
  Escopo:     estrutura, hierarquia, mídia e CTAs. Sem estilo final, sem código.
 
  Convenções
