@@ -1,0 +1,64 @@
+/*
+ * Design tokens: Ateliê Doces Bruna V2
+ * Cores amostradas da Master Reference (design-systems/atelie-doces-bruna-v2/reference.webp).
+ * São estimativas; os valores oficiais virão do material da marca.
+ */
+:root {
+  /* ---------- Cores: superfícies ---------- */
+  --color-cacao-950: #1f0d05; /* cacau profundo: Hero, CTA final */
+  --color-cacao-900: #261207; /* cacau: Bastidores */
+  --color-cacao-700: #552a1a; /* cacau médio: sombras de onda, scrims */
+  --color-cream-100: #fbf3eb; /* creme: superfície clara dominante */
+  --color-cream-200: #f8eee6; /* creme levemente mais quente: Encomendas */
+  --color-offwhite: #fffaf5;  /* off-white: molduras e cards */
+  --color-blush: #fed7c2;     /* blush: botões e superfícies suaves */
+
+  /* ---------- Cores: acento ---------- */
+  --color-caramel-500: #b86138;  /* itálico caramelo sobre creme (texto grande) */
+  --color-caramel-400: #d88a68;  /* itálico sobre cacau */
+  --color-caramel-200: #fccfb5;  /* itálico claro do Hero */
+  --color-caramel-line: #8c5b43; /* fio caramelo das ondas escuras */
+
+  /* ---------- Cores: texto ---------- */
+  --color-text-strong: #1a0a05; /* headlines sobre creme */
+  --color-text-body: #4a403b;   /* corpo sobre creme */
+  --color-text-light: #fffaf6;  /* texto sobre cacau */
+
+  /* ---------- Linhas ---------- */
+  --color-line: rgb(184 97 56 / 0.35);
+  --color-line-light: rgb(251 243 235 / 0.25);
+
+  /* ---------- Layout ---------- */
+  --layout-max: 1280px;
+  --layout-gutter: clamp(20px, 5.56vw, 80px); /* 80px em 1440 */
+  --layout-col-gap: clamp(24px, 3vw, 48px);
+  --space-section: clamp(64px, 8vw, 120px);
+  --space-block: clamp(24px, 3vw, 48px);
+
+  /* ---------- Ondas ---------- */
+  --wave-h: clamp(40px, 7.5vw, 110px);
+
+  /* ---------- Raios ---------- */
+  --radius-pill: 999px;
+  --radius-card: 10px;
+  --radius-frame: 2px;
+
+  /* ---------- Camadas ---------- */
+  --z-bg: 0;
+  --z-scrim: 1;
+  --z-content: 2;
+  --z-wave: 3;
+  --z-header: 100;
+
+  /* ---------- Tipografia (estrutura; famílias definidas na Etapa 3) ---------- */
+  --font-display: Georgia, 'Times New Roman', serif;    /* aproximação: serif editorial de alto contraste */
+  --font-display-italic: Georgia, 'Times New Roman', serif;
+  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif; /* aproximação: sans geométrica */
+  --font-micro: var(--font-body);
+
+  --text-display-xl: clamp(3rem, 5.8vw, 5.25rem);  /* h1 Hero */
+  --text-display-lg: clamp(2.5rem, 4.9vw, 4.4rem); /* h2 seções */
+  --text-body: clamp(1rem, 1.1vw, 1.125rem);       /* corpo 16–18px */
+  --text-micro: 0.75rem;                            /* uppercase, mínimo 12px */
+  --tracking-micro: 0.22em;
+}

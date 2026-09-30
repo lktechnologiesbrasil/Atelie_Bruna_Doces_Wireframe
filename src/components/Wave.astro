@@ -1,0 +1,79 @@
+---
+/**
+ * Onda orgânica de transição entre seções.
+ *
+ * Fica no topo da seção de baixo e sobe sobre a anterior: o topo curvo
+ * pertence à seção de baixo. A cor vem de `--wave-fill` (padrão: a cor da
+ * própria seção, `--section-bg`). SVG vetorial esticado na largura
+ * (preserveAspectRatio="none") com altura fluida via `--wave-h`, então se
+ * adapta a tablet e mobile sem bitmap.
+ */
+interface Props {
+  shape: 'rise' | 'swell' | 'dip' | 'soft' | 'dark-rise' | 'dark-band' | 'footer';
+  /** Desenha um fio sobre a crista (cor via `--wave-line`). */
+  line?: boolean;
+  /** Desenha uma faixa larga translúcida sobre a crista (cor via `--wave-band`). */
+  band?: boolean;
+}
+
+const { shape, line = false, band = false } = Astro.props;
+
+// viewBox 0 0 1440 120. `edge` é a crista; o preenchimento fecha abaixo dela.
+const EDGES: Record<Props['shape'], string> = {
+  rise: 'M0 96 C220 118 430 70 640 62 C860 54 1080 40 1260 22 C1340 14 1400 8 1440 6',
+  swell: 'M0 58 C240 20 480 20 720 52 C960 84 1200 86 1440 48',
+  dip: 'M0 30 C300 30 520 96 820 90 C1100 84 1300 40 1440 34',
+  soft: 'M0 70 C360 40 760 96 1080 68 C1260 52 1380 58 1440 64',
+  'dark-rise': 'M0 40 C300 90 700 100 1000 70 C1200 50 1340 20 1440 10',
+  'dark-band': 'M0 10 C300 4 640 40 900 78 C1080 102 1260 104 1440 92',
+  footer: 'M0 64 C280 110 600 30 900 40 C1150 48 1320 90 1440 80',
+};
+
+const edge = EDGES[shape];
+const fill = `${edge} L1440 120 L0 120 Z`;
+---
+
+<div class:list={['wave', `wave--${shape}`]} aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+    <path class="wave__fill" d={fill} />
+    {band && <path class="wave__band" d={edge} />}
+    {line && <path class="wave__line" d={edge} />}
+  </svg>
+</div>
+
+<style>
+  .wave {
+    position: absolute;
+    inset-inline: 0;
+    /* 1px de sobreposição evita fresta entre a onda e a seção */
+    bottom: calc(100% - 1px);
+    height: var(--wave-h);
+    z-index: var(--z-wave);
+    pointer-events: none;
+    color: var(--wave-fill, var(--section-bg));
+  }
+
+  .wave svg {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
+
+  .wave__fill {
+    fill: currentColor;
+  }
+
+  .wave__band {
+    fill: none;
+    stroke: var(--wave-band, rgb(140 91 67 / 0.55));
+    stroke-width: var(--wave-band-w, 24px);
+    vector-effect: non-scaling-stroke;
+  }
+
+  .wave__line {
+    fill: none;
+    stroke: var(--wave-line, var(--color-caramel-line));
+    stroke-width: var(--wave-line-w, 2px);
+    vector-effect: non-scaling-stroke;
+  }
+</style>

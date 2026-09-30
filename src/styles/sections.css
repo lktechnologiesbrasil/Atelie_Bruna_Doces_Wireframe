@@ -1,0 +1,231 @@
+/*
+ * Superfícies das regiões do wireframe (img-to-html, Etapa 2: camada de fundo).
+ *
+ * Classes = ids do wireframe: .hero, .section (creme), .section2 (cacau),
+ * .section3 (footer), .media2 (foto que forma o fundo da seção).
+ *
+ * `--scaffold-h` é ANDAIME DA ETAPA 2: reserva a altura aproximada de cada
+ * seção (medida na reference em 1440px) enquanto não há conteúdo. Na Etapa 3
+ * o conteúdo passa a definir a altura e o andaime sai.
+ */
+
+/* ---------- Base comum ---------- */
+.hero,
+.section,
+.section2,
+.section3 {
+  position: relative;
+  background: var(--section-bg);
+  min-height: var(--scaffold-h, auto);
+}
+
+.section__inner {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+/* Fotos de fundo: preenchem a camada sem distorcer */
+.hero__photo img,
+.media2 img,
+.decor-base img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- 01 Hero ---------- */
+.hero {
+  --section-bg: var(--color-cacao-950);
+  --scaffold-h: 940px;
+  background:
+    radial-gradient(120% 70% at 20% 0%, rgb(60 26 12 / 0.55), transparent 60%),
+    var(--section-bg);
+  color: var(--color-text-light);
+}
+
+.hero__photo {
+  position: absolute;
+  top: 11.7%;
+  bottom: 8.5%;
+  right: 0;
+  width: 55.6%;
+  z-index: var(--z-bg);
+  /* funde a foto no cacau à esquerda e no topo (sob o header) */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 24%),
+    linear-gradient(to bottom, transparent 0, #000 14%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 24%),
+    linear-gradient(to bottom, transparent 0, #000 14%);
+  mask-composite: intersect;
+}
+
+.hero__photo img {
+  object-position: 40% 50%;
+}
+
+/* scrim: garante contraste do texto do Hero (Etapa 3) */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-scrim);
+  background: linear-gradient(90deg, rgb(31 13 5 / 0.7) 0%, rgb(31 13 5 / 0.35) 38%, transparent 62%);
+  pointer-events: none;
+}
+
+/* ---------- Seções creme ---------- */
+.section {
+  --section-bg: var(--color-cream-100);
+}
+
+.section--manifesto { --scaffold-h: 1060px; }
+.section--bruna { --scaffold-h: 1010px; }
+.section--criacoes { --scaffold-h: 1150px; }
+.section--encomendas { --section-bg: var(--color-cream-200); --scaffold-h: 980px; }
+.section--historias { --scaffold-h: 1180px; }
+
+/* Fio caramelo sobre a crista da onda Hero → Manifesto */
+.section--manifesto { --wave-line: var(--color-caramel-500); --wave-line-w: 1px; }
+
+/* Bases decorativas (tecido + cerâmica) na borda inferior */
+.decor-base {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(45%, 650px);
+  aspect-ratio: 650 / 320;
+  z-index: var(--z-bg);
+  -webkit-mask-image:
+    linear-gradient(to left, transparent 0, #000 35%),
+    linear-gradient(to bottom, transparent 0, #000 30%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to left, transparent 0, #000 35%),
+    linear-gradient(to bottom, transparent 0, #000 30%);
+  mask-composite: intersect;
+}
+
+.decor-base--narrow {
+  width: min(38.5%, 555px);
+  aspect-ratio: 555 / 290;
+}
+
+/* ---------- media2: foto que forma o fundo da seção ---------- */
+.media2 {
+  position: absolute;
+  z-index: var(--z-bg);
+}
+
+.media2--right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 57%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 30%);
+  mask-image: linear-gradient(to right, transparent 0, #000 30%);
+}
+
+.media2--left {
+  left: 0;
+  width: 54%;
+}
+
+.section--bruna .media2 img { object-position: 50% 20%; }
+
+.section--historias .media2 {
+  top: 14.4%;
+  bottom: 5.9%;
+}
+
+/* ---------- Seções cacau ---------- */
+.section2 {
+  --section-bg: var(--color-cacao-900);
+  color: var(--color-text-light);
+}
+
+.section2--bastidores { --scaffold-h: 980px; }
+
+.section2--bastidores .media2 {
+  bottom: auto;
+  height: 68.4%;
+  width: 52.8%;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 28%),
+    linear-gradient(to top, transparent 0, #000 12%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 28%),
+    linear-gradient(to top, transparent 0, #000 12%);
+  mask-composite: intersect;
+}
+
+.section2--cta {
+  --section-bg: var(--color-cacao-950);
+  --scaffold-h: 640px;
+  --wave-line: var(--color-caramel-line);
+  --wave-line-w: 2px;
+  --wave-band: rgb(140 91 67 / 0.6);
+  --wave-band-w: clamp(14px, 3vw, 44px);
+}
+
+.section2--cta .media2 {
+  top: 12.5%;
+  bottom: 6.3%;
+  width: 54%;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 30%),
+    linear-gradient(to bottom, transparent 0, #000 16%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 30%),
+    linear-gradient(to bottom, transparent 0, #000 16%);
+  mask-composite: intersect;
+}
+
+/* ---------- Footer ---------- */
+.section3 {
+  --section-bg: var(--color-cream-100);
+  --scaffold-h: 425px;
+}
+
+/* ---------- Base responsiva (refino mobile nas etapas seguintes) ----------
+ * Abaixo de 768px as fotos de fundo saem do posicionamento absoluto e
+ * empilham no fluxo, com proporção própria. O andaime de altura encolhe.
+ */
+@media (max-width: 767px) {
+  .hero { --scaffold-h: 640px; }
+  .section,
+  .section2,
+  .section3 { --scaffold-h: 480px; }
+  .section3 { --scaffold-h: 360px; }
+
+  .hero__photo {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 62%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+  }
+
+  .media2,
+  .media2--right,
+  .media2--left,
+  .section--historias .media2,
+  .section2--bastidores .media2,
+  .section2--cta .media2 {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .decor-base,
+  .decor-base--narrow {
+    width: 70%;
+  }
+}

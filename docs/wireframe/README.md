@@ -5,7 +5,17 @@
 | `design-systems/atelie-doces-bruna-v2/wireframe.txt` | **Canônico.** Contrato estrutural da Etapa 1 do `img-to-html`, gerado por `$to-wireframe format=ascii` a partir da Master Reference |
 | `docs/wireframe/wireframe-pre-skill.txt` | **SUPERSEDED**: gerado antes de o workflow canônico `img-to-html`/`to-wireframe` estar disponível. Serve só para comparação |
 
-**Etapa atual:** 1 (wireframe + plano), aguardando aprovação. **Nenhuma etapa de implementação começou.**
+**Etapa 1 (wireframe + plano):** `APPROVED`.
+**Etapa atual:** 2 (camada de fundo) concluída, aguardando aprovação visual. QA em `docs/qa/etapa-2/`. A Etapa 3 não começou.
+
+### Decisões do projeto sobre o `img-to-html` (aprovadas na Etapa 1)
+
+| Tema | Decisão |
+|---|---|
+| Stack | **Astro + CSS + GSAP**, implementados direto. O `img-to-html` vale como metodologia, ordem, gates e contrato de wireframe; não há versão HTML estática descartável |
+| Assets | **Sem regeneração por IA** (nada de OpenRouter/GPT Image). Os provisórios são recortes da reference em `src/assets/provisional/`, marcados `provisional-`, e serão trocados por material real |
+| Motion | Fora até fundo, estrutura, componentes, assets e responsividade base estarem prontos. O GSAP ainda não foi instalado |
+| Mobile | Desktop-first, sem nada que impeça o mobile: sem hacks de 1440 e com posicionamento absoluto só em camadas de fundo |
 
 ## Como foi gerado
 

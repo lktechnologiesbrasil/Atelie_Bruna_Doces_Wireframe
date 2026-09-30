@@ -1,0 +1,103 @@
+---
+/**
+ * Homepage: Ateliê Doces Bruna V2.
+ *
+ * img-to-html · ETAPA 2 (camada de fundo). Aqui só existem as superfícies:
+ * fundos, ondas, scrims e as fotos que funcionam como fundo de seção
+ * (`hero` e `media2`). Header, textos, CTAs, molduras `media`, jornada,
+ * depoimentos e footer completo entram na Etapa 3 e seguintes.
+ *
+ * Regiões e classes seguem design-systems/atelie-doces-bruna-v2/wireframe.txt.
+ * Todas as fotos são PROVISÓRIAS (recortes da reference; ver src/assets/provisional/).
+ */
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Wave from '../components/Wave.astro';
+
+import heroBg from '../assets/provisional/provisional-hero-bg.webp';
+import manifestoBase from '../assets/provisional/provisional-manifesto-base.webp';
+import brunaRetrato from '../assets/provisional/provisional-bruna-retrato.webp';
+import criacoesBase from '../assets/provisional/provisional-criacoes-base.webp';
+import historiasMesa from '../assets/provisional/provisional-historias-mesa.webp';
+import bastidoresConfeitando from '../assets/provisional/provisional-bastidores-confeitando.webp';
+import ctaCelebracao from '../assets/provisional/provisional-cta-celebracao.webp';
+---
+
+<BaseLayout title="Ateliê Doces Bruna">
+  <main>
+    <!-- 01 Hero -->
+    <section class="hero" id="inicio" aria-label="Início">
+      <div class="hero__photo" aria-hidden="true">
+        <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1200]} sizes="(max-width: 767px) 100vw, 56vw" />
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 02 Nossa Essência (A Marca) -->
+    <section class="section section--manifesto" id="a-marca" aria-label="Nossa essência">
+      <Wave shape="rise" line />
+      <div class="decor-base" aria-hidden="true">
+        <Image src={manifestoBase} alt="" widths={[650]} sizes="(max-width: 767px) 100vw, 45vw" />
+      </div>
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 03 Bruna -->
+    <section class="section section--bruna" id="bruna" aria-label="Sobre a Bruna">
+      <Wave shape="swell" />
+      <div class="media2 media2--right" aria-hidden="true">
+        <Image src={brunaRetrato} alt="" widths={[820, 1200]} sizes="(max-width: 767px) 100vw, 57vw" />
+      </div>
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 04 Criações -->
+    <section class="section section--criacoes" id="criacoes" aria-label="Nossas criações">
+      <Wave shape="dip" />
+      <div class="decor-base decor-base--narrow" aria-hidden="true">
+        <Image src={criacoesBase} alt="" widths={[555]} sizes="(max-width: 767px) 100vw, 39vw" />
+      </div>
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 05 Encomendas -->
+    <section class="section section--encomendas" id="encomendas" aria-label="Encomendas">
+      <Wave shape="soft" />
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 06 Histórias Reais -->
+    <section class="section section--historias" id="historias" aria-label="Histórias reais">
+      <Wave shape="swell" />
+      <div class="media2 media2--left" aria-hidden="true">
+        <Image src={historiasMesa} alt="" widths={[780, 1200]} sizes="(max-width: 767px) 100vw, 54vw" />
+      </div>
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 07 Bastidores -->
+    <section class="section2 section2--bastidores" id="bastidores" aria-label="Por trás de cada detalhe">
+      <Wave shape="dark-rise" />
+      <div class="media2 media2--right" aria-hidden="true">
+        <Image src={bastidoresConfeitando} alt="" widths={[760, 1200]} sizes="(max-width: 767px) 100vw, 53vw" />
+      </div>
+      <div class="container section__inner"></div>
+    </section>
+
+    <!-- 08 CTA final (Contato) -->
+    <section class="section2 section2--cta" id="contato" aria-label="Encomende">
+      <Wave shape="dark-band" band line />
+      <div class="media2 media2--right" aria-hidden="true">
+        <Image src={ctaCelebracao} alt="" widths={[780, 1200]} sizes="(max-width: 767px) 100vw, 54vw" />
+      </div>
+      <div class="container section__inner"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="section3">
+    <Wave shape="footer" />
+    <div class="container section__inner"></div>
+  </footer>
+</BaseLayout>
