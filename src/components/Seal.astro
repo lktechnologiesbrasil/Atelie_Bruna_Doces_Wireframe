@@ -1,0 +1,67 @@
+---
+/**
+ * Selo circular único da página (`card2` no wireframe). O texto é SVG
+ * (textPath) com a fonte do site; a flor central é um recorte PROVISÓRIO.
+ * Decorativo: o nome da marca já está no logo do header.
+ */
+import { Image } from 'astro:assets';
+import flor from '../assets/provisional/provisional-selo-flor.png';
+---
+
+<div class="seal" aria-hidden="true">
+  <svg viewBox="0 0 210 210" focusable="false">
+    <defs>
+      <path id="seal-top" d="M27 105 A78 78 0 0 1 183 105" />
+      <path id="seal-bottom" d="M17 105 A88 88 0 0 0 193 105" />
+    </defs>
+    <circle class="seal__ring" cx="105" cy="105" r="102" />
+    <text class="seal__text"><textPath href="#seal-top" startOffset="50%" text-anchor="middle">Ateliê Doces Bruna</textPath></text>
+    <text class="seal__text"><textPath href="#seal-bottom" startOffset="50%" text-anchor="middle">Feito com afeto</textPath></text>
+    <circle class="seal__dot" cx="17" cy="112" r="1.6" />
+    <circle class="seal__dot" cx="193" cy="112" r="1.6" />
+  </svg>
+  <Image class="seal__flower" src={flor} alt="" width={88} />
+</div>
+
+<style>
+  .seal {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    color: var(--color-caramel-200);
+  }
+
+  .seal svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .seal__ring {
+    fill: none;
+    stroke: currentColor;
+    stroke-opacity: 0.55;
+    stroke-width: 1;
+  }
+
+  .seal__text {
+    fill: currentColor;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .seal__dot {
+    fill: currentColor;
+  }
+
+  .seal__flower {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 30%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+</style>

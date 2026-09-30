@@ -1,0 +1,32 @@
+---
+/**
+ * CTA em pill. Variantes = tags do wireframe: btn (blush, texto escuro),
+ * btn2 (blush claro, texto caramelo), btn3 (outline sobre cacau).
+ *
+ * Destinos ainda pendentes (tokens entre colchetes, ver src/data/site.ts)
+ * ficam marcados com data-link-status="pending" e não são indexáveis.
+ */
+import Icon from './Icon.astro';
+import { isPending } from '../data/site';
+
+interface Props {
+  href: string;
+  variant?: 'btn' | 'btn2' | 'btn3';
+  icon?: 'whatsapp' | 'instagram';
+  class?: string;
+}
+
+const { href, variant = 'btn', icon, class: className } = Astro.props;
+const pending = isPending(href);
+---
+
+<a
+  class:list={[variant, className]}
+  href={href}
+  data-link-status={pending ? 'pending' : undefined}
+  rel={pending ? 'nofollow' : undefined}
+>
+  {icon && <Icon name={icon} size={22} />}
+  <span><slot /></span>
+  <Icon name="arrow" size={22} />
+</a>

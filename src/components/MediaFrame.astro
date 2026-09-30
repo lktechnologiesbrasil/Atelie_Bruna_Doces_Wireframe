@@ -1,0 +1,77 @@
+---
+/**
+ * Moldura `media` do wireframe: borda off-white, recorte e empilhamento.
+ *
+ * ETAPA 3: estrutura apenas. Sem `src`, a moldura mostra um placeholder
+ * neutro com a descrição da foto prevista (a imagem de conteúdo entra na
+ * Etapa 4). Posição e tamanho vêm da classe passada pela seção.
+ */
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  /** O que a foto deve mostrar (direção fotográfica). */
+  subject: string;
+  src?: ImageMetadata;
+  alt?: string;
+  tone?: 'light' | 'dark';
+  class?: string;
+}
+
+const { subject, src, alt = '', tone = 'light', class: className } = Astro.props;
+---
+
+<div class:list={['media', `media--${tone}`, className]} data-media-subject={subject}>
+  {
+    src ? (
+      <Image src={src} alt={alt} />
+    ) : (
+      <div class="media__placeholder" aria-hidden="true">
+        <span>{subject}</span>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .media {
+    position: relative;
+    overflow: hidden;
+    border: var(--frame-border) solid var(--color-offwhite);
+    background: var(--color-offwhite);
+    box-shadow: 0 10px 30px -18px rgb(43 24 16 / 0.35);
+  }
+
+  .media--dark {
+    border-color: rgb(255 250 245 / 0.85);
+  }
+
+  .media :global(img),
+  .media__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .media__placeholder {
+    display: grid;
+    place-items: center;
+    padding: 12px;
+    background:
+      repeating-linear-gradient(135deg, rgb(255 255 255 / 0.05) 0 12px, transparent 12px 24px),
+      linear-gradient(160deg, #e6cdbb, #c9a189);
+    color: rgb(74 64 59 / 0.75);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .media--dark .media__placeholder {
+    background:
+      repeating-linear-gradient(135deg, rgb(255 255 255 / 0.04) 0 12px, transparent 12px 24px),
+      linear-gradient(160deg, #6b4431, #3d2217);
+    color: rgb(252 207 181 / 0.7);
+  }
+</style>

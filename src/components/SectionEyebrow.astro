@@ -1,0 +1,21 @@
+---
+/** Eyebrow: fio caramelo + microtexto uppercase ([t3:] no wireframe). */
+---
+
+<p class="eyebrow t3"><span class="eyebrow__line" aria-hidden="true"></span><slot /></p>
+
+<style>
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.1vw, 30px);
+    margin-bottom: clamp(16px, 1.7vw, 24px);
+  }
+
+  .eyebrow__line {
+    width: clamp(32px, 3.7vw, 53px);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.8;
+  }
+</style>

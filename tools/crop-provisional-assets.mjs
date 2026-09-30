@@ -63,3 +63,48 @@ for (const a of ASSETS) {
   await sharp(buf).webp({ quality: 92, effort: 6 }).toFile(`${OUT}/${a.name}.webp`);
   console.log(`OK: ${OUT}/${a.name}.webp (${a.rect.width}x${a.rect.height})`);
 }
+
+// ---------------------------------------------------------------------------
+// Elementos de marca PROVISÓRIOS com fundo removido (Etapa 3).
+// Fundo = mediana das bordas do recorte; alfa = distância de cor ao fundo
+// normalizada por `ink` (0–255). A cor é "des-multiplicada" do fundo.
+// `recolor` gera uma variante com a tinta trocada por uma cor sólida (ex.: logo
+// escuro para o header sobre superfície clara), preservando o alfa.
+const KEYED = [
+  { name: 'provisional-logo-wordmark', rect: { left: 68, top: 22, width: 276, height: 86 }, ink: 150,
+    variants: [{ suffix: '-light' }, { suffix: '-dark', recolor: [43, 24, 16], accent: [184, 97, 56], accentMinY: 30 }] },
+  { name: 'provisional-logo-lockup', rect: { left: 118, top: 8016, width: 220, height: 152 }, ink: 120,
+    variants: [{ suffix: '' }] },
+  { name: 'provisional-selo-flor', rect: { left: 1246, top: 212, width: 88, height: 88 }, ink: 110,
+    variants: [{ suffix: '' }] },
+  { name: 'provisional-assinatura-bruna', rect: { left: 52, top: 2818, width: 456, height: 140 }, ink: 110,
+    variants: [{ suffix: '' }] },
+  { name: 'provisional-flor-linha', rect: { left: 1292, top: 4742, width: 148, height: 180 }, ink: 110, floor: 28,
+    variants: [{ suffix: '' }] },
+];
+
+for (const k of KEYED) {
+  const { data, info } = await sharp(REF).extract(k.rect).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const { width: w, height: h } = info;
+  const border = [];
+  for (let x = 0; x < w; x++) for (const y of [0, h - 1]) border.push((y * w + x) * 3);
+  for (let y = 0; y < h; y++) for (const x of [0, w - 1]) border.push((y * w + x) * 3);
+  const bg = [0, 1, 2].map((c) => border.map((i) => data[i + c]).sort((a, b) => a - b)[border.length >> 1]);
+  for (const v of k.variants) {
+    const out = Buffer.alloc(w * h * 4);
+    for (let p = 0; p < w * h; p++) {
+      const r = data[p * 3], g = data[p * 3 + 1], b = data[p * 3 + 2];
+      const d = Math.hypot(r - bg[0], g - bg[1], b - bg[2]);
+      const a = Math.min(1, Math.max(0, (d - (k.floor ?? 12)) / k.ink));
+      const un = [r, g, b].map((c, i) => (a > 0 ? Math.min(255, Math.max(0, (c - (1 - a) * bg[i]) / a)) : 0));
+      // tinta saturada (flor) usa `accent`; o resto usa `recolor`
+      const sat = (Math.max(...un) - Math.min(...un)) / Math.max(1, Math.max(...un));
+      const inAccent = v.accent && sat > 0.16 && Math.floor(p / w) >= (v.accentMinY ?? 0);
+      const col = v.recolor ? (inAccent ? v.accent : v.recolor) : un;
+      out[p * 4] = col[0]; out[p * 4 + 1] = col[1]; out[p * 4 + 2] = col[2]; out[p * 4 + 3] = Math.round(a * 255);
+    }
+    const file = `${OUT}/${k.name}${v.suffix}.png`;
+    await sharp(out, { raw: { width: w, height: h, channels: 4 } }).png({ compressionLevel: 9 }).toFile(file);
+    console.log(`OK: ${file} (${w}x${h}, fundo ${bg.join(',')})`);
+  }
+}

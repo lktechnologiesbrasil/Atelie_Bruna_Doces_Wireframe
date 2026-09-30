@@ -1,0 +1,364 @@
+---
+/**
+ * Header sticky (`nav` no wireframe).
+ *
+ * - Sobre o Hero: transparente, texto claro, logo claro.
+ * - Depois do Hero: superfície creme, texto escuro, logo escuro
+ *   (`data-surface="solid"`, ligado por IntersectionObserver).
+ * - Abaixo de 1100px: logo + CTA + botão de menu; o menu abre um painel
+ *   modal (Esc fecha, foco preso, resto da página `inert`, fecha ao navegar).
+ *
+ * Logo: recorte PROVISÓRIO da reference; o arquivo oficial substitui.
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { NAV, LINKS, isPending } from '../data/site';
+import logoLight from '../assets/provisional/provisional-logo-wordmark-light.png';
+import logoDark from '../assets/provisional/provisional-logo-wordmark-dark.png';
+
+const pendingAttrs = (href: string) =>
+  isPending(href) ? { 'data-link-status': 'pending', rel: 'nofollow' } : {};
+---
+
+<header class="site-header" data-surface="clear">
+  <div class="site-header__bar container">
+    <a class="site-header__logo" href="#inicio">
+      <span class="sr-only">Ateliê Doces Bruna, voltar ao início</span>
+      <Image class="logo logo--light" src={logoLight} alt="" loading="eager" />
+      <Image class="logo logo--dark" src={logoDark} alt="" loading="eager" />
+    </a>
+
+    <nav class="site-nav" aria-label="Principal">
+      <ul role="list">
+        {NAV.map((item) => (
+          <li><a class="lnk" href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="lnk site-header__social" href={LINKS.instagram} {...pendingAttrs(LINKS.instagram)}>
+        <Icon name="instagram" size={22} /><span>Instagram</span>
+      </a>
+      <a class="lnk site-header__social" href={LINKS.whatsapp} {...pendingAttrs(LINKS.whatsapp)}>
+        <Icon name="whatsapp" size={22} /><span>WhatsApp</span>
+      </a>
+      <span class="site-header__sep" aria-hidden="true"></span>
+      <a class="btn site-header__cta" href={LINKS.whatsapp} {...pendingAttrs(LINKS.whatsapp)}>
+        <span>Encomendar</span><Icon name="arrow" size={20} />
+      </a>
+      <button
+        class="site-header__menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+      >
+        <Icon name="menu" size={26} />
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="site-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+    <div class="site-menu__top container">
+      <Image class="logo" src={logoDark} alt="" />
+      <button class="site-menu__close" type="button">
+        <Icon name="close" size={26} />
+        <span class="sr-only">Fechar menu</span>
+      </button>
+    </div>
+    <nav class="site-menu__nav container" aria-label="Menu">
+      <ul role="list">
+        {NAV.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+      <div class="site-menu__actions">
+        <a class="btn" href={LINKS.whatsapp} {...pendingAttrs(LINKS.whatsapp)}>
+          <Icon name="whatsapp" size={22} /><span>Encomendar</span>
+        </a>
+        <a class="lnk" href={LINKS.instagram} {...pendingAttrs(LINKS.instagram)}>
+          <Icon name="instagram" size={22} /><span>Instagram</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<span class="site-header-sentinel" aria-hidden="true"></span>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const hero = document.querySelector<HTMLElement>('.hero');
+  const openBtn = document.querySelector<HTMLButtonElement>('.site-header__menu-btn');
+  const menu = document.querySelector<HTMLElement>('#site-menu');
+  const closeBtn = menu?.querySelector<HTMLButtonElement>('.site-menu__close');
+
+  // Superfície do header: clara sobre o Hero, sólida depois dele
+  if (header && hero && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        header.dataset.surface = entry.isIntersecting ? 'clear' : 'solid';
+      },
+      { rootMargin: `-${header.offsetHeight}px 0px 0px 0px`, threshold: 0 },
+    );
+    io.observe(hero);
+  }
+
+  // Menu mobile
+  const outside = () =>
+    [...document.body.children].filter(
+      (el): el is HTMLElement => el instanceof HTMLElement && !el.contains(menu!) && el.tagName !== 'SCRIPT',
+    );
+  const siblingsOfMenu = () =>
+    [...(header?.children ?? [])].filter((el): el is HTMLElement => el instanceof HTMLElement && el !== menu);
+
+  const focusables = () =>
+    [...(menu?.querySelectorAll<HTMLElement>('a[href], button') ?? [])].filter((el) => !el.hasAttribute('disabled'));
+
+  function openMenu() {
+    if (!menu || !openBtn) return;
+    menu.hidden = false;
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.documentElement.classList.add('menu-open');
+    [...outside(), ...siblingsOfMenu()].forEach((el) => (el.inert = true));
+    focusables()[0]?.focus();
+    document.addEventListener('keydown', onKeydown);
+  }
+
+  function closeMenu({ restoreFocus = true } = {}) {
+    if (!menu || !openBtn || menu.hidden) return;
+    menu.hidden = true;
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.documentElement.classList.remove('menu-open');
+    [...outside(), ...siblingsOfMenu()].forEach((el) => (el.inert = false));
+    document.removeEventListener('keydown', onKeydown);
+    if (restoreFocus) openBtn.focus();
+  }
+
+  function onKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    const items = focusables();
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
+  }
+
+  openBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', () => closeMenu());
+  menu?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) closeMenu({ restoreFocus: false });
+  });
+  // Ao voltar para o layout desktop, o menu não pode ficar aberto
+  window.matchMedia('(min-width: 1101px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu({ restoreFocus: false });
+  });
+</script>
+
+<style>
+  .site-header {
+    --header-fg: var(--color-text-light);
+    --focus-color: var(--color-caramel-200);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    height: var(--header-h);
+    /* sobrepõe o Hero sem empurrar o conteúdo */
+    margin-bottom: calc(-1 * var(--header-h));
+    color: var(--header-fg);
+    transition: background-color 0.25s ease, height 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .site-header[data-surface='solid'] {
+    --header-fg: var(--color-cacao-800);
+    --focus-color: var(--color-caramel-500);
+    height: var(--header-h-compact);
+    background: rgb(251 243 235 / 0.94);
+    box-shadow: 0 1px 0 var(--color-line), 0 10px 30px -24px rgb(43 24 16 / 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .site-header__bar {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: clamp(20px, 2.6vw, 38px);
+  }
+
+  .site-header__logo {
+    flex: none;
+    display: block;
+    width: clamp(150px, 19.2vw, 276px);
+    transition: width 0.25s ease;
+  }
+
+  .site-header[data-surface='solid'] .site-header__logo {
+    width: clamp(150px, 14vw, 200px);
+  }
+
+  .logo {
+    width: 100%;
+    height: auto;
+  }
+
+  .logo--dark,
+  .site-header[data-surface='solid'] .logo--light {
+    display: none;
+  }
+
+  .site-header[data-surface='solid'] .logo--dark {
+    display: block;
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: clamp(18px, 2vw, 30px);
+  }
+
+  .lnk {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    font-size: var(--text-nav);
+    font-weight: 500;
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .site-nav .lnk:hover,
+  .site-header__social:hover {
+    color: var(--color-caramel-200);
+  }
+
+  .site-header[data-surface='solid'] .site-nav .lnk:hover,
+  .site-header[data-surface='solid'] .site-header__social:hover {
+    color: var(--color-caramel-500);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 1.8vw, 26px);
+    margin-left: auto;
+  }
+
+  .site-header__sep {
+    width: 1px;
+    height: 32px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+
+  .site-header__cta {
+    min-height: clamp(46px, 3.7vw, 54px);
+    padding-inline: 1.9em;
+    font-size: var(--text-nav);
+    letter-spacing: 0.18em;
+  }
+
+  .site-header__menu-btn,
+  .site-menu__close {
+    display: none;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  /* ---------- Menu mobile (painel modal) ---------- */
+  .site-menu {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-menu);
+    display: flex;
+    flex-direction: column;
+    background: var(--color-cream-100);
+    color: var(--color-cacao-800);
+    overflow-y: auto;
+    --focus-color: var(--color-caramel-500);
+  }
+
+  .site-menu[hidden] {
+    display: none;
+  }
+
+  .site-menu__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-h-compact);
+  }
+
+  .site-menu__top .logo {
+    width: 170px;
+  }
+
+  .site-menu__close {
+    display: grid;
+  }
+
+  .site-menu__nav ul {
+    display: grid;
+    gap: 4px;
+    padding-block: 32px;
+  }
+
+  .site-menu__nav ul a {
+    display: block;
+    padding-block: 10px;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  .site-menu__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+    padding-block: 8px 40px;
+    border-top: 1px solid var(--color-line);
+    padding-top: 28px;
+  }
+
+  :global(html.menu-open) {
+    overflow: hidden;
+  }
+
+  /* ---------- Compacto ---------- */
+  @media (max-width: 1100px) {
+    .site-nav,
+    .site-header__social,
+    .site-header__sep {
+      display: none;
+    }
+
+    .site-header__menu-btn {
+      display: grid;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header__cta {
+      display: none;
+    }
+  }
+</style>
