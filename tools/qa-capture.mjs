@@ -43,6 +43,8 @@ try {
   const ev = async (expression) => (await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true })).result.value;
 
   await send('Page.enable');
+  // captura estática e determinística por padrão; QA_MOTION=on liga as animações
+  if (process.env.QA_MOTION !== 'on') await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: VH, deviceScaleFactor: 1, mobile: false });
   await send('Page.navigate', { url });
   await sleep(2500);

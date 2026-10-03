@@ -4,7 +4,8 @@ import '@fontsource-variable/playfair-display/wght-italic.css';
 import '@fontsource-variable/montserrat/wght.css';
 import '../styles/global.css';
 import '../styles/content.css'; // depois do global: as classes de seção vencem as tags tipadas
-import '../styles/responsive.css'; // por último: toda a adaptação tablet/mobile num só lugar
+import '../styles/responsive.css'; // toda a adaptação tablet/mobile num só lugar
+import '../styles/motion.css'; // estados iniciais do motion (só valem com html.motion-ready)
 import Header from '../components/Header.astro';
 
 interface Props {
@@ -26,11 +27,26 @@ const { title, description } = Astro.props;
     <meta name="robots" content="noindex, nofollow" />
     <!-- sem favicon até haver a marca oficial (evita o 404 do navegador) -->
     <link rel="icon" href="data:," />
+    <!-- Motion é aprimoramento progressivo: sem JS ou com movimento reduzido a classe nunca entra
+         e a página aparece completa. Se o módulo não subir em 3,5s, ela sai e tudo é mostrado. -->
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        root.classList.add('motion-ready');
+        setTimeout(function () {
+          if (!root.classList.contains('motion-live')) root.classList.remove('motion-ready');
+        }, 3500);
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <Header />
     <slot />
+    <script>
+      import '../scripts/motion/index.ts';
+    </script>
     <script is:inline>
       // Destinos ainda não definidos (src/data/site.ts): o clique não pode navegar para uma URL inválida.
       document.addEventListener('click', (e) => {

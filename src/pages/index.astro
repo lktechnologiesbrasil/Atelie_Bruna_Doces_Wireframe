@@ -222,11 +222,12 @@ const quotes = [
 
         <div class="journey">
           <svg class="journey__line" viewBox="0 0 899 883" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <path d="M282 96 C318 74 372 70 410 92 M500 262 C330 340 190 380 200 470 C206 530 330 520 352 470 M372 640 C430 600 520 600 590 590" />
+            <!-- um único traço contínuo (os trechos retos ficam atrás das fotos): o scroll o desenha de 01 a 03 -->
+            <path pathLength="100" d="M282 96 C318 74 372 70 410 92 L500 262 C330 340 190 380 200 470 C206 530 330 520 352 470 L372 640 C430 600 520 600 590 590" />
           </svg>
           <!-- traço vertical (tablet e mobile): mesma linha orgânica, adaptada à leitura em coluna -->
           <svg class="journey__line journey__line--m" viewBox="0 0 390 1600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <path d="M14 24 C14 250 378 210 378 580 C378 930 14 900 14 1260 C14 1500 370 1480 378 1596" />
+            <path pathLength="100" d="M14 24 C14 250 378 210 378 580 C378 930 14 900 14 1260 C14 1500 370 1480 378 1596" />
           </svg>
           <ol class="journey__steps" role="list">
             <li class="step step--1">

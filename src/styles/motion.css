@@ -1,0 +1,106 @@
+/*
+ * Motion (Etapa 6B): estados iniciais e utilitários. Tudo que esconde algo fica
+ * atrás de `html.motion-ready`, classe adicionada por um script no <head> só
+ * quando não há `prefers-reduced-motion: reduce`; sem ela (sem JS, JS lento ou
+ * movimento reduzido) a página aparece completa e estática.
+ *
+ * As animações em si estão em src/scripts/motion/. Aqui só o ponto de partida,
+ * para que nada pisque antes do JS assumir.
+ */
+
+/* máscara de linha dos títulos: clip-path com insets negativos recorta só o que foge da linha
+   (sem padding/margem, então o layout é idêntico ao estático); a folga preserva as
+   ascendentes/descendentes e a projeção lateral das itálicas */
+.is-split .line {
+  /* à direita a janela é larga de propósito: os títulos transbordam a coluna de texto no desktop */
+  clip-path: inset(-0.14em -100vw -0.28em -0.2em);
+}
+
+.line__in {
+  display: block;
+}
+
+/* ---------- estados iniciais ---------- */
+html.motion-ready .h1:not(.is-split),
+html.motion-ready main .h2:not(.is-split) {
+  opacity: 0;
+}
+
+html.motion-ready main .eyebrow,
+html.motion-ready .hero__lead,
+html.motion-ready .hero__inner .btn,
+html.motion-ready main .split__body,
+html.motion-ready main .split__cta,
+html.motion-ready .cta-actions > *,
+html.motion-ready .hero__photo,
+html.motion-ready .hero__seal,
+html.motion-ready .step__num,
+html.motion-ready .step__title,
+html.motion-ready .step__text .t1,
+html.motion-ready .step__flower {
+  opacity: 0;
+}
+
+html.motion-ready .eyebrow__line {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* fotos de moldura: a imagem nasce recortada e é revelada (direção por moldura) */
+html.motion-ready main .media img {
+  clip-path: inset(0 0 100% 0); /* de cima para baixo */
+}
+
+html.motion-ready .collage__b img,
+html.motion-ready .trio__a img,
+html.motion-ready .step--3 .step__media img {
+  clip-path: inset(0 100% 0 0); /* da esquerda para a direita */
+}
+
+html.motion-ready .collage__c img,
+html.motion-ready .trio__b img,
+html.motion-ready .step--1 .step__media img {
+  clip-path: inset(0 0 0 100%); /* da direita para a esquerda */
+}
+
+html.motion-ready .collage__d img,
+html.motion-ready .step--2 .step__media img,
+html.motion-ready .historias__inset img {
+  clip-path: inset(100% 0 0 0); /* de baixo para cima */
+}
+
+/* traço da jornada: oculto até o scroll desenhá-lo (pathLength="100" no SVG) */
+html.motion-ready .journey__line path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+/* ---------- desktop: profundidade ---------- */
+@media (min-width: 900px) {
+  html.motion-ready .media2,
+  html.motion-ready .hero__photo {
+    overflow: hidden;
+  }
+
+  html.motion-ready .media2 img {
+    transform: scale(1.1);
+  }
+}
+
+/* ---------- tablet/mobile: trilhos horizontais ficam como estão ---------- */
+@media (max-width: 899px) {
+  html.motion-ready .collage--criacoes .media img {
+    clip-path: none;
+  }
+
+  html.motion-ready .quote {
+    opacity: 1;
+  }
+}
+
+/* desktop: depoimentos entram pela opacidade (no mobile são um trilho) */
+@media (min-width: 900px) {
+  html.motion-ready .quote {
+    opacity: 0;
+  }
+}

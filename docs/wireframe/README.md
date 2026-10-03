@@ -6,7 +6,7 @@
 | `docs/wireframe/wireframe-pre-skill.txt` | **SUPERSEDED**: gerado antes de o workflow canônico `img-to-html`/`to-wireframe` estar disponível. Serve só para comparação |
 
 **Etapa 1 (wireframe + plano):** `APPROVED`.
-**Etapa atual:** 5 (revisão visual integrada) executada, aguardando aprovação do comparativo 1440. QA em `docs/qa/etapa-2/`, `etapa-3-4/` e `etapa-5/`. Sem GSAP/motion.
+**Etapa atual:** 6 (responsividade refinada + motion) executada, aguardando revisão. QA em `docs/qa/etapa-2/`, `etapa-3-4/`, `etapa-5/` e `etapa-6/`. GSAP + ScrollTrigger instalados (Etapa 6B), com `prefers-reduced-motion` respeitado.
 
 ### Decisões do projeto sobre o `img-to-html` (aprovadas na Etapa 1)
 
@@ -14,7 +14,7 @@
 |---|---|
 | Stack | **Astro + CSS + GSAP**, implementados direto. O `img-to-html` vale como metodologia, ordem, gates e contrato de wireframe; não há versão HTML estática descartável |
 | Assets | **Sem regeneração por IA** (nada de OpenRouter/GPT Image). Os provisórios são recortes da reference em `src/assets/provisional/`, marcados `provisional-`, e serão trocados por material real |
-| Motion | Fora até fundo, estrutura, componentes, assets e responsividade base estarem prontos. O GSAP ainda não foi instalado |
+| Motion | Fora até fundo, estrutura, componentes, assets e responsividade base estarem prontos. O GSAP entrou na Etapa 6B |
 | Mobile | Desktop-first, sem nada que impeça o mobile: sem hacks de 1440 e com posicionamento absoluto só em camadas de fundo |
 
 ## Como foi gerado
