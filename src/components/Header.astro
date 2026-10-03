@@ -121,7 +121,7 @@ const pendingAttrs = (href: string) =>
     openBtn.setAttribute('aria-expanded', 'true');
     document.documentElement.classList.add('menu-open');
     [...outside(), ...siblingsOfMenu()].forEach((el) => (el.inert = true));
-    focusables()[0]?.focus();
+    focusables()[0]?.focus({ preventScroll: true });
     document.addEventListener('keydown', onKeydown);
   }
 
@@ -132,7 +132,7 @@ const pendingAttrs = (href: string) =>
     document.documentElement.classList.remove('menu-open');
     [...outside(), ...siblingsOfMenu()].forEach((el) => (el.inert = false));
     document.removeEventListener('keydown', onKeydown);
-    if (restoreFocus) openBtn.focus();
+    if (restoreFocus) openBtn.focus({ preventScroll: true });
   }
 
   function onKeydown(event: KeyboardEvent) {
@@ -175,16 +175,34 @@ const pendingAttrs = (href: string) =>
     /* sobrepõe o Hero sem empurrar o conteúdo */
     margin-bottom: calc(-1 * var(--header-h));
     color: var(--header-fg);
-    transition: background-color 0.25s ease, height 0.25s ease, box-shadow 0.25s ease;
+    transition: background-color 0.25s ease, height 0.25s ease, margin-bottom 0.25s ease, box-shadow 0.25s ease;
   }
 
   .site-header[data-surface='solid'] {
     --header-fg: var(--color-cacao-800);
     --focus-color: var(--color-caramel-500);
     height: var(--header-h-compact);
+    /* a margem acompanha a altura: o fluxo da página não pode saltar ao trocar de estado */
+    margin-bottom: calc(-1 * var(--header-h-compact));
+  }
+
+  /* Fundo sólido numa camada própria: backdrop-filter no próprio header viraria o
+     bloco de contenção do menu fixo e o prenderia à altura do header. */
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     background: rgb(251 243 235 / 0.94);
     box-shadow: 0 1px 0 var(--color-line), 0 10px 30px -24px rgb(43 24 16 / 0.5);
     backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .site-header[data-surface='solid']::before {
+    opacity: 1;
   }
 
   .site-header__bar {

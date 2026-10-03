@@ -3,6 +3,7 @@ import '@fontsource-variable/playfair-display/wght.css';
 import '@fontsource-variable/playfair-display/wght-italic.css';
 import '@fontsource-variable/montserrat/wght.css';
 import '../styles/global.css';
+import '../styles/content.css'; // depois do global: as classes de seção vencem as tags tipadas
 import Header from '../components/Header.astro';
 
 interface Props {
@@ -22,10 +23,19 @@ const { title, description } = Astro.props;
     {description && <meta name="description" content={description} />}
     <!-- Wireframe com assets e textos provisórios: fora dos buscadores até haver conteúdo real -->
     <meta name="robots" content="noindex, nofollow" />
+    <!-- sem favicon até haver a marca oficial (evita o 404 do navegador) -->
+    <link rel="icon" href="data:," />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <Header />
     <slot />
+    <script is:inline>
+      // Destinos ainda não definidos (src/data/site.ts): o clique não pode navegar para uma URL inválida.
+      document.addEventListener('click', (e) => {
+        const link = e.target instanceof Element ? e.target.closest('a[data-link-status="pending"]') : null;
+        if (link) e.preventDefault();
+      });
+    </script>
   </body>
 </html>

@@ -17,11 +17,13 @@ mkdirSync(OUT, { recursive: true });
 // Coordenadas na reference (1440 x 8365): { left, top, width, height }
 const ASSETS = [
   // 01 Hero: bolo protagonista (lado direito), abaixo do header
-  { name: 'provisional-hero-bg', rect: { left: 640, top: 110, width: 800, height: 750 },
+  { name: 'provisional-hero-bg', rect: { left: 640, top: 110, width: 800, height: 800 },
     soften: [
       { left: 490, top: 0, width: 310, height: 310 },   // selo circular
       { left: 0, top: 80, width: 150, height: 150 },    // fim de "doces,"
     ] },
+  // 01 Hero: tecido + tigela abaixo do texto, à esquerda (a Master tem foto de largura total)
+  { name: 'provisional-hero-base', rect: { left: 0, top: 748, width: 700, height: 192 } },
   // 02 Manifesto: base decorativa (tecido + cerâmica)
   { name: 'provisional-manifesto-base', rect: { left: 0, top: 1680, width: 650, height: 320 } },
   // 03 Bruna: retrato (media2)
@@ -38,11 +40,14 @@ const ASSETS = [
   // ---- Fotos de conteúdo das molduras `media` (Etapa 4). Recorte da reference com
   //      ~4px de folga da borda off-white gravada (a moldura HTML refaz a borda).
   // 02 Manifesto
-  { name: 'provisional-media-manifesto-maos', rect: { left: 714, top: 1089, width: 703, height: 408 } },
+  { name: 'provisional-media-manifesto-maos', rect: { left: 714, top: 1040, width: 703, height: 460 } },
+  // faixa de tecido sob as molduras (a Master continua o tecido até a borda direita)
+  { name: 'provisional-manifesto-strip', rect: { left: 650, top: 1892, width: 790, height: 108 } },
+  { name: 'provisional-criacoes-strip', rect: { left: 555, top: 4022, width: 885, height: 110 } },
   { name: 'provisional-media-manifesto-brigadeiros', rect: { left: 658, top: 1509, width: 377, height: 338 } },
   { name: 'provisional-media-manifesto-chocolate', rect: { left: 1127, top: 1470, width: 313, height: 411 } },
   // 04 Criações
-  { name: 'provisional-media-criacoes-bolo', rect: { left: 640, top: 3205, width: 751, height: 485 } },
+  { name: 'provisional-media-criacoes-bolo', rect: { left: 640, top: 3195, width: 751, height: 540 } },
   { name: 'provisional-media-criacoes-brigadeiros', rect: { left: 562, top: 3701, width: 463, height: 309 } },
   { name: 'provisional-media-criacoes-fatia', rect: { left: 1284, top: 3260, width: 156, height: 398 } },
   { name: 'provisional-media-criacoes-cheesecake', rect: { left: 1095, top: 3635, width: 345, height: 365 } },

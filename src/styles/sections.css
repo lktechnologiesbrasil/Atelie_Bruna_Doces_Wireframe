@@ -47,7 +47,7 @@
 .hero__photo {
   position: absolute;
   top: 11.7%;
-  bottom: 8.5%;
+  bottom: 3.2%;
   right: 0;
   width: 55.6%;
   z-index: var(--z-bg);
@@ -66,12 +66,39 @@
   object-position: 40% 50%;
 }
 
+/* tecido + tigela abaixo do texto (a Master tem a foto em largura total) */
+.hero__base {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48.6%;
+  aspect-ratio: 700 / 192;
+  z-index: var(--z-bg);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 38%),
+    linear-gradient(to left, transparent 0, #000 30%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 38%),
+    linear-gradient(to left, transparent 0, #000 30%);
+  mask-composite: intersect;
+}
+
+.hero__base img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* scrim: garante contraste do texto do Hero (Etapa 3) */
 .hero__scrim {
   position: absolute;
   inset: 0;
   z-index: var(--z-scrim);
   background: linear-gradient(90deg, rgb(31 13 5 / 0.7) 0%, rgb(31 13 5 / 0.35) 38%, transparent 62%);
+  /* o scrim some perto da base: tecido e tigela ficam com a luz da Master */
+  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 84%);
+  mask-image: linear-gradient(to bottom, #000 52%, transparent 84%);
   pointer-events: none;
 }
 
@@ -107,6 +134,30 @@
   mask-composite: intersect;
 }
 
+/* faixa de tecido sob as molduras, até a borda direita */
+.decor-strip {
+  position: absolute;
+  right: 0;
+  z-index: var(--z-bg);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 45%),
+    linear-gradient(to right, transparent 0, #000 22%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 45%),
+    linear-gradient(to right, transparent 0, #000 22%);
+  mask-composite: intersect;
+}
+
+.decor-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.decor-strip--manifesto { bottom: 0; width: 54.9%; aspect-ratio: 790 / 108; }
+.decor-strip--criacoes { bottom: 1.9vw; width: 61.5%; aspect-ratio: 885 / 110; }
+
 .decor-base--narrow {
   width: min(38.5%, 555px);
   aspect-ratio: 555 / 290;
@@ -135,7 +186,7 @@
 .section--bruna .media2 img { object-position: 50% 20%; }
 
 .section--historias .media2 {
-  top: 14.4%;
+  top: 9.6%;
   bottom: 5.9%;
 }
 
@@ -234,5 +285,14 @@
   .decor-base,
   .decor-base--narrow {
     width: 70%;
+  }
+
+  .hero__base,
+  .decor-strip {
+    display: none;
+  }
+
+  .section--historias .media2 {
+    clip-path: none;
   }
 }

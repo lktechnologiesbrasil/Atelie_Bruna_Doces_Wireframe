@@ -1,0 +1,51 @@
+{
+  "width": 1440,
+  "height": 8459,
+  "sections": [
+    {
+      "id": "inicio",
+      "top": 0,
+      "h": 940
+    },
+    {
+      "id": "a-marca",
+      "top": 940,
+      "h": 1060
+    },
+    {
+      "id": "bruna",
+      "top": 2000,
+      "h": 1016
+    },
+    {
+      "id": "criacoes",
+      "top": 3016,
+      "h": 1151
+    },
+    {
+      "id": "encomendas",
+      "top": 4166,
+      "h": 984
+    },
+    {
+      "id": "historias",
+      "top": 5150,
+      "h": 1227
+    },
+    {
+      "id": "bastidores",
+      "top": 6377,
+      "h": 979
+    },
+    {
+      "id": "contato",
+      "top": 7356,
+      "h": 678
+    },
+    {
+      "id": "footer",
+      "top": 8034,
+      "h": 425
+    }
+  ]
+}

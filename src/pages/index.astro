@@ -26,6 +26,9 @@ import brunaRetrato from '../assets/provisional/provisional-bruna-retrato.webp';
 import criacoesBase from '../assets/provisional/provisional-criacoes-base.webp';
 import historiasMesa from '../assets/provisional/provisional-historias-mesa.webp';
 import bastidoresConfeitando from '../assets/provisional/provisional-bastidores-confeitando.webp';
+import heroBase from '../assets/provisional/provisional-hero-base.webp';
+import manifestoStrip from '../assets/provisional/provisional-manifesto-strip.webp';
+import criacoesStrip from '../assets/provisional/provisional-criacoes-strip.webp';
 import ctaCelebracao from '../assets/provisional/provisional-cta-celebracao.webp';
 import assinatura from '../assets/provisional/provisional-assinatura-bruna.png';
 import florLinha from '../assets/provisional/provisional-flor-linha.png';
@@ -73,6 +76,9 @@ const quotes = [
       <div class="hero__photo" aria-hidden="true">
         <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1200]} sizes="(max-width: 899px) 100vw, 56vw" />
       </div>
+      <div class="hero__base" aria-hidden="true">
+        <Image src={heroBase} alt="" loading="eager" widths={[700]} sizes="49vw" />
+      </div>
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="container hero__inner section__inner">
         <h1 class="h1 hero__title">
@@ -101,6 +107,9 @@ const quotes = [
           <text class="claims__svgtext"><textPath href="#claims-path" startOffset="0">{claims.toUpperCase()}</textPath></text>
           <line class="claims__rule" x1="1034" y1="20" x2="1090" y2="10" />
         </svg>
+      </div>
+      <div class="decor-strip decor-strip--manifesto" aria-hidden="true">
+        <Image src={manifestoStrip} alt="" widths={[790]} sizes="55vw" />
       </div>
       <div class="decor-base" aria-hidden="true">
         <Image src={manifestoBase} alt="" widths={[650]} sizes="(max-width: 899px) 100vw, 45vw" />
@@ -160,6 +169,9 @@ const quotes = [
     <!-- 04 Criações -->
     <section class="section section--criacoes" id="criacoes" aria-label="Nossas criações">
       <Wave shape="dip" />
+      <div class="decor-strip decor-strip--criacoes" aria-hidden="true">
+        <Image src={criacoesStrip} alt="" widths={[885]} sizes="62vw" />
+      </div>
       <div class="decor-base decor-base--narrow" aria-hidden="true">
         <Image src={criacoesBase} alt="" widths={[555]} sizes="(max-width: 899px) 100vw, 39vw" />
       </div>

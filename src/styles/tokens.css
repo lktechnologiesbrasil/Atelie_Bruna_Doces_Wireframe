@@ -66,7 +66,7 @@
   --text-h2-cta: clamp(3rem, 1rem + 6.4vw, 6.75rem);       /* 108px */
   --text-numeral: clamp(4rem, 2rem + 8vw, 9.5rem);         /* 147px */
   --text-body: clamp(1rem, 0.55rem + 0.75vw, 1.25rem);     /* 20px */
-  --text-quote: clamp(1.125rem, 0.8rem + 0.55vw, 1.3125rem); /* 21px */
+  --text-quote: clamp(1.0625rem, 1.6vw, 1.5rem);          /* 23px em 1440 */
   --text-step: clamp(1rem, 0.7rem + 0.45vw, 1.125rem);     /* 18px */
   --text-eyebrow: clamp(0.75rem, 0.62rem + 0.2vw, 0.875rem); /* 14px */
   --text-nav: clamp(0.6875rem, 0.903vw, 0.8125rem);        /* 13px em 1440 */

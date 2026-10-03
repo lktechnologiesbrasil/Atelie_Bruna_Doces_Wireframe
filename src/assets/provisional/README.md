@@ -37,3 +37,13 @@ Recortes com ~4px de folga da borda off-white gravada na reference (a moldura HT
 | `provisional-media-historias-fatia` | 0, 5819, 286 × 355 | Histórias, inset |
 | `provisional-media-bastidores-peneira` | 580, 7002, 345 × 341 | Bastidores, trio |
 | `provisional-media-bastidores-laco` | 936, 7002, 504 × 352 | Bastidores, trio |
+
+### Adicionados na Etapa 5 (revisão visual)
+
+| Arquivo | Região (x, y, w × h) | Uso |
+|---|---|---|
+| `provisional-hero-base` | 0, 748, 700 × 192 | Tecido + tigela abaixo do texto do Hero |
+| `provisional-manifesto-strip` | 650, 1892, 790 × 108 | Faixa de tecido sob as molduras do Manifesto |
+| `provisional-criacoes-strip` | 555, 4022, 885 × 110 | Faixa de tecido sob as molduras de Criações |
+
+Ajustados: `provisional-hero-bg` (agora 800 × 800, até a onda), `provisional-media-manifesto-maos` (714, 1040, 703 × 460, topo recortado por `clip-path`) e `provisional-media-criacoes-bolo` (640, 3195, 751 × 540).

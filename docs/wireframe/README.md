@@ -6,7 +6,7 @@
 | `docs/wireframe/wireframe-pre-skill.txt` | **SUPERSEDED**: gerado antes de o workflow canônico `img-to-html`/`to-wireframe` estar disponível. Serve só para comparação |
 
 **Etapa 1 (wireframe + plano):** `APPROVED`.
-**Etapa atual:** 3 (estrutura, tipografia e conteúdo) e 4 (fotos de conteúdo provisórias) implementadas, aguardando a revisão visual integrada (Etapa 5). QA em `docs/qa/etapa-2/` e `docs/qa/etapa-3-4/`. Sem GSAP/motion.
+**Etapa atual:** 5 (revisão visual integrada) executada, aguardando aprovação do comparativo 1440. QA em `docs/qa/etapa-2/`, `etapa-3-4/` e `etapa-5/`. Sem GSAP/motion.
 
 ### Decisões do projeto sobre o `img-to-html` (aprovadas na Etapa 1)
 

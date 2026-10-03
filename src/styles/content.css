@@ -65,21 +65,22 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
 /* ---------- 01 Hero ---------- */
 .hero__inner {
-  padding-top: calc(var(--header-h) + clamp(32px, 4.2vw, 62px));
+  padding-top: calc(var(--header-h) + clamp(44px, 5.2vw, 76px));
   padding-bottom: clamp(120px, 14vw, 200px);
 }
 
 .hero__title {
   font-size: var(--text-h1);
+  line-height: 1.03;
 }
 
 .hero__lead {
-  margin-top: clamp(22px, 2.8vw, 40px);
-  max-width: 24em;
+  margin-top: clamp(20px, 2.3vw, 33px);
+  max-width: 23.5em;
 }
 
 .hero__inner .btn {
-  margin-top: clamp(26px, 2.4vw, 34px);
+  margin-top: clamp(22px, 1.95vw, 28px);
 }
 
 .hero__seal {
@@ -155,9 +156,9 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 }
 
 .collage--manifesto .collage__a {
-  left: 7.1%; top: 5.6%; width: 90.5%; height: 49%;
-  /* recorte creme sob o fim do título, como na Master */
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 21% 100%, 21% 57%, 0 57%);
+  left: 7.1%; top: 0; width: 90.5%; height: 54.7%;
+  /* topo inclinado e recorte creme sob o fim do título, como na Master */
+  clip-path: polygon(0 10.2%, 100% 0, 100% 100%, 21% 100%, 21% 61.3%, 0 61.3%);
 }
 .collage--manifesto .collage__b { left: 0; top: 55.3%; width: 49%; height: 40.7%; z-index: 2; }
 .collage--manifesto .collage__c { left: 59.7%; top: 50.7%; width: 40.3%; height: 49.3%; z-index: 3; }
@@ -206,8 +207,8 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 }
 
 .collage--criacoes .collage__a {
-  left: 8.8%; top: 0; width: 86%; height: 62.8%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 24% 100%, 24% 68%, 0 68%);
+  left: 8.8%; top: 0; width: 86%; height: 67.4%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 24% 100%, 24% 63.4%, 0 63.4%);
 }
 .collage--criacoes .collage__b { left: 0; top: 63.2%; width: 53.4%; height: 36.8%; z-index: 2; }
 .collage--criacoes .collage__c { left: 81.9%; top: 12%; width: 18.1%; height: 47.2%; z-index: 2; }
@@ -221,6 +222,10 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
   padding-bottom: 2vw;
 }
 
+.split--encomendas .split__text {
+  padding-top: 2.4vw;
+}
+
 .split__tags {
   margin-top: clamp(22px, 2.6vw, 38px);
   max-width: 34em;
@@ -232,7 +237,26 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 .journey {
   position: relative;
   margin-right: calc(-1 * var(--bleed));
+  /* a foto do passo 03 continua sob a onda da seção seguinte, como na Master */
+  margin-bottom: -3vw;
   aspect-ratio: 899 / 883;
+}
+
+@media (min-width: 1200px) {
+  .step__title {
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+  }
+
+  .step__text .t1 {
+    font-size: clamp(0.875rem, 1.05vw, 1rem);
+    line-height: 1.4;
+  }
+
+  .split__tags {
+    white-space: nowrap;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+  }
 }
 
 .journey__line {
@@ -271,6 +295,8 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
   font-size: var(--text-numeral);
   line-height: 0.8;
   letter-spacing: -0.04em;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
   color: var(--color-numeral);
   --italic-color: var(--color-numeral);
 }
@@ -294,16 +320,20 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 .step--2 .step__media { left: 22.4%; top: 45.2%; width: 30%; height: 48.2%; z-index: 1; }
 .step--2 .step__text {
   left: 0;
-  top: 65.6%;
-  width: 29%;
-  padding: 0 0 0 7%;
+  top: 61.5%;
+  width: 33%;
+  padding: 0;
   z-index: 3;
   background: linear-gradient(to right, transparent, var(--color-cream-200) 14%);
 }
 
 .step--3 .step__media { left: 29.8%; top: 77.6%; width: 70.2%; height: 28%; }
-.step--3 .step__text { left: 56.4%; top: 51.2%; width: 22%; z-index: 3; }
-.step--3 .step__flower { left: 84.6%; top: 52.9%; width: 15.5%; height: auto; }
+.step--3 .step__text { left: 56.4%; top: 48.5%; width: 26%; z-index: 3; }
+
+/* no passo 02 só o numeral e o título recuam; o texto corrido começa na borda */
+.step--2 .step__num,
+.step--2 .step__title { margin-left: 21%; }
+.step--3 .step__flower { left: 84.6%; top: 52.9%; width: 15.2%; height: auto; }
 
 /* ---------- 06 Histórias Reais ---------- */
 .section--historias {
@@ -317,6 +347,12 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
   z-index: var(--z-content);
   width: 20.3%;
   aspect-ratio: 292 / 363;
+}
+
+.section--historias .media2 {
+  /* a Master recua a foto sob o bloco de texto na parte alta */
+  /* topo inclinado: mais alto à esquerda, como na Master */
+  clip-path: polygon(0 0, 92.7% 6.1%, 92.7% 50%, 100% 50%, 100% 100%, 0 100%);
 }
 
 .historias {
@@ -341,7 +377,7 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
 .quote {
   position: relative;
-  padding: clamp(16px, 1.8vw, 26px) clamp(20px, 2.8vw, 40px) clamp(16px, 1.5vw, 22px);
+  padding: clamp(16px, 1.8vw, 26px) clamp(18px, 2.2vw, 32px) clamp(16px, 1.5vw, 22px);
   background: rgb(255 250 245 / 0.72);
   border-radius: 8px;
   box-shadow: 0 14px 34px -22px rgb(43 24 16 / 0.32);
@@ -352,7 +388,7 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 .quote--3 {
   grid-column: 1 / -1;
   margin-left: 19.8%;
-  --quote-scale: 0.86;
+  --quote-scale: 0.78;
   /* aspas ao lado do texto, como na Master */
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -393,14 +429,14 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 }
 
 .quote__who {
-  font-size: var(--text-micro);
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
   color: var(--color-text-body);
 }
 
 .quote__tag {
-  font-size: var(--text-micro);
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
 }
 
 /* ---------- 07 Bastidores ---------- */
@@ -431,13 +467,13 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
 /* ---------- 08 CTA final ---------- */
 .split--cta {
-  padding-top: 6.4vw;
-  padding-bottom: 2.8vw;
+  padding-top: 5.9vw;
+  padding-bottom: 4.4vw;
 }
 
 .h2.h2--cta {
   font-size: clamp(3.5rem, 10.8vw, 9.75rem); /* ~155px em 1440 */
-  line-height: 0.6;
+  line-height: 0.66;
   letter-spacing: -0.03em;
 }
 
@@ -447,14 +483,14 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
 .split--cta .split__body {
   max-width: 24em;
-  margin-top: clamp(22px, 2.4vw, 34px);
+  margin-top: clamp(16px, 1.8vw, 26px);
 }
 
 .cta-actions {
   display: grid;
   gap: 14px;
   width: min(100%, 468px, 40vw);
-  margin-top: clamp(24px, 2.6vw, 38px);
+  margin-top: clamp(20px, 1.9vw, 28px);
 }
 
 .cta-actions > a {
@@ -512,8 +548,8 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 .footer__nav .lnk {
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  font-size: 1rem;
+  min-height: 30px;
+  font-size: 0.9375rem;
   text-decoration: none;
   color: var(--color-cacao-800);
 }
@@ -534,7 +570,7 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 }
 
 .footer__contact .t1 {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--color-cacao-800);
 }
@@ -708,6 +744,7 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
   }
 
   .split--encomendas .journey {
+    margin-bottom: 0;
     margin-right: 0;
     margin-top: clamp(32px, 5vw, 56px);
     aspect-ratio: auto;
@@ -745,6 +782,11 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
   .step .step__media {
     aspect-ratio: 4 / 3;
+  }
+
+  .step .step__num,
+  .step .step__title {
+    margin-left: 0;
   }
 
   .step__num {

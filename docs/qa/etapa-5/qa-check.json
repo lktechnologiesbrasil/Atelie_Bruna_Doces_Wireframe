@@ -1,0 +1,387 @@
+{
+  "390": {
+    "overflow": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "scrollX": 0,
+      "pass": true
+    },
+    "overflowElements": [],
+    "images": {
+      "total": 31,
+      "broken": 0,
+      "distorted": []
+    },
+    "clippedText": [],
+    "header": {
+      "top": {
+        "surface": "clear",
+        "h": 72,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 9502
+      },
+      "mid": {
+        "surface": "solid",
+        "h": 80,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 9502,
+        "logoDark": "block"
+      },
+      "backToClear": "clear",
+      "actionsFit": true,
+      "stable": true
+    },
+    "pendingLinks": {
+      "total": 9,
+      "preventedClick": 9
+    },
+    "anchors": [],
+    "keyboardOrder": [
+      "skip-link|Ir para o conteúdo",
+      "site-header__logo|Ateliê Doces Bruna, volt",
+      "site-header__menu-btn|Abrir menu",
+      "btn|Conheça nossa história",
+      "btn2 split__cta|Descubra as criações"
+    ],
+    "focusVisible": {
+      "outline": "solid 2px"
+    },
+    "menu": {
+      "afterOpen": {
+        "hidden": false,
+        "expanded": "true",
+        "mainInert": true,
+        "htmlClass": "menu-open",
+        "overflow": "hidden",
+        "focus": "site-menu__close"
+      },
+      "focusTrap": {
+        "escaped": false,
+        "distinctStops": 8,
+        "shiftTabInMenu": true
+      },
+      "afterEsc": {
+        "hidden": true,
+        "expanded": "false",
+        "mainInert": false,
+        "focusBackOnButton": true,
+        "scrollY": 778
+      },
+      "afterLink": {
+        "hidden": true,
+        "mainInert": false,
+        "hash": "#criacoes",
+        "targetTop": 80
+      }
+    },
+    "consoleErrors": []
+  },
+  "768": {
+    "overflow": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "scrollX": 0,
+      "pass": true
+    },
+    "overflowElements": [],
+    "images": {
+      "total": 31,
+      "broken": 0,
+      "distorted": []
+    },
+    "clippedText": [],
+    "header": {
+      "top": {
+        "surface": "clear",
+        "h": 72,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 11841
+      },
+      "mid": {
+        "surface": "solid",
+        "h": 80,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 11841,
+        "logoDark": "block"
+      },
+      "backToClear": "clear",
+      "actionsFit": true,
+      "stable": true
+    },
+    "pendingLinks": {
+      "total": 9,
+      "preventedClick": 9
+    },
+    "anchors": [],
+    "keyboardOrder": [
+      "skip-link|Ir para o conteúdo",
+      "site-header__logo|Ateliê Doces Bruna, volt",
+      "btn site-header__cta|Encomendar",
+      "site-header__menu-btn|Abrir menu",
+      "btn|Conheça nossa história"
+    ],
+    "focusVisible": {
+      "outline": "solid 2px"
+    },
+    "menu": {
+      "afterOpen": {
+        "hidden": false,
+        "expanded": "true",
+        "mainInert": true,
+        "htmlClass": "menu-open",
+        "overflow": "hidden",
+        "focus": "site-menu__close"
+      },
+      "focusTrap": {
+        "escaped": false,
+        "distinctStops": 8,
+        "shiftTabInMenu": true
+      },
+      "afterEsc": {
+        "hidden": true,
+        "expanded": "false",
+        "mainInert": false,
+        "focusBackOnButton": true,
+        "scrollY": 778
+      },
+      "afterLink": {
+        "hidden": true,
+        "mainInert": false,
+        "hash": "#criacoes",
+        "targetTop": 80
+      }
+    },
+    "consoleErrors": []
+  },
+  "1024": {
+    "overflow": {
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "scrollX": 0,
+      "pass": true
+    },
+    "overflowElements": [],
+    "images": {
+      "total": 31,
+      "broken": 0,
+      "distorted": []
+    },
+    "clippedText": [],
+    "header": {
+      "top": {
+        "surface": "clear",
+        "h": 96,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 6667
+      },
+      "mid": {
+        "surface": "solid",
+        "h": 80,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 6667,
+        "logoDark": "block"
+      },
+      "backToClear": "clear",
+      "actionsFit": true,
+      "stable": true
+    },
+    "pendingLinks": {
+      "total": 9,
+      "preventedClick": 9
+    },
+    "anchors": [],
+    "keyboardOrder": [
+      "skip-link|Ir para o conteúdo",
+      "site-header__logo|Ateliê Doces Bruna, volt",
+      "btn site-header__cta|Encomendar",
+      "site-header__menu-btn|Abrir menu",
+      "btn|Conheça nossa história"
+    ],
+    "focusVisible": {
+      "outline": "solid 2px"
+    },
+    "menu": {
+      "afterOpen": {
+        "hidden": false,
+        "expanded": "true",
+        "mainInert": true,
+        "htmlClass": "menu-open",
+        "overflow": "hidden",
+        "focus": "site-menu__close"
+      },
+      "focusTrap": {
+        "escaped": false,
+        "distinctStops": 8,
+        "shiftTabInMenu": true
+      },
+      "afterEsc": {
+        "hidden": true,
+        "expanded": "false",
+        "mainInert": false,
+        "focusBackOnButton": true,
+        "scrollY": 750
+      },
+      "afterLink": {
+        "hidden": true,
+        "mainInert": false,
+        "hash": "#criacoes",
+        "targetTop": 80
+      }
+    },
+    "consoleErrors": []
+  },
+  "1290": {
+    "overflow": {
+      "scrollWidth": 1290,
+      "clientWidth": 1290,
+      "scrollX": 0,
+      "pass": true
+    },
+    "overflowElements": [],
+    "images": {
+      "total": 31,
+      "broken": 0,
+      "distorted": []
+    },
+    "clippedText": [],
+    "header": {
+      "top": {
+        "surface": "clear",
+        "h": 121,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 7629
+      },
+      "mid": {
+        "surface": "solid",
+        "h": 80,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 7629,
+        "logoDark": "block"
+      },
+      "backToClear": "clear",
+      "actionsFit": true,
+      "stable": true
+    },
+    "pendingLinks": {
+      "total": 9,
+      "preventedClick": 9
+    },
+    "anchors": [
+      [
+        "#a-marca",
+        80
+      ],
+      [
+        "#bruna",
+        80
+      ],
+      [
+        "#criacoes",
+        80
+      ],
+      [
+        "#encomendas",
+        80
+      ],
+      [
+        "#contato",
+        80
+      ]
+    ],
+    "keyboardOrder": [
+      "skip-link|Ir para o conteúdo",
+      "site-header__logo|Ateliê Doces Bruna, volt",
+      "lnk|A Marca",
+      "lnk|Bruna",
+      "lnk|Criações",
+      "lnk|Encomendas",
+      "lnk|Contato",
+      "lnk site-header__social|Instagram",
+      "lnk site-header__social|WhatsApp",
+      "btn site-header__cta|Encomendar",
+      "btn|Conheça nossa história",
+      "btn2 split__cta|Descubra as criações"
+    ],
+    "focusVisible": {
+      "outline": "solid 2px"
+    },
+    "consoleErrors": []
+  },
+  "1440": {
+    "overflow": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "scrollX": 0,
+      "pass": true
+    },
+    "overflowElements": [],
+    "images": {
+      "total": 31,
+      "broken": 0,
+      "distorted": []
+    },
+    "clippedText": [],
+    "header": {
+      "top": {
+        "surface": "clear",
+        "h": 135,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 8459
+      },
+      "mid": {
+        "surface": "solid",
+        "h": 80,
+        "bg": "rgba(0, 0, 0, 0)",
+        "docH": 8459,
+        "logoDark": "block"
+      },
+      "backToClear": "clear",
+      "actionsFit": true,
+      "stable": true
+    },
+    "pendingLinks": {
+      "total": 9,
+      "preventedClick": 9
+    },
+    "anchors": [
+      [
+        "#a-marca",
+        80
+      ],
+      [
+        "#bruna",
+        80
+      ],
+      [
+        "#criacoes",
+        80
+      ],
+      [
+        "#encomendas",
+        80
+      ],
+      [
+        "#contato",
+        80
+      ]
+    ],
+    "keyboardOrder": [
+      "skip-link|Ir para o conteúdo",
+      "site-header__logo|Ateliê Doces Bruna, volt",
+      "lnk|A Marca",
+      "lnk|Bruna",
+      "lnk|Criações",
+      "lnk|Encomendas",
+      "lnk|Contato",
+      "lnk site-header__social|Instagram",
+      "lnk site-header__social|WhatsApp",
+      "btn site-header__cta|Encomendar",
+      "btn|Conheça nossa história",
+      "btn2 split__cta|Descubra as criações"
+    ],
+    "focusVisible": {
+      "outline": "solid 2px"
+    },
+    "consoleErrors": []
+  }
+}
