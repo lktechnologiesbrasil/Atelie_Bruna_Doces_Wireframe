@@ -61,15 +61,15 @@
   --font-body: 'Montserrat Variable', 'Montserrat', 'Segoe UI', system-ui, sans-serif;
 
   /* ---------- Tipografia: escala (alvo em 1440px) ---------- */
-  --text-h1: clamp(2.75rem, 1rem + 5.7vw, 6.125rem);       /* 98px */
-  --text-h2: clamp(2.5rem, 1rem + 5.55vw, 6rem);           /* 96px */
+  --text-h1: clamp(2.75rem, 6.8vw, 7.25rem);               /* 98px: proporcional à largura */
+  --text-h2: clamp(2.5rem, 6.667vw, 7rem);                 /* 96px: proporcional à largura */
   --text-h2-cta: clamp(3rem, 1rem + 6.4vw, 6.75rem);       /* 108px */
   --text-numeral: clamp(4rem, 2rem + 8vw, 9.5rem);         /* 147px */
   --text-body: clamp(1rem, 0.55rem + 0.75vw, 1.25rem);     /* 20px */
   --text-quote: clamp(1.125rem, 0.8rem + 0.55vw, 1.3125rem); /* 21px */
   --text-step: clamp(1rem, 0.7rem + 0.45vw, 1.125rem);     /* 18px */
   --text-eyebrow: clamp(0.75rem, 0.62rem + 0.2vw, 0.875rem); /* 14px */
-  --text-nav: 0.8125rem;                                    /* 13px */
+  --text-nav: clamp(0.6875rem, 0.903vw, 0.8125rem);        /* 13px em 1440 */
   --text-btn: clamp(0.8125rem, 0.7rem + 0.2vw, 0.9375rem); /* 15px */
   --text-micro: 0.75rem;                                    /* 12px: piso */
 
@@ -77,5 +77,5 @@
   --leading-body: 1.55;
   --tracking-display: -0.025em;
   --tracking-micro: 0.22em;
-  --tracking-nav: 0.14em;
+  --tracking-nav: 0.11em;
 }

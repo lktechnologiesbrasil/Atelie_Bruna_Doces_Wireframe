@@ -30,6 +30,19 @@ import ctaCelebracao from '../assets/provisional/provisional-cta-celebracao.webp
 import assinatura from '../assets/provisional/provisional-assinatura-bruna.png';
 import florLinha from '../assets/provisional/provisional-flor-linha.png';
 import logoLockup from '../assets/provisional/provisional-logo-lockup.png';
+import manifestoMaos from '../assets/provisional/provisional-media-manifesto-maos.webp';
+import manifestoBrigadeiros from '../assets/provisional/provisional-media-manifesto-brigadeiros.webp';
+import manifestoChocolate from '../assets/provisional/provisional-media-manifesto-chocolate.webp';
+import criacoesBolo from '../assets/provisional/provisional-media-criacoes-bolo.webp';
+import criacoesBrigadeiros from '../assets/provisional/provisional-media-criacoes-brigadeiros.webp';
+import criacoesFatia from '../assets/provisional/provisional-media-criacoes-fatia.webp';
+import criacoesCheesecake from '../assets/provisional/provisional-media-criacoes-cheesecake.webp';
+import jornadaCaderno from '../assets/provisional/provisional-media-jornada-caderno.webp';
+import jornadaMorango from '../assets/provisional/provisional-media-jornada-morango.webp';
+import jornadaMesa from '../assets/provisional/provisional-media-jornada-mesa.webp';
+import historiasFatia from '../assets/provisional/provisional-media-historias-fatia.webp';
+import bastidoresPeneira from '../assets/provisional/provisional-media-bastidores-peneira.webp';
+import bastidoresLaco from '../assets/provisional/provisional-media-bastidores-laco.webp';
 
 const claims = 'Feito à mão · Ingredientes reais · Histórias verdadeiras';
 
@@ -105,9 +118,9 @@ const quotes = [
           </p>
         </div>
         <div class="collage collage--manifesto">
-          <MediaFrame class="collage__a" subject="Mãos salpicando confeito sobre bolo de chocolate" />
-          <MediaFrame class="collage__b" subject="Brigadeiros em prato" />
-          <MediaFrame class="collage__c" subject="Chocolate e tigela de cacau" />
+          <MediaFrame class="collage__a" subject="Mãos salpicando confeito sobre bolo de chocolate" src={manifestoMaos} alt="Mãos salpicando confeito sobre um bolo de chocolate" />
+          <MediaFrame class="collage__b" subject="Brigadeiros em prato" src={manifestoBrigadeiros} alt="Brigadeiros variados em um prato de cerâmica" />
+          <MediaFrame class="collage__c" subject="Chocolate e tigela de cacau" src={manifestoChocolate} alt="Pedaços de chocolate e uma tigela de cacau em pó" />
         </div>
       </div>
     </section>
@@ -165,10 +178,10 @@ const quotes = [
           <CtaButton class="split__cta" href={LINKS.criacoes} variant="btn2">Descubra as criações</CtaButton>
         </div>
         <div class="collage collage--criacoes">
-          <MediaFrame class="collage__a" subject="Bolo claro com morangos e pistache" />
-          <MediaFrame class="collage__b" subject="Brigadeiros variados" />
-          <MediaFrame class="collage__c" subject="Close da fatia" />
-          <MediaFrame class="collage__d" subject="Cheesecake com morangos e calda" />
+          <MediaFrame class="collage__a" subject="Bolo claro com morangos e pistache" src={criacoesBolo} alt="Bolo claro decorado com morangos e pistache" />
+          <MediaFrame class="collage__b" subject="Brigadeiros variados" src={criacoesBrigadeiros} alt="Brigadeiros de sabores variados" />
+          <MediaFrame class="collage__c" subject="Close da fatia" src={criacoesFatia} alt="Close de uma fatia de bolo com chantilly e pistache" />
+          <MediaFrame class="collage__d" subject="Cheesecake com morangos e calda" src={criacoesCheesecake} alt="Fatia de cheesecake com morangos e calda" />
         </div>
       </div>
     </section>
@@ -202,7 +215,7 @@ const quotes = [
                 <h3 class="step__title t3">Converse</h3>
                 <p class="t1">Conte sobre a ocasião, suas referências e o que você imagina.</p>
               </div>
-              <MediaFrame class="step__media" subject="Mãos esboçando bolos em caderno" />
+              <MediaFrame class="step__media" subject="Mãos esboçando bolos em caderno" src={jornadaCaderno} alt="Mãos esboçando bolos em um caderno, ao lado de um celular" />
             </li>
             <li class="step step--2">
               <div class="step__text">
@@ -210,7 +223,7 @@ const quotes = [
                 <h3 class="step__title t3">Criamos</h3>
                 <p class="t1">O Ateliê transforma essas ideias em sabores, acabamentos e detalhes pensados para você.</p>
               </div>
-              <MediaFrame class="step__media" subject="Mão colocando morango em bolo claro" />
+              <MediaFrame class="step__media" subject="Mão colocando morango em bolo claro" src={jornadaMorango} alt="Mão colocando um morango sobre um bolo claro" />
             </li>
             <li class="step step--3">
               <div class="step__text">
@@ -219,7 +232,7 @@ const quotes = [
                 <p class="t1">Tudo ganha forma para fazer parte de um momento que merece ser lembrado.</p>
               </div>
               <Image class="step__flower" src={florLinha} alt="" aria-hidden="true" widths={[148]} sizes="10vw" />
-              <MediaFrame class="step__media" subject="Bolo claro com frutas na mesa" />
+              <MediaFrame class="step__media" subject="Bolo claro com frutas na mesa" src={jornadaMesa} alt="Bolo claro com frutas sobre uma mesa posta" />
             </li>
           </ol>
         </div>
@@ -232,7 +245,7 @@ const quotes = [
       <div class="media2 media2--left" aria-hidden="true">
         <Image src={historiasMesa} alt="" widths={[780, 1200]} sizes="(max-width: 899px) 100vw, 54vw" />
       </div>
-      <MediaFrame class="historias__inset" subject="Fatia de bolo com morango" />
+      <MediaFrame class="historias__inset" subject="Fatia de bolo com morango" src={historiasFatia} alt="Fatia de bolo com morango em um prato" />
       <div class="container section__inner historias">
         <div class="historias__intro">
           <SectionEyebrow>Histórias reais</SectionEyebrow>
@@ -285,8 +298,8 @@ const quotes = [
         </div>
       </div>
       <div class="trio">
-        <MediaFrame class="trio__a" tone="dark" subject="Peneira polvilhando cacau sobre brigadeiros" />
-        <MediaFrame class="trio__b" tone="dark" subject="Mãos amarrando laço em caixa com a marca" />
+        <MediaFrame class="trio__a" tone="dark" subject="Peneira polvilhando cacau sobre brigadeiros" src={bastidoresPeneira} alt="Peneira polvilhando cacau sobre brigadeiros" />
+        <MediaFrame class="trio__b" tone="dark" subject="Mãos amarrando laço em caixa com a marca" src={bastidoresLaco} alt="Mãos amarrando um laço em uma caixa de presente" />
       </div>
     </section>
 

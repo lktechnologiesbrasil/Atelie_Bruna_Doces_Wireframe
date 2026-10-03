@@ -10,6 +10,7 @@
 }
 
 html {
+  overflow-x: clip; /* 100vw das colagens inclui a barra de rolagem */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
@@ -200,6 +201,20 @@ a {
 .btn2 svg,
 .btn3 svg {
   flex: none;
+}
+
+/* telas estreitas: o botão cede espaço em vez de estourar a largura */
+@media (max-width: 480px) {
+  .btn,
+  .btn2,
+  .btn3 {
+    max-width: 100%;
+    padding-inline: 1.6em;
+    gap: 0.8em;
+    white-space: normal;
+    text-align: center;
+    letter-spacing: 0.14em;
+  }
 }
 
 /* ---------- Movimento ---------- */

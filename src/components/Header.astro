@@ -5,7 +5,7 @@
  * - Sobre o Hero: transparente, texto claro, logo claro.
  * - Depois do Hero: superfície creme, texto escuro, logo escuro
  *   (`data-surface="solid"`, ligado por IntersectionObserver).
- * - Abaixo de 1100px: logo + CTA + botão de menu; o menu abre um painel
+ * - Abaixo de 1280px: logo + CTA + botão de menu; o menu abre um painel
  *   modal (Esc fecha, foco preso, resto da página `inert`, fecha ao navegar).
  *
  * Logo: recorte PROVISÓRIO da reference; o arquivo oficial substitui.
@@ -159,7 +159,7 @@ const pendingAttrs = (href: string) =>
     if ((event.target as HTMLElement).closest('a')) closeMenu({ restoreFocus: false });
   });
   // Ao voltar para o layout desktop, o menu não pode ficar aberto
-  window.matchMedia('(min-width: 1101px)').addEventListener('change', (e) => {
+  window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
     if (e.matches) closeMenu({ restoreFocus: false });
   });
 </script>
@@ -191,7 +191,7 @@ const pendingAttrs = (href: string) =>
     display: flex;
     align-items: center;
     height: 100%;
-    gap: clamp(20px, 2.6vw, 38px);
+    gap: clamp(14px, 1.6vw, 24px);
   }
 
   .site-header__logo {
@@ -221,7 +221,7 @@ const pendingAttrs = (href: string) =>
 
   .site-nav ul {
     display: flex;
-    gap: clamp(18px, 2vw, 30px);
+    gap: clamp(14px, 1.5vw, 22px);
   }
 
   .lnk {
@@ -251,7 +251,7 @@ const pendingAttrs = (href: string) =>
   .site-header__actions {
     display: flex;
     align-items: center;
-    gap: clamp(16px, 1.8vw, 26px);
+    gap: clamp(12px, 1.3vw, 20px);
     margin-left: auto;
   }
 
@@ -264,7 +264,7 @@ const pendingAttrs = (href: string) =>
 
   .site-header__cta {
     min-height: clamp(46px, 3.7vw, 54px);
-    padding-inline: 1.9em;
+    padding-inline: 1.6em;
     font-size: var(--text-nav);
     letter-spacing: 0.18em;
   }
@@ -345,7 +345,7 @@ const pendingAttrs = (href: string) =>
   }
 
   /* ---------- Compacto ---------- */
-  @media (max-width: 1100px) {
+  @media (max-width: 1279px) {
     .site-nav,
     .site-header__social,
     .site-header__sep {
