@@ -339,9 +339,13 @@ const pendingAttrs = (href: string) =>
     padding-block: 32px;
   }
 
+  .site-menu__nav ul li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
   .site-menu__nav ul a {
     display: block;
-    padding-block: 10px;
+    padding-block: 14px;
     font-family: var(--font-display);
     font-size: clamp(2rem, 8vw, 2.75rem);
     line-height: 1.1;
@@ -356,6 +360,11 @@ const pendingAttrs = (href: string) =>
     padding-block: 8px 40px;
     border-top: 1px solid var(--color-line);
     padding-top: 28px;
+  }
+
+  .site-menu__actions .btn {
+    width: 100%;
+    min-height: 60px;
   }
 
   :global(html.menu-open) {
@@ -375,7 +384,39 @@ const pendingAttrs = (href: string) =>
     }
   }
 
-  @media (max-width: 480px) {
+  /* telefone: logo um pouco menor e CTA compacto (sem seta) ao lado do menu */
+  @media (max-width: 479px) {
+    .site-header__bar {
+      gap: 10px;
+    }
+
+    .site-header__logo,
+    .site-header[data-surface='solid'] .site-header__logo {
+      width: clamp(120px, 34vw, 156px);
+      /* área de toque de 44px sem aumentar o logo */
+      padding-block: 8px;
+      box-sizing: content-box;
+    }
+
+    .site-header__cta {
+      min-height: 44px;
+      padding-inline: 14px;
+      gap: 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .site-header__cta :global(svg) {
+      display: none;
+    }
+
+    .site-header__menu-btn {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  @media (max-width: 379px) {
     .site-header__cta {
       display: none;
     }

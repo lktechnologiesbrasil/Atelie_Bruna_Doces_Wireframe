@@ -7,24 +7,34 @@
  * Etapa 4). Posição e tamanho vêm da classe passada pela seção.
  */
 import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 interface Props {
   /** O que a foto deve mostrar (direção fotográfica). */
   subject: string;
   src?: ImageMetadata;
+  /** Recorte alternativo até 899px (art direction). Mesmo alt. */
+  mobileSrc?: ImageMetadata;
   alt?: string;
   tone?: 'light' | 'dark';
   class?: string;
 }
 
-const { subject, src, alt = '', tone = 'light', class: className } = Astro.props;
+const { subject, src, mobileSrc, alt = '', tone = 'light', class: className } = Astro.props;
+const mobile = mobileSrc ? await getImage({ src: mobileSrc, format: 'webp' }) : null;
 ---
 
 <div class:list={['media', `media--${tone}`, className]} data-media-subject={subject}>
   {
     src ? (
-      <Image src={src} alt={alt} />
+      mobile ? (
+        <picture>
+          <source media="(max-width: 899px)" srcset={mobile.src} width={mobile.attributes.width} height={mobile.attributes.height} />
+          <Image src={src} alt={alt} />
+        </picture>
+      ) : (
+        <Image src={src} alt={alt} />
+      )
     ) : (
       <div class="media__placeholder" aria-hidden="true">
         <span>{subject}</span>
@@ -43,6 +53,10 @@ const { subject, src, alt = '', tone = 'light', class: className } = Astro.props
 
   .media--dark {
     border-color: rgb(255 250 245 / 0.85);
+  }
+
+  .media :global(picture) {
+    display: contents;
   }
 
   .media :global(img),

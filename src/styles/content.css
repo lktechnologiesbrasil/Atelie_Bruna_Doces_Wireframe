@@ -254,8 +254,8 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
   .split__tags {
     white-space: nowrap;
-    font-size: 0.72rem;
-    letter-spacing: 0.07em;
+    font-size: var(--text-micro);
+    letter-spacing: 0.06em;
   }
 }
 
@@ -274,6 +274,11 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
 .journey__line path {
   vector-effect: non-scaling-stroke;
+}
+
+/* traço vertical da jornada: só abaixo de 1200px (ver responsive.css) */
+.journey__line--m {
+  display: none;
 }
 
 .journey__steps {
@@ -429,14 +434,14 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 }
 
 .quote__who {
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  font-size: var(--text-micro);
+  letter-spacing: 0.05em;
   color: var(--color-text-body);
 }
 
 .quote__tag {
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  font-size: var(--text-micro);
+  letter-spacing: 0.05em;
 }
 
 /* ---------- 07 Bastidores ---------- */
@@ -548,7 +553,7 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 .footer__nav .lnk {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
+  min-height: 36px;
   font-size: 0.9375rem;
   text-decoration: none;
   color: var(--color-cacao-800);
@@ -598,219 +603,4 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
 
 .footer__bar .t3 {
   font-size: var(--text-micro);
-}
-
-/* =====================================================================
- * Tablet e mobile (< 900px): composição empilhada, sem posicionamento
- * absoluto em conteúdo. Layout mobile final = Etapa 5.
- * ===================================================================== */
-@media (max-width: 899px) {
-  .hero__inner {
-    padding-bottom: 86vw;
-  }
-
-  .hero__seal {
-    display: none;
-  }
-
-  .claims {
-    position: relative;
-    padding: 22px var(--layout-gutter) 0;
-    text-align: center;
-  }
-
-  .claims__arc {
-    display: none;
-  }
-
-  .claims__text {
-    position: static;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-    font-size: var(--text-micro);
-  }
-
-  .split--manifesto,
-  .split--criacoes,
-  .historias {
-    grid-template-columns: minmax(0, 1fr);
-    padding-top: 12vw;
-    padding-bottom: 12vw;
-  }
-
-  .split--manifesto .split__text,
-  .split--criacoes .split__text {
-    padding-top: 0;
-  }
-
-  .split--bruna,
-  .split--bastidores,
-  .split--cta {
-    padding-top: 12vw;
-    padding-bottom: 12vw;
-  }
-
-  .split--bruna .split__text,
-  .split--bastidores .split__text {
-    max-width: none;
-  }
-
-  .split--bruna {
-    padding-bottom: 8vw;
-  }
-
-  .collage,
-  .journey {
-    margin-right: 0;
-    margin-top: 36px;
-  }
-
-  main .h2 {
-    font-size: clamp(2.5rem, 11vw, 4rem);
-  }
-
-  .h2.h2--cta {
-    font-size: clamp(3.5rem, 22vw, 6.5rem);
-    line-height: 0.8;
-  }
-
-  /* histórias */
-  .historias__inset {
-    display: none;
-  }
-
-  .historias__intro,
-  .quotes {
-    grid-column: 1;
-  }
-
-  .quotes {
-    grid-template-columns: minmax(0, 1fr);
-    margin-right: 0;
-  }
-
-  .quote--2 { margin-top: 0; }
-  .quote--3 { margin-left: 0; }
-
-  .trio {
-    position: relative;
-    inset: auto;
-    height: auto;
-    margin: 0 var(--layout-gutter) 12vw;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-    .trio > .media {
-    aspect-ratio: 4 / 3;
-  }
-
-  .cta-actions {
-    width: 100%;
-  }
-
-  .split--bastidores .split__body {
-    max-width: 28em;
-  }
-
-  .footer {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-
-  .footer__brand {
-    grid-column: 1 / -1;
-    padding: 0 0 28px;
-    border-right: 0;
-    border-bottom: 1px solid var(--color-line);
-  }
-
-  .footer__col {
-    padding-left: 0;
-  }
-}
-
-/* =====================================================================
- * Jornada de Encomendas: composição em zigue-zague só a partir de 1200px.
- * Abaixo disso o texto não escala com a composição: 3 colunas (>= 700px)
- * ou lista vertical, com cada passo como card.
- * ===================================================================== */
-@media (max-width: 1199px) {
-  .split--encomendas {
-    grid-template-columns: minmax(0, 1fr);
-    padding-top: 9vw;
-    padding-bottom: 8vw;
-  }
-
-  .split--encomendas .journey {
-    margin-bottom: 0;
-    margin-right: 0;
-    margin-top: clamp(32px, 5vw, 56px);
-    aspect-ratio: auto;
-  }
-
-  .journey__line {
-    display: none;
-  }
-
-  .journey__steps {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(20px, 3vw, 36px);
-  }
-
-  .step {
-    display: grid;
-    align-content: start;
-    gap: 16px;
-  }
-
-  .step .step__text,
-  .step .step__media,
-  .step .step__flower {
-    position: relative;
-    inset: auto;
-    left: auto;
-    top: auto;
-    width: auto;
-    height: auto;
-    padding: 0;
-    background: none;
-    z-index: auto;
-  }
-
-  .step .step__media {
-    aspect-ratio: 4 / 3;
-  }
-
-  .step .step__num,
-  .step .step__title {
-    margin-left: 0;
-  }
-
-  .step__num {
-    font-size: clamp(3.5rem, 8vw, 5.5rem);
-  }
-
-  .step .step__flower {
-    display: none;
-  }
-}
-
-@media (max-width: 699px) {
-  .journey__steps {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
-  }
-}
-
-@media (max-width: 560px) {
-  .footer {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .footer__bar {
-    flex-direction: column;
-  }
 }

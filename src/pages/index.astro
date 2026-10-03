@@ -26,6 +26,10 @@ import brunaRetrato from '../assets/provisional/provisional-bruna-retrato.webp';
 import criacoesBase from '../assets/provisional/provisional-criacoes-base.webp';
 import historiasMesa from '../assets/provisional/provisional-historias-mesa.webp';
 import bastidoresConfeitando from '../assets/provisional/provisional-bastidores-confeitando.webp';
+import manifestoMaosM from '../assets/provisional/provisional-media-manifesto-maos-m.webp';
+import criacoesBoloM from '../assets/provisional/provisional-media-criacoes-bolo-m.webp';
+import jornadaCadernoM from '../assets/provisional/provisional-media-jornada-caderno-m.webp';
+import jornadaMesaM from '../assets/provisional/provisional-media-jornada-mesa-m.webp';
 import heroBase from '../assets/provisional/provisional-hero-base.webp';
 import manifestoStrip from '../assets/provisional/provisional-manifesto-strip.webp';
 import criacoesStrip from '../assets/provisional/provisional-criacoes-strip.webp';
@@ -127,7 +131,7 @@ const quotes = [
           </p>
         </div>
         <div class="collage collage--manifesto">
-          <MediaFrame class="collage__a" subject="Mãos salpicando confeito sobre bolo de chocolate" src={manifestoMaos} alt="Mãos salpicando confeito sobre um bolo de chocolate" />
+          <MediaFrame class="collage__a" subject="Mãos salpicando confeito sobre bolo de chocolate" src={manifestoMaos} mobileSrc={manifestoMaosM} alt="Mãos salpicando confeito sobre um bolo de chocolate" />
           <MediaFrame class="collage__b" subject="Brigadeiros em prato" src={manifestoBrigadeiros} alt="Brigadeiros variados em um prato de cerâmica" />
           <MediaFrame class="collage__c" subject="Chocolate e tigela de cacau" src={manifestoChocolate} alt="Pedaços de chocolate e uma tigela de cacau em pó" />
         </div>
@@ -190,7 +194,7 @@ const quotes = [
           <CtaButton class="split__cta" href={LINKS.criacoes} variant="btn2">Descubra as criações</CtaButton>
         </div>
         <div class="collage collage--criacoes">
-          <MediaFrame class="collage__a" subject="Bolo claro com morangos e pistache" src={criacoesBolo} alt="Bolo claro decorado com morangos e pistache" />
+          <MediaFrame class="collage__a" subject="Bolo claro com morangos e pistache" src={criacoesBolo} mobileSrc={criacoesBoloM} alt="Bolo claro decorado com morangos e pistache" />
           <MediaFrame class="collage__b" subject="Brigadeiros variados" src={criacoesBrigadeiros} alt="Brigadeiros de sabores variados" />
           <MediaFrame class="collage__c" subject="Close da fatia" src={criacoesFatia} alt="Close de uma fatia de bolo com chantilly e pistache" />
           <MediaFrame class="collage__d" subject="Cheesecake com morangos e calda" src={criacoesCheesecake} alt="Fatia de cheesecake com morangos e calda" />
@@ -220,6 +224,10 @@ const quotes = [
           <svg class="journey__line" viewBox="0 0 899 883" preserveAspectRatio="none" aria-hidden="true" focusable="false">
             <path d="M282 96 C318 74 372 70 410 92 M500 262 C330 340 190 380 200 470 C206 530 330 520 352 470 M372 640 C430 600 520 600 590 590" />
           </svg>
+          <!-- traço vertical (tablet e mobile): mesma linha orgânica, adaptada à leitura em coluna -->
+          <svg class="journey__line journey__line--m" viewBox="0 0 390 1600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path d="M14 24 C14 250 378 210 378 580 C378 930 14 900 14 1260 C14 1500 370 1480 378 1596" />
+          </svg>
           <ol class="journey__steps" role="list">
             <li class="step step--1">
               <div class="step__text">
@@ -227,7 +235,7 @@ const quotes = [
                 <h3 class="step__title t3">Converse</h3>
                 <p class="t1">Conte sobre a ocasião, suas referências e o que você imagina.</p>
               </div>
-              <MediaFrame class="step__media" subject="Mãos esboçando bolos em caderno" src={jornadaCaderno} alt="Mãos esboçando bolos em um caderno, ao lado de um celular" />
+              <MediaFrame class="step__media" subject="Mãos esboçando bolos em caderno" src={jornadaCaderno} mobileSrc={jornadaCadernoM} alt="Mãos esboçando bolos em um caderno, ao lado de um celular" />
             </li>
             <li class="step step--2">
               <div class="step__text">
@@ -244,7 +252,7 @@ const quotes = [
                 <p class="t1">Tudo ganha forma para fazer parte de um momento que merece ser lembrado.</p>
               </div>
               <Image class="step__flower" src={florLinha} alt="" aria-hidden="true" widths={[148]} sizes="10vw" />
-              <MediaFrame class="step__media" subject="Bolo claro com frutas na mesa" src={jornadaMesa} alt="Bolo claro com frutas sobre uma mesa posta" />
+              <MediaFrame class="step__media" subject="Bolo claro com frutas na mesa" src={jornadaMesa} mobileSrc={jornadaMesaM} alt="Bolo claro com frutas sobre uma mesa posta" />
             </li>
           </ol>
         </div>

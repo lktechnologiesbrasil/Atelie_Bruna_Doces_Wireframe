@@ -55,6 +55,12 @@ const ASSETS = [
   { name: 'provisional-media-jornada-caderno', rect: { left: 953, top: 4281, width: 487, height: 409 } },
   { name: 'provisional-media-jornada-morango', rect: { left: 746, top: 4680, width: 262, height: 418 } },
   { name: 'provisional-media-jornada-mesa', rect: { left: 809, top: 4962, width: 631, height: 247 } },
+  // ---- Variantes MOBILE (tools/ Etapa 6A): mesmas fotos sem as molduras vizinhas da Master
+  //      que, no desktop, ficam cobertas por outras molduras HTML.
+  { name: 'provisional-media-manifesto-maos-m', rect: { left: 868, top: 1076, width: 549, height: 390 } },
+  { name: 'provisional-media-criacoes-bolo-m', rect: { left: 640, top: 3195, width: 751, height: 430 } },
+  { name: 'provisional-media-jornada-caderno-m', rect: { left: 1040, top: 4281, width: 400, height: 340 } },
+  { name: 'provisional-media-jornada-mesa-m', rect: { left: 1020, top: 4990, width: 420, height: 219 } },
   // 06 Histórias (inset)
   { name: 'provisional-media-historias-fatia', rect: { left: 0, top: 5819, width: 286, height: 355 } },
   // 07 Bastidores (trio)

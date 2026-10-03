@@ -84,6 +84,22 @@ try {
     // texto cortado
     r.clippedText = await ev(`(() => [...document.querySelectorAll('h1,h2,h3,p,a,span,li,figcaption')].filter(e => { const cs = getComputedStyle(e); return (cs.overflow === 'hidden' || cs.overflowX === 'hidden') && e.clientWidth > 2 && e.scrollWidth > e.clientWidth + 1 && !e.classList.contains('sr-only'); }).map(e => e.className.slice(0, 40)).slice(0, 6))()`);
 
+    // tipografia e toque: texto visível < 12px e alvos interativos < 44px (só na altura útil)
+    r.typography = await ev(`(() => {
+      const small = new Map(); let min = 99;
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const n = walker.currentNode; if (!n.textContent.trim()) continue;
+        const el = n.parentElement; if (!el || el.closest('svg, script, style, [hidden], .sr-only, .claims__text') ) continue;
+        const b = el.getBoundingClientRect(); if (b.width < 2 || b.height < 2) continue;
+        const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || cs.display === 'none') continue;
+        const fs = parseFloat(cs.fontSize); min = Math.min(min, fs);
+        if (fs < 11.95) small.set((el.className || el.tagName).toString().slice(0, 36), fs.toFixed(1));
+      }
+      const targets = [...document.querySelectorAll('a[href], button')].filter(e => { const b = e.getBoundingClientRect(); const cs = getComputedStyle(e); return b.width > 0 && cs.visibility !== 'hidden' && !e.closest('[hidden]') && !e.classList.contains('skip-link') && b.height < 43.5; }).map(e => (e.className || e.tagName).toString().slice(0, 30) + ' ' + Math.round(e.getBoundingClientRect().height));
+      return { minFontPx: min, below12: [...small].slice(0, 8), targetsBelow44: targets.slice(0, 8) };
+    })()`);
+
     // header
     r.header = await ev(`(async () => {
       const h = document.querySelector('.site-header'); const wait = (ms) => new Promise(r => setTimeout(r, ms));

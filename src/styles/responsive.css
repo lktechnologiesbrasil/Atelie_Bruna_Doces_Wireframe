@@ -1,0 +1,711 @@
+/*
+ * Adaptação tablet e mobile (Etapa 6A). Único lugar com media queries de layout
+ * (o header guarda as suas, junto do componente).
+ *
+ * Referência canônica = desktop 1440. Abaixo disso:
+ *   ≤ 1199px  tablet largo: claims em texto, jornada de Encomendas em coluna.
+ *   ≤  899px  tablet / mobile: leitura editorial em coluna, sem sobreposição
+ *             de colagem; Criações e Histórias viram trilhos com scroll-snap.
+ *   ≤  479px  telefone: ajustes finos de escala e toque.
+ *
+ * Padrão de ordem: `display: contents` em `.split__text` (e no container, quando a
+ * foto de fundo precisa entrar no meio do texto) deixa cada bloco participar do
+ * fluxo da seção e ser reordenado com `order`, sem duplicar marcação.
+ */
+
+/* ---------------------------------------------------------------------
+ * ≤ 1199px
+ * ------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  /* claims: o arco em SVG não escala bem; vira uma linha de texto centrada */
+  .claims {
+    padding: 22px var(--layout-gutter) 0;
+    text-align: center;
+  }
+
+  .claims__arc {
+    display: none;
+  }
+
+  .claims__text {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    font-size: var(--text-micro);
+  }
+
+  /* jornada: leitura em coluna, mídia alternando de lado, traço orgânico ao fundo */
+  .split--encomendas {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 9vw;
+    padding-bottom: 9vw;
+  }
+
+  .split--encomendas .split__text {
+    padding-top: 0;
+  }
+
+  .split--encomendas .journey {
+    margin: clamp(40px, 7vw, 72px) 0 0;
+    aspect-ratio: auto;
+  }
+
+  .journey__line:not(.journey__line--m) {
+    display: none;
+  }
+
+  .journey__line--m {
+    display: block;
+  }
+
+  .journey__steps {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(56px, 9vw, 96px);
+  }
+
+  .step {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+  }
+
+  .step .step__text,
+  .step .step__media,
+  .step .step__flower {
+    position: relative;
+    inset: auto;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: none;
+    z-index: auto;
+  }
+
+  .step .step__text {
+    max-width: 26em;
+  }
+
+  .step .step__num,
+  .step .step__title {
+    margin-left: 0;
+  }
+
+  .step .step__media {
+    aspect-ratio: 4 / 3;
+    width: min(100%, 520px);
+  }
+
+  .step--1 .step__media,
+  .step--3 .step__media {
+    margin-left: auto;
+  }
+
+  /* proporções nativas dos recortes: nada é ampliado além de ~1,15× */
+  .step--1 .step__media { aspect-ratio: 400 / 340; }
+  /* passo 02: a base do recorte traz texto gravado da Master; o corte por proporção a esconde */
+  .step--2 .step__media { aspect-ratio: 262 / 330; width: min(64%, 300px); }
+  .step--2 .step__media img { object-position: 50% 0; }
+  .step--3 .step__media { aspect-ratio: 420 / 219; }
+
+  .step__num {
+    font-size: clamp(5rem, 14vw, 8.5rem);
+  }
+
+  .step .step__flower {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(88px, 16vw, 148px);
+  }
+
+  .step--3 {
+    position: relative;
+  }
+
+  .journey__line {
+    opacity: 0.55;
+  }
+
+  .step__title {
+    font-size: var(--text-eyebrow);
+  }
+
+  .step .step__text .t1 {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
+
+  .split__tags {
+    white-space: normal;
+  }
+}
+
+/* ---------------------------------------------------------------------
+ * ≤ 899px: tablet retrato e mobile
+ * ------------------------------------------------------------------- */
+@media (max-width: 899px) {
+  :root {
+    --section-pad: clamp(64px, 15vw, 104px);
+    --text-body: clamp(1rem, 0.94rem + 0.3vw, 1.125rem); /* 16–18px */
+    --text-quote: clamp(1.1875rem, 1rem + 0.9vw, 1.375rem);
+    --rail-gap: 14px;
+    --rail-card: min(78vw, 360px);
+  }
+
+  .hero,
+  .section,
+  .section2,
+  .section3 {
+    --min-h: auto;
+  }
+
+  /* ----- tipografia: títulos grandes, uma só escala ----- */
+  main .h2 {
+    font-size: clamp(2.625rem, 11.6vw, 4.75rem);
+    line-height: 0.98;
+  }
+
+  main .h2.h2--cta {
+    font-size: clamp(4rem, 23vw, 8rem);
+    line-height: 0.74;
+  }
+
+  .h1 .line,
+  .h2 .line {
+    white-space: normal;
+  }
+
+  .split__body {
+    max-width: 32em;
+    margin-top: clamp(20px, 5vw, 32px);
+  }
+
+  .split__cta {
+    margin-top: clamp(24px, 6vw, 36px);
+  }
+
+  /* toque confortável: botões ocupam a largura útil até um limite */
+  .btn,
+  .btn2,
+  .btn3 {
+    max-width: 100%;
+    min-height: 56px;
+    padding-inline: 1.6em;
+    gap: 0.9em;
+    white-space: normal;
+    text-align: center;
+    letter-spacing: 0.16em;
+  }
+
+  .split__cta {
+    width: min(100%, 24rem);
+  }
+
+  /* ----- seções em coluna ----- */
+  .split--manifesto,
+  .split--bruna,
+  .split--criacoes,
+  .split--encomendas,
+  .split--bastidores,
+  .split--cta,
+  .historias {
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+  }
+
+  .split--manifesto .split__text,
+  .split--criacoes .split__text {
+    padding-top: 0;
+  }
+
+  .split__text {
+    max-width: none;
+  }
+
+  /* camadas decorativas saem: menos elementos simultâneos */
+  .hero__base,
+  .hero__seal,
+  .decor-base,
+  .decor-strip {
+    display: none;
+  }
+
+  /* ----- 01 Hero: marca → headline → foto → CTA ----- */
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__inner {
+    padding-top: calc(var(--header-h) + clamp(20px, 5vw, 40px));
+    padding-bottom: 0;
+  }
+
+  .hero__title,
+  .hero__title.h1 {
+    font-size: clamp(2.75rem, 12.4vw, 6.25rem);
+    line-height: 1.02;
+  }
+
+  .hero__lead {
+    max-width: 26em;
+    margin-top: clamp(18px, 4.6vw, 30px);
+  }
+
+  .hero__inner .btn {
+    margin-top: clamp(24px, 6vw, 36px);
+    width: min(100%, 24rem);
+  }
+
+  .hero__scrim {
+    display: none;
+  }
+
+  .hero__photo {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 0.95;
+    margin-top: clamp(-40px, -6vw, -20px);
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0, #000 26%),
+      linear-gradient(to right, transparent 0, #000 14%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to bottom, transparent 0, #000 26%),
+      linear-gradient(to right, transparent 0, #000 14%);
+    mask-composite: intersect;
+  }
+
+  .hero__photo img {
+    object-position: 62% 50%;
+  }
+
+  /* ----- fotos de fundo viram blocos verticais, fundidos ao texto ----- */
+  .media2,
+  .media2--right,
+  .media2--left,
+  .section--historias .media2,
+  .section2--bastidores .media2,
+  .section2--cta .media2 {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    clip-path: none;
+  }
+
+  /* ----- 02 Manifesto: sequência editorial (grande + par escalonado) ----- */
+  .collage {
+    margin: clamp(32px, 8vw, 56px) 0 0;
+  }
+
+  .collage--manifesto {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    aspect-ratio: auto;
+  }
+
+  .collage--manifesto > .media {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+  }
+
+  .collage--manifesto .collage__a {
+    grid-column: 1 / -1;
+    aspect-ratio: 549 / 390; /* variante mobile do recorte */
+    clip-path: none;
+  }
+
+  .collage--manifesto .collage__b {
+    aspect-ratio: 4 / 5;
+  }
+
+  .collage--manifesto .collage__c {
+    aspect-ratio: 4 / 5;
+    margin-top: clamp(20px, 6vw, 44px);
+  }
+
+  .split--manifesto {
+    padding-top: calc(var(--section-pad) + 18px);
+  }
+
+  /* ----- 03 Bruna: título → foto → texto → assinatura ----- */
+  .section--bruna {
+    display: flex;
+    flex-direction: column;
+    padding-block: var(--section-pad);
+  }
+
+  .section--bruna > .container,
+  .section--bruna .split__text {
+    display: contents;
+  }
+
+  .section--bruna .eyebrow,
+  .section--bruna .h2,
+  .section--bruna .split__body,
+  .section--bruna .signature {
+    margin-inline: var(--layout-gutter);
+  }
+
+  .section--bruna .media2 {
+    order: 3;
+    aspect-ratio: 4 / 5;
+    margin-top: clamp(28px, 7vw, 48px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent);
+    mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  }
+
+  .section--bruna .media2 img {
+    object-position: 50% 12%;
+  }
+
+  .section--bruna .split__body {
+    order: 4;
+    margin-top: 0;
+    max-width: 32em;
+  }
+
+  .section--bruna .signature {
+    order: 5;
+    margin-top: 28px;
+  }
+
+  .split--bruna {
+    padding: 0;
+  }
+
+  .signature__name {
+    width: min(64vw, 280px);
+  }
+
+  /* ----- 04 Criações: trilho horizontal com scroll-snap ----- */
+  .split--criacoes {
+    padding-bottom: var(--section-pad);
+  }
+
+  .split--criacoes .split__text {
+    display: contents;
+  }
+
+  .split--criacoes .collage {
+    order: 1;
+  }
+
+  .split--criacoes .split__cta {
+    order: 2;
+    align-self: flex-start;
+  }
+
+  .collage--criacoes {
+    display: flex;
+    gap: var(--rail-gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--layout-gutter));
+    padding-inline: var(--layout-gutter);
+    scroll-padding-inline: var(--layout-gutter);
+    aspect-ratio: auto;
+  }
+
+  .collage--criacoes::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collage--criacoes > .media {
+    position: relative;
+    inset: auto;
+    flex: 0 0 var(--rail-card);
+    width: var(--rail-card);
+    height: auto;
+    aspect-ratio: 4 / 5;
+    scroll-snap-align: start;
+    clip-path: none;
+  }
+
+  /* a foto do close tem só 156px de largura: ampliada ficaria borrada */
+  .collage--criacoes .collage__c {
+    display: none;
+  }
+
+  /* ----- 05 Encomendas: ver bloco ≤ 1199px ----- */
+  .split--encomendas {
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+  }
+
+  .step--1 .step__media { width: min(88%, 440px); }
+  .step--3 .step__media { width: 100%; }
+
+  /* ----- 06 Histórias: título → foto → depoimentos em trilho ----- */
+  .section--historias {
+    display: flex;
+    flex-direction: column;
+    padding-block: var(--section-pad);
+  }
+
+  .section--historias > .container,
+  .section--historias .historias,
+  .section--historias .historias__intro {
+    display: contents;
+  }
+
+  .section--historias .eyebrow,
+  .section--historias .h2,
+  .section--historias .split__body {
+    margin-inline: var(--layout-gutter);
+  }
+
+  /* o recorte desta foto traz o inset gravado na base: o corte por proporção o esconde */
+  .section--historias .media2 {
+    order: 3;
+    aspect-ratio: 780 / 495;
+    margin-top: clamp(28px, 7vw, 48px);
+  }
+
+  .section--historias .media2 img {
+    object-position: 50% 0;
+  }
+
+  .historias__inset {
+    display: none;
+  }
+
+  .section--historias .quotes {
+    order: 4;
+    grid-column: auto;
+    margin-top: 20px;
+    margin-right: 0;
+  }
+
+  .section--historias .split__body {
+    margin-top: clamp(20px, 5vw, 32px);
+  }
+
+  .quotes {
+    display: flex;
+    gap: var(--rail-gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: 0;
+    padding: 4px var(--layout-gutter) 8px;
+    scroll-padding-inline: var(--layout-gutter);
+  }
+
+  .quotes::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quote,
+  .quote--1,
+  .quote--2,
+  .quote--3 {
+    flex: 0 0 min(84vw, 380px);
+    margin: 0;
+    padding: 26px 24px 22px;
+    scroll-snap-align: start;
+    display: block;
+    --quote-scale: 1;
+  }
+
+  .quote--3 .quote__mark {
+    grid-row: auto;
+  }
+
+  .quote__text {
+    line-height: 1.42;
+  }
+
+  /* ----- 07 Bastidores: título → foto → texto → imagens empilhadas ----- */
+  .section2--bastidores {
+    display: flex;
+    flex-direction: column;
+    padding-block: var(--section-pad);
+  }
+
+  .section2--bastidores > .container,
+  .section2--bastidores .split__text {
+    display: contents;
+  }
+
+  .section2--bastidores .eyebrow,
+  .section2--bastidores .h2,
+  .section2--bastidores .split__body {
+    margin-inline: var(--layout-gutter);
+  }
+
+  .section2--bastidores .media2 {
+    order: 1;
+    aspect-ratio: 5 / 4;
+    margin-top: clamp(28px, 7vw, 48px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent);
+  }
+
+  .section2--bastidores .split__body {
+    order: 2;
+    margin-top: clamp(24px, 6vw, 36px);
+    max-width: 32em;
+  }
+
+  .trio {
+    position: relative;
+    inset: auto;
+    order: 3;
+    display: grid;
+    gap: 14px;
+    height: auto;
+    margin: clamp(28px, 7vw, 48px) var(--layout-gutter) 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trio > .media {
+    aspect-ratio: 4 / 3;
+    width: 88%;
+  }
+
+  .trio__b {
+    margin-left: auto;
+  }
+
+  /* ----- 08 CTA final: cena → título sobreposto → ações ----- */
+  .section2--cta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section2--cta .media2 {
+    aspect-ratio: 4 / 3;
+    -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent);
+    mask-image: linear-gradient(to bottom, #000 58%, transparent);
+  }
+
+  .split--cta {
+    position: relative;
+    z-index: 3;
+    margin-top: clamp(-96px, -16vw, -40px);
+    padding-top: 0;
+    padding-bottom: calc(var(--section-pad) + 8px);
+  }
+
+  .cta-actions {
+    width: 100%;
+    max-width: 26rem;
+    gap: 14px;
+  }
+
+  .cta-actions > a {
+    min-height: 60px;
+  }
+
+  /* ----- Footer: marca centrada, depois listas em coluna ----- */
+  .footer {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 32px;
+    row-gap: 32px;
+  }
+
+  .footer__brand {
+    padding: 0 0 32px;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .footer__col {
+    padding-left: 0;
+  }
+
+  .footer__nav ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+  }
+
+  .footer__nav .lnk {
+    min-height: 44px;
+    font-size: 1rem;
+  }
+
+  .footer__contact li {
+    min-height: 32px;
+    align-items: center;
+  }
+
+  .footer__contact .t1 {
+    font-size: 1rem;
+  }
+
+  .footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 22px;
+  }
+}
+
+/* tablet retrato: aproveita a largura sem esticar o texto */
+@media (min-width: 600px) and (max-width: 899px) {
+  :root {
+    --rail-card: min(42vw, 340px);
+  }
+
+  .hero__photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .collage--manifesto {
+    gap: 16px;
+  }
+
+  .quote,
+  .quote--1,
+  .quote--2,
+  .quote--3 {
+    flex-basis: min(52vw, 400px);
+  }
+
+  .footer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .footer__brand,
+  .footer__bar {
+    grid-column: 1 / -1;
+  }
+
+  .footer__nav ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------------------------------------------------------------------
+ * ≤ 479px: telefone
+ * ------------------------------------------------------------------- */
+@media (max-width: 479px) {
+  .btn,
+  .btn2,
+  .btn3 {
+    letter-spacing: 0.12em;
+  }
+
+  .step .step__flower {
+    width: 22vw;
+  }
+}
