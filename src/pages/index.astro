@@ -2,17 +2,23 @@
 /**
  * Homepage: Ateliê Doces Bruna V2.
  *
- * img-to-html · ETAPA 2 (camada de fundo). Aqui só existem as superfícies:
- * fundos, ondas, scrims e as fotos que funcionam como fundo de seção
- * (`hero` e `media2`). Header, textos, CTAs, molduras `media`, jornada,
- * depoimentos e footer completo entram na Etapa 3 e seguintes.
+ * img-to-html · ETAPA 3 (estrutura, componentes e tipografia) sobre a camada
+ * de fundo da Etapa 2. Regiões, classes e textos seguem
+ * design-systems/atelie-doces-bruna-v2/wireframe.txt.
  *
- * Regiões e classes seguem design-systems/atelie-doces-bruna-v2/wireframe.txt.
- * Todas as fotos são PROVISÓRIAS (recortes da reference; ver src/assets/provisional/).
+ * PROVISÓRIO até haver material real: fotos (recortes da reference), logo,
+ * assinatura, depoimentos (`data-provisional`) e dados de contato
+ * ([TELEFONE] etc., src/data/site.ts). Nada aqui é conteúdo factual.
  */
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Wave from '../components/Wave.astro';
+import Seal from '../components/Seal.astro';
+import SectionEyebrow from '../components/SectionEyebrow.astro';
+import CtaButton from '../components/CtaButton.astro';
+import MediaFrame from '../components/MediaFrame.astro';
+import Icon from '../components/Icon.astro';
+import { NAV, LINKS, CONTACT } from '../data/site';
 
 import heroBg from '../assets/provisional/provisional-hero-bg.webp';
 import manifestoBase from '../assets/provisional/provisional-manifesto-base.webp';
@@ -21,83 +27,330 @@ import criacoesBase from '../assets/provisional/provisional-criacoes-base.webp';
 import historiasMesa from '../assets/provisional/provisional-historias-mesa.webp';
 import bastidoresConfeitando from '../assets/provisional/provisional-bastidores-confeitando.webp';
 import ctaCelebracao from '../assets/provisional/provisional-cta-celebracao.webp';
+import assinatura from '../assets/provisional/provisional-assinatura-bruna.png';
+import florLinha from '../assets/provisional/provisional-flor-linha.png';
+import logoLockup from '../assets/provisional/provisional-logo-lockup.png';
+
+const claims = 'Feito à mão · Ingredientes reais · Histórias verdadeiras';
+
+/** Depoimentos PROVISÓRIOS ([PLACEHOLDER]): só entram em produção com relatos reais e autorizados. */
+const quotes = [
+  {
+    text: ['O bolo ficou ainda', 'mais lindo e delicioso', 'do que eu imaginava.', 'Fez toda a diferença', 'no nosso dia!'],
+    tag: 'Celebração especial',
+  },
+  {
+    text: ['Tudo perfeito,', 'desde o primeiro', 'atendimento até', 'o último detalhe.', 'Dá para sentir', 'o carinho em cada', 'etapa.'],
+    tag: 'Encomenda personalizada',
+  },
+  {
+    text: ['Foi exatamente como eu sonhava.', 'Além de delicioso, trouxe um toque', 'muito especial para a nossa celebração.'],
+    tag: 'Presente afetivo',
+  },
+];
 ---
 
-<BaseLayout title="Ateliê Doces Bruna">
-  <main>
+<BaseLayout
+  title="Ateliê Doces Bruna"
+  description="Ateliê Doces Bruna: confeitaria artesanal para momentos especiais."
+>
+  <main id="conteudo">
     <!-- 01 Hero -->
     <section class="hero" id="inicio" aria-label="Início">
       <div class="hero__photo" aria-hidden="true">
-        <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1200]} sizes="(max-width: 767px) 100vw, 56vw" />
+        <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1200]} sizes="(max-width: 899px) 100vw, 56vw" />
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
-      <div class="container section__inner"></div>
+      <div class="container hero__inner section__inner">
+        <h1 class="h1 hero__title">
+          <span class="line">Mais que doces,</span>
+          <span class="line h3">momentos</span>
+          <span class="line">inesquecíveis.</span>
+        </h1>
+        <p class="t1 hero__lead">
+          No Ateliê Doces Bruna, cada doce é feito à mão para transformar ocasiões em lembranças que ficam para sempre.
+        </p>
+        <CtaButton href="#bruna">Conheça nossa história</CtaButton>
+      </div>
+      <div class="hero__seal"><Seal /></div>
     </section>
 
     <!-- 02 Nossa Essência (A Marca) -->
     <section class="section section--manifesto" id="a-marca" aria-label="Nossa essência">
       <Wave shape="rise" line />
-      <div class="decor-base" aria-hidden="true">
-        <Image src={manifestoBase} alt="" widths={[650]} sizes="(max-width: 767px) 100vw, 45vw" />
+      <div class="claims" data-provisional="claims-nao-validados">
+        <p class="claims__text t3">{claims}</p>
+        <svg class="claims__arc" viewBox="0 0 1440 100" aria-hidden="true" focusable="false">
+          <defs>
+            <path id="claims-path" d="M426 22 C540 52 640 66 730 62 C830 58 930 44 1004 30" />
+          </defs>
+          <line class="claims__rule" x1="346" y1="18" x2="398" y2="12" />
+          <text class="claims__svgtext"><textPath href="#claims-path" startOffset="0">{claims.toUpperCase()}</textPath></text>
+          <line class="claims__rule" x1="1034" y1="20" x2="1090" y2="10" />
+        </svg>
       </div>
-      <div class="container section__inner"></div>
+      <div class="decor-base" aria-hidden="true">
+        <Image src={manifestoBase} alt="" widths={[650]} sizes="(max-width: 899px) 100vw, 45vw" />
+      </div>
+      <div class="container section__inner split split--manifesto">
+        <div class="split__text">
+          <SectionEyebrow>Nossa essência</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">Cada criação</span>
+            <span class="line">carrega afeto,</span>
+            <span class="line h3">cuidado e memória.</span>
+          </h2>
+          <p class="t1 split__body">
+            Acreditamos no poder dos detalhes, no sabor das boas lembranças e na magia que um doce pode despertar. Aqui, tradição e afeto se encontram em criações feitas com ingredientes reais, para tornar cada momento ainda mais especial.
+          </p>
+        </div>
+        <div class="collage collage--manifesto">
+          <MediaFrame class="collage__a" subject="Mãos salpicando confeito sobre bolo de chocolate" />
+          <MediaFrame class="collage__b" subject="Brigadeiros em prato" />
+          <MediaFrame class="collage__c" subject="Chocolate e tigela de cacau" />
+        </div>
+      </div>
     </section>
 
     <!-- 03 Bruna -->
     <section class="section section--bruna" id="bruna" aria-label="Sobre a Bruna">
       <Wave shape="swell" />
       <div class="media2 media2--right" aria-hidden="true">
-        <Image src={brunaRetrato} alt="" widths={[820, 1200]} sizes="(max-width: 767px) 100vw, 57vw" />
+        <Image src={brunaRetrato} alt="" widths={[820, 1200]} sizes="(max-width: 899px) 100vw, 57vw" />
       </div>
-      <div class="container section__inner"></div>
+      <div class="container section__inner split split--bruna">
+        <div class="split__text">
+          <SectionEyebrow>Sobre a Bruna</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">A delicadeza</span>
+            <span class="line">da marca</span>
+            <span class="line">começa em</span>
+            <span class="line h3">quem a criou.</span>
+          </h2>
+          <!-- [PLACEHOLDER] texto em 1ª pessoa: exige aprovação da Bruna -->
+          <div class="split__body split__body--stack" data-provisional="texto-primeira-pessoa">
+            <p class="t1">
+              Sou a Bruna, e cada doce que sai do ateliê carrega um pouco da minha história, do meu olhar atento aos detalhes e do carinho que coloco em tudo o que faço.
+            </p>
+            <p class="t1">
+              Acredito que a confeitaria vai além do sabor: ela tem o poder de aproximar, acolher e transformar momentos simples em lembranças inesquecíveis.
+            </p>
+          </div>
+          <div class="signature" data-provisional="assinatura">
+            <Image class="signature__name" src={assinatura} alt="Bruna" widths={[456]} sizes="(max-width: 899px) 70vw, 32vw" />
+            <Image class="signature__flower" src={florLinha} alt="" aria-hidden="true" widths={[148]} sizes="10vw" />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 04 Criações -->
     <section class="section section--criacoes" id="criacoes" aria-label="Nossas criações">
       <Wave shape="dip" />
       <div class="decor-base decor-base--narrow" aria-hidden="true">
-        <Image src={criacoesBase} alt="" widths={[555]} sizes="(max-width: 767px) 100vw, 39vw" />
+        <Image src={criacoesBase} alt="" widths={[555]} sizes="(max-width: 899px) 100vw, 39vw" />
       </div>
-      <div class="container section__inner"></div>
+      <div class="container section__inner split split--criacoes">
+        <div class="split__text">
+          <SectionEyebrow>Nossas criações</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">Criações que</span>
+            <span class="line">começam</span>
+            <span class="line h3">nos olhos e</span>
+            <span class="line h3">ficam na memória.</span>
+          </h2>
+          <p class="t1 split__body">
+            Bolos, doces e sobremesas artesanais, feitos com ingredientes selecionados, técnicas cuidadosas e muito afeto, para transformar cada ocasião em um momento especial.
+          </p>
+          <CtaButton class="split__cta" href={LINKS.criacoes} variant="btn2">Descubra as criações</CtaButton>
+        </div>
+        <div class="collage collage--criacoes">
+          <MediaFrame class="collage__a" subject="Bolo claro com morangos e pistache" />
+          <MediaFrame class="collage__b" subject="Brigadeiros variados" />
+          <MediaFrame class="collage__c" subject="Close da fatia" />
+          <MediaFrame class="collage__d" subject="Cheesecake com morangos e calda" />
+        </div>
+      </div>
     </section>
 
     <!-- 05 Encomendas -->
     <section class="section section--encomendas" id="encomendas" aria-label="Encomendas">
       <Wave shape="soft" />
-      <div class="container section__inner"></div>
+      <div class="container section__inner split split--encomendas">
+        <div class="split__text">
+          <SectionEyebrow>Encomendas</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">Cada celebração</span>
+            <span class="line">começa com</span>
+            <span class="line h3">uma ideia só sua.</span>
+          </h2>
+          <p class="t1 split__body">
+            Cada encomenda começa com uma conversa. Você conta o momento, suas referências e preferências. O Ateliê cuida dos sabores, acabamentos e detalhes para transformar tudo em uma criação especial.
+          </p>
+          <CtaButton class="split__cta" href={LINKS.whatsapp} icon="whatsapp">Começar uma encomenda</CtaButton>
+          <p class="t3 split__tags">Aniversários · Presentes · Celebrações · Momentos especiais</p>
+        </div>
+
+        <div class="journey">
+          <svg class="journey__line" viewBox="0 0 899 883" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path d="M282 96 C318 74 372 70 410 92 M500 262 C330 340 190 380 200 470 C206 530 330 520 352 470 M372 640 C430 600 520 600 590 590" />
+          </svg>
+          <ol class="journey__steps" role="list">
+            <li class="step step--1">
+              <div class="step__text">
+                <span class="step__num h3" aria-hidden="true">01</span>
+                <h3 class="step__title t3">Converse</h3>
+                <p class="t1">Conte sobre a ocasião, suas referências e o que você imagina.</p>
+              </div>
+              <MediaFrame class="step__media" subject="Mãos esboçando bolos em caderno" />
+            </li>
+            <li class="step step--2">
+              <div class="step__text">
+                <span class="step__num h3" aria-hidden="true">02</span>
+                <h3 class="step__title t3">Criamos</h3>
+                <p class="t1">O Ateliê transforma essas ideias em sabores, acabamentos e detalhes pensados para você.</p>
+              </div>
+              <MediaFrame class="step__media" subject="Mão colocando morango em bolo claro" />
+            </li>
+            <li class="step step--3">
+              <div class="step__text">
+                <span class="step__num h3" aria-hidden="true">03</span>
+                <h3 class="step__title t3">Celebre</h3>
+                <p class="t1">Tudo ganha forma para fazer parte de um momento que merece ser lembrado.</p>
+              </div>
+              <Image class="step__flower" src={florLinha} alt="" aria-hidden="true" widths={[148]} sizes="10vw" />
+              <MediaFrame class="step__media" subject="Bolo claro com frutas na mesa" />
+            </li>
+          </ol>
+        </div>
+      </div>
     </section>
 
     <!-- 06 Histórias Reais -->
     <section class="section section--historias" id="historias" aria-label="Histórias reais">
       <Wave shape="swell" />
       <div class="media2 media2--left" aria-hidden="true">
-        <Image src={historiasMesa} alt="" widths={[780, 1200]} sizes="(max-width: 767px) 100vw, 54vw" />
+        <Image src={historiasMesa} alt="" widths={[780, 1200]} sizes="(max-width: 899px) 100vw, 54vw" />
       </div>
-      <div class="container section__inner"></div>
+      <MediaFrame class="historias__inset" subject="Fatia de bolo com morango" />
+      <div class="container section__inner historias">
+        <div class="historias__intro">
+          <SectionEyebrow>Histórias reais</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">Quem viveu,</span>
+            <span class="line">lembra com</span>
+            <span class="line h3">doçura.</span>
+          </h2>
+          <p class="t1 split__body">
+            Mais do que bolos e doces, cada criação do Ateliê faz parte de histórias, encontros e celebrações que ficam na memória.
+          </p>
+        </div>
+        <!-- [PLACEHOLDER] depoimentos: não são relatos reais -->
+        <div class="quotes">
+          {quotes.map((q, i) => (
+            <figure class={`quote quote--${i + 1}`} data-provisional="depoimento">
+              <span class="quote__mark" aria-hidden="true">“</span>
+              <blockquote class="quote__text">
+                <p>{q.text.join(' ')}</p>
+              </blockquote>
+              <figcaption class="quote__by">
+                <span class="quote__rule" aria-hidden="true"></span>
+                <span class="t3 quote__who">Cliente Ateliê Doces Bruna</span>
+                <span class="t3 quote__tag">{q.tag}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
     </section>
 
     <!-- 07 Bastidores -->
     <section class="section2 section2--bastidores" id="bastidores" aria-label="Por trás de cada detalhe">
       <Wave shape="dark-rise" />
       <div class="media2 media2--right" aria-hidden="true">
-        <Image src={bastidoresConfeitando} alt="" widths={[760, 1200]} sizes="(max-width: 767px) 100vw, 53vw" />
+        <Image src={bastidoresConfeitando} alt="" widths={[760, 1200]} sizes="(max-width: 899px) 100vw, 53vw" />
       </div>
-      <div class="container section__inner"></div>
+      <div class="container section__inner split split--bastidores">
+        <div class="split__text">
+          <SectionEyebrow>Por trás de cada detalhe</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">O cuidado</span>
+            <span class="line">que transforma</span>
+            <span class="line h3">ingredientes</span>
+            <span class="line h3">em memórias.</span>
+          </h2>
+          <p class="t1 split__body">
+            Antes de cada entrega, existem escolhas, ajustes e muito cuidado. São mãos que preparam, decoram, conferem e embalam, com o mesmo carinho que faz parte de cada criação do Ateliê Doces Bruna.
+          </p>
+        </div>
+      </div>
+      <div class="trio">
+        <MediaFrame class="trio__a" tone="dark" subject="Peneira polvilhando cacau sobre brigadeiros" />
+        <MediaFrame class="trio__b" tone="dark" subject="Mãos amarrando laço em caixa com a marca" />
+      </div>
     </section>
 
     <!-- 08 CTA final (Contato) -->
     <section class="section2 section2--cta" id="contato" aria-label="Encomende">
       <Wave shape="dark-band" band line />
       <div class="media2 media2--right" aria-hidden="true">
-        <Image src={ctaCelebracao} alt="" widths={[780, 1200]} sizes="(max-width: 767px) 100vw, 54vw" />
+        <Image src={ctaCelebracao} alt="" widths={[780, 1200]} sizes="(max-width: 899px) 100vw, 54vw" />
       </div>
-      <div class="container section__inner"></div>
+      <div class="container section__inner split split--cta">
+        <div class="split__text">
+          <SectionEyebrow>Agora falta apenas</SectionEyebrow>
+          <h2 class="h2 h2--cta">
+            <span class="line h3 h3--light">o seu</span>
+            <span class="line h3">momento.</span>
+          </h2>
+          <p class="t1 split__body">
+            Conte o que você imagina. O Ateliê cuida dos detalhes para transformar sua celebração em algo feito para ser lembrado.
+          </p>
+          <div class="cta-actions">
+            <CtaButton href={LINKS.whatsapp} icon="whatsapp">Começar uma encomenda</CtaButton>
+            <CtaButton href={LINKS.instagram} variant="btn3" icon="instagram">Acompanhar no Instagram</CtaButton>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="section3">
     <Wave shape="footer" />
-    <div class="container section__inner"></div>
+    <div class="container section__inner footer">
+      <div class="footer__brand">
+        <Image class="footer__logo" src={logoLockup} alt="Ateliê Doces Bruna" widths={[220]} sizes="220px" />
+        <p class="t3 footer__tagline">Confeitaria artesanal<br />para momentos especiais</p>
+      </div>
+      <nav class="footer__col footer__nav" aria-label="Rodapé">
+        <h2 class="t3 footer__title">Navegação</h2>
+        <ul role="list">
+          {NAV.map((item) => <li><a class="lnk" href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h2 class="t3 footer__title">Contato</h2>
+        <ul role="list" class="footer__contact">
+          <li><Icon name="whatsapp" size={22} /><span class="t1">{CONTACT.phone}</span></li>
+          <li>
+            <Icon name="instagram" size={22} />
+            <span class="t1">{CONTACT.instagram}<small class="t2">Acompanhe no Instagram</small></span>
+          </li>
+          <li><Icon name="pin" size={22} /><span class="t1">{CONTACT.location}</span></li>
+          <li><Icon name="mail" size={22} /><span class="t1">{CONTACT.email}</span></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="t3 footer__title">Atendimento</h2>
+        <ul role="list" class="footer__contact">
+          <li><Icon name="clock" size={22} /><span class="t1">{CONTACT.hours}</span></li>
+        </ul>
+      </div>
+      <div class="footer__bar">
+        <p class="t2">© {CONTACT.year} Ateliê Doces Bruna. Todos os direitos reservados.</p>
+        <p class="t3">Feito com cuidado. Sempre.</p>
+      </div>
+    </div>
   </footer>
 </BaseLayout>

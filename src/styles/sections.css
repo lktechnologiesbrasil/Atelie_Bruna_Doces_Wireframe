@@ -4,9 +4,9 @@
  * Classes = ids do wireframe: .hero, .section (creme), .section2 (cacau),
  * .section3 (footer), .media2 (foto que forma o fundo da seção).
  *
- * `--scaffold-h` é ANDAIME DA ETAPA 2: reserva a altura aproximada de cada
- * seção (medida na reference em 1440px) enquanto não há conteúdo. Na Etapa 3
- * o conteúdo passa a definir a altura e o andaime sai.
+ * `--min-h` é a altura mínima de cada seção, proporcional à largura (medida na
+ * reference em 1440px). O conteúdo define a altura real; o mínimo só mantém o
+ * ritmo vertical da Master no desktop.
  */
 
 /* ---------- Base comum ---------- */
@@ -15,8 +15,9 @@
 .section2,
 .section3 {
   position: relative;
+  isolation: isolate; /* cada seção cobre o que a anterior deixa vazar */
   background: var(--section-bg);
-  min-height: var(--scaffold-h, auto);
+  min-height: var(--min-h, auto);
 }
 
 .section__inner {
@@ -36,7 +37,7 @@
 /* ---------- 01 Hero ---------- */
 .hero {
   --section-bg: var(--color-cacao-950);
-  --scaffold-h: 940px;
+  --min-h: min(65.3vw, 1180px);
   background:
     radial-gradient(120% 70% at 20% 0%, rgb(60 26 12 / 0.55), transparent 60%),
     var(--section-bg);
@@ -79,11 +80,11 @@
   --section-bg: var(--color-cream-100);
 }
 
-.section--manifesto { --scaffold-h: 1060px; }
-.section--bruna { --scaffold-h: 1010px; }
-.section--criacoes { --scaffold-h: 1150px; }
-.section--encomendas { --section-bg: var(--color-cream-200); --scaffold-h: 980px; }
-.section--historias { --scaffold-h: 1180px; }
+.section--manifesto { --min-h: min(73.6vw, 1330px); }
+.section--bruna { --min-h: min(70.1vw, 1260px); }
+.section--criacoes { --min-h: min(79.9vw, 1440px); }
+.section--encomendas { --section-bg: var(--color-cream-200); --min-h: min(68vw, 1230px); }
+.section--historias { --min-h: min(82vw, 1480px); }
 
 /* Fio caramelo sobre a crista da onda Hero → Manifesto */
 .section--manifesto { --wave-line: var(--color-caramel-500); --wave-line-w: 1px; }
@@ -144,7 +145,7 @@
   color: var(--color-text-light);
 }
 
-.section2--bastidores { --scaffold-h: 980px; }
+.section2--bastidores { --min-h: min(68vw, 1230px); }
 
 .section2--bastidores .media2 {
   bottom: auto;
@@ -162,7 +163,7 @@
 
 .section2--cta {
   --section-bg: var(--color-cacao-950);
-  --scaffold-h: 640px;
+  --min-h: min(44.4vw, 800px);
   --wave-line: var(--color-caramel-line);
   --wave-line-w: 2px;
   --wave-band: rgb(140 91 67 / 0.6);
@@ -186,19 +187,18 @@
 /* ---------- Footer ---------- */
 .section3 {
   --section-bg: var(--color-cream-100);
-  --scaffold-h: 425px;
+  --min-h: min(29.5vw, 540px);
 }
 
 /* ---------- Base responsiva (refino mobile nas etapas seguintes) ----------
  * Abaixo de 768px as fotos de fundo saem do posicionamento absoluto e
  * empilham no fluxo, com proporção própria. O andaime de altura encolhe.
  */
-@media (max-width: 767px) {
-  .hero { --scaffold-h: 640px; }
+@media (max-width: 899px) {
+  .hero,
   .section,
   .section2,
-  .section3 { --scaffold-h: 480px; }
-  .section3 { --scaffold-h: 360px; }
+  .section3 { --min-h: auto; }
 
   .hero__photo {
     top: auto;
