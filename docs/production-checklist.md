@@ -6,12 +6,12 @@
 
 ## 1. Dados reais (`src/data/site.ts`)
 
-Troque os tokens `[ENTRE COLCHETES]` pelo valor validado com a Bruna. A lista completa e viva está em `PENDING_ITEMS`.
+Estado atual (auditoria em `docs/content-audit.md`, pedido pronto em `docs/bruna-content-request.md`): **WhatsApp, Instagram, telefone, @handle e cidade já estão no site com valores públicos rastreáveis**, mas como `needs-confirmation` (continuam contando no `check:content`). Só e-mail, horário e destino de "Descubra as criações" são placeholders; o ano é calculado no build. Quando a Bruna confirmar, mude o item para resolvido removendo-o de `PENDING_ITEMS`. A lista completa e viva está em `PENDING_ITEMS`.
 
-- [ ] `LINKS.whatsapp`: link `wa.me` oficial (alimenta 5 CTAs e o header)
-- [ ] `LINKS.instagram` e `CONTACT.instagram`: perfil validado
+- [ ] `LINKS.whatsapp`: **confirmar** `wa.me/5535984235184` (alimenta 5 CTAs e o header)
+- [ ] `LINKS.instagram` e `CONTACT.instagram`: **confirmar** o perfil público
 - [ ] `LINKS.criacoes`: destino de "Descubra as criações" (ou remover o CTA)
-- [ ] `CONTACT.phone`, `.email`, `.location`, `.hours`, `.year` (o ano pode virar `new Date().getFullYear()`)
+- [ ] `CONTACT.phone` e `.location` (cidade): **confirmar**; `.email` e `.hours`: obter da Bruna (horários públicos se contradizem); `.year` já é calculado
 - [ ] `BUSINESS_HOURS` estruturado (para o JSON-LD)
 - [ ] `BRAND.tagline` e `CLAIMS` confirmados
 - [ ] `FOUNDER.paragraphs` aprovados em 1ª pessoa

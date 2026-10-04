@@ -6,7 +6,7 @@
 | `docs/wireframe/wireframe-pre-skill.txt` | **SUPERSEDED**: gerado antes de o workflow canônico `img-to-html`/`to-wireframe` estar disponível. Serve só para comparação |
 
 **Etapa 1 (wireframe + plano):** `APPROVED`.
-**Etapa atual:** 7 (performance, acessibilidade, SEO técnico e preparação de produção) executada, aguardando revisão. Pronto para receber conteúdo real; NÃO publicável (ver `docs/production-checklist.md`). QA em `docs/qa/etapa-2/` … `etapa-7/`.
+**Etapa atual:** 8 (auditoria de conteúdo real e assets) executada, aguardando revisão. Nenhum asset real verificado; contatos públicos integrados como "a confirmar". Ver `docs/content-audit.md` e `docs/bruna-content-request.md`. NÃO publicável (`docs/production-checklist.md`).
 
 ### Decisões do projeto sobre o `img-to-html` (aprovadas na Etapa 1)
 

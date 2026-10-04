@@ -1,0 +1,188 @@
+{
+  "390": {
+    "atFirstPaint": {
+      "ready": true,
+      "h1Opacity": "1"
+    },
+    "afterLoad": {
+      "ready": true,
+      "live": true,
+      "triggers": 1,
+      "masks": 3,
+      "cls": 0,
+      "h": 10187
+    },
+    "heroVisible": {
+      "h1": "1",
+      "lead": "1",
+      "btn": "1",
+      "photo": "1"
+    },
+    "afterSweep": {
+      "ready": true,
+      "live": true,
+      "triggers": 1,
+      "masks": 26,
+      "cls": 0,
+      "h": 10187
+    },
+    "audit": {
+      "bad": [],
+      "badCount": 0,
+      "dashOffset": [
+        0
+      ]
+    },
+    "resizedTo": 1440,
+    "afterResize": {
+      "ready": true,
+      "live": true,
+      "triggers": 21,
+      "masks": 26,
+      "cls": 0,
+      "h": 8470
+    },
+    "auditAfterResize": {
+      "bad": [],
+      "badCount": 0,
+      "dashOffset": [
+        0
+      ]
+    },
+    "afterResizeBack": {
+      "ready": true,
+      "live": true,
+      "triggers": 1,
+      "masks": 26,
+      "cls": 0.0015,
+      "h": 10187
+    },
+    "afterReload": {
+      "ready": true,
+      "live": true,
+      "triggers": 1,
+      "masks": 7,
+      "cls": 0,
+      "h": 10187
+    },
+    "consoleErrors": []
+  },
+  "1440": {
+    "atFirstPaint": {
+      "ready": true,
+      "h1Opacity": "1"
+    },
+    "afterLoad": {
+      "ready": true,
+      "live": true,
+      "triggers": 21,
+      "masks": 3,
+      "cls": 0.0017,
+      "h": 8470
+    },
+    "heroVisible": {
+      "h1": "1",
+      "lead": "1",
+      "btn": "1",
+      "photo": "1"
+    },
+    "afterSweep": {
+      "ready": true,
+      "live": true,
+      "triggers": 21,
+      "masks": 26,
+      "cls": 0.0043,
+      "h": 8470
+    },
+    "audit": {
+      "bad": [],
+      "badCount": 0,
+      "dashOffset": [
+        0
+      ]
+    },
+    "resizedTo": 390,
+    "afterResize": {
+      "ready": true,
+      "live": true,
+      "triggers": 1,
+      "masks": 26,
+      "cls": 0.0043,
+      "h": 10187
+    },
+    "auditAfterResize": {
+      "bad": [],
+      "badCount": 0,
+      "dashOffset": [
+        0
+      ]
+    },
+    "afterResizeBack": {
+      "ready": true,
+      "live": true,
+      "triggers": 21,
+      "masks": 26,
+      "cls": 0.0043,
+      "h": 8470
+    },
+    "afterReload": {
+      "ready": true,
+      "live": true,
+      "triggers": 21,
+      "masks": 7,
+      "cls": 0.0015,
+      "h": 8470
+    },
+    "consoleErrors": []
+  },
+  "reducedAtLoad": {
+    "state": {
+      "ready": false,
+      "live": false,
+      "triggers": null,
+      "masks": 3,
+      "cls": 0,
+      "h": 8470
+    },
+    "audit": {
+      "bad": [],
+      "badCount": 0,
+      "dashOffset": [
+        0
+      ]
+    }
+  },
+  "reducedToggled": {
+    "before": {
+      "ready": true,
+      "live": true,
+      "triggers": 21,
+      "masks": 3,
+      "cls": 0,
+      "h": 8470
+    },
+    "after": {
+      "ready": false,
+      "live": true,
+      "triggers": 0,
+      "masks": 3,
+      "cls": 0,
+      "h": 8470
+    },
+    "audit": {
+      "bad": [],
+      "badCount": 0,
+      "dashOffset": [
+        0
+      ]
+    },
+    "consoleErrors": []
+  },
+  "noJs": {
+    "ready": false,
+    "h1": "1",
+    "h2s": true,
+    "imgs": true,
+    "body": "1"
+  }
+}
