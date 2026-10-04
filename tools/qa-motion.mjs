@@ -49,7 +49,7 @@ try {
     document.querySelectorAll('.h1, main .h2').forEach((h, i) => { op(h, 'title#' + i); h.querySelectorAll('.line__in').forEach((l, j) => { const t = new DOMMatrix(getComputedStyle(l).transform).m42; if (Math.abs(t) > 1) bad.push('line#' + i + '.' + j + ' ty=' + t.toFixed(0)); }); });
     const sel = ['main .eyebrow', '.hero__lead', '.hero__inner .btn', 'main .split__body', 'main .split__cta', '.cta-actions > *', '.step__num', '.step__title', '.step__text .t1', '.hero__photo', 'main .quote'];
     sel.forEach((s) => document.querySelectorAll(s).forEach((el, i) => op(el, s + '#' + i)));
-    document.querySelectorAll('main .media img').forEach((img, i) => { const c = getComputedStyle(img).clipPath; if (c !== 'none' && /100%/.test(c)) bad.push('media#' + i + ' clip=' + c); });
+    document.querySelectorAll('main .media img').forEach((img, i) => { if (img.offsetParent === null) return; const c = getComputedStyle(img).clipPath; if (c !== 'none' && /100%/.test(c)) bad.push('media#' + i + ' clip=' + c); });
     const dash = [...document.querySelectorAll('.journey__line path')].filter((p) => getComputedStyle(p.ownerSVGElement).display !== 'none').map((p) => parseFloat(getComputedStyle(p).strokeDashoffset));
     return { bad: bad.slice(0, 8), badCount: bad.length, dashOffset: dash };
   })()`;

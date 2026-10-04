@@ -81,14 +81,14 @@ const quotes = [
         <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1200]} sizes="(max-width: 899px) 100vw, 56vw" />
       </div>
       <div class="hero__base" aria-hidden="true">
-        <Image src={heroBase} alt="" loading="eager" widths={[700]} sizes="49vw" />
+        <Image src={heroBase} alt="" widths={[700]} sizes="49vw" />
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="container hero__inner section__inner">
         <h1 class="h1 hero__title">
-          <span class="line">Mais que doces,</span>
-          <span class="line h3">momentos</span>
-          <span class="line">inesquecíveis.</span>
+          <span class="line"><span class="line__in">Mais que doces,</span></span>
+          <span class="line h3"><span class="line__in">momentos</span></span>
+          <span class="line"><span class="line__in">inesquecíveis.</span></span>
         </h1>
         <p class="t1 hero__lead">
           No Ateliê Doces Bruna, cada doce é feito à mão para transformar ocasiões em lembranças que ficam para sempre.
@@ -163,8 +163,7 @@ const quotes = [
             </p>
           </div>
           <div class="signature" data-provisional="assinatura">
-            <Image class="signature__name" src={assinatura} alt="Bruna" widths={[456]} sizes="(max-width: 899px) 70vw, 32vw" />
-            <Image class="signature__flower" src={florLinha} alt="" aria-hidden="true" widths={[148]} sizes="10vw" />
+            <Image class="signature__name" src={assinatura} alt="" widths={[456]} sizes="(max-width: 899px) 70vw, 32vw" />
           </div>
         </div>
       </div>

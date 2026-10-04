@@ -7,10 +7,13 @@
  * o mesmo script remove a classe e o conteúdo aparece como está.
  *
  *   hero.ts      entrada do Hero + escala cinematográfica da foto
- *   reveals.ts   títulos por linha, eyebrows, textos, fotos (clip-path), CTAs
+ *   reveals.ts   revelações de uma vez só (IntersectionObserver): títulos por linha, eyebrows, textos, fotos, CTAs
  *   journey.ts   linha orgânica desenhada pelo scroll + passos 01/02/03
  *   parallax.ts  profundidade pontual (só desktop)
  *   waves.ts     assentamento sutil das ondas (só desktop)
+ *
+ * ScrollTrigger só onde há scrub (escala do Hero, parallax, ondas, traço da jornada);
+ * as revelações pontuais usam IntersectionObserver para não criar dezenas de gatilhos.
  */
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -55,12 +58,13 @@ if (root.classList.contains('motion-ready')) {
       if (!motion) return;
 
       initHero(desktop);
-      initReveals(desktop);
+      const stopReveals = initReveals(desktop);
       initJourney();
       if (desktop) {
         initParallax();
         initWaves();
       }
+      return stopReveals; // desconecta os observadores quando o contexto é refeito
     },
   );
 
@@ -70,11 +74,12 @@ if (root.classList.contains('motion-ready')) {
     root.classList.remove('motion-ready');
     mm.revert();
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // as revelações pontuais nascem fora do contexto: pára as que ainda estejam em curso
+    gsap.killTweensOf(document.querySelectorAll(ANIMATED));
     gsap.set(ANIMATED, { clearProps: 'all' });
   });
 
-  // fontes e imagens mudam medidas: recalcula uma vez quando assentarem
-  const refresh = () => ScrollTrigger.refresh();
-  document.fonts?.ready.then(refresh);
-  window.addEventListener('load', refresh, { once: true });
+  // fontes e imagens mudam medidas: UM recálculo quando as duas coisas assentarem
+  const loaded = document.readyState === 'complete' ? Promise.resolve() : new Promise<void>((resolve) => window.addEventListener('load', () => resolve(), { once: true }));
+  Promise.all([document.fonts?.ready, loaded]).then(() => ScrollTrigger.refresh());
 }

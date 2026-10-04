@@ -1,6 +1,8 @@
 ---
-import '@fontsource-variable/playfair-display/wght.css';
-import '@fontsource-variable/playfair-display/wght-italic.css';
+// Playfair: só os pesos que aparecem (400 normal e itálico), subset latin (cobre todo o português).
+// Montserrat segue variável: 400 + 500 estáticos pesariam o mesmo que o arquivo único.
+import '@fontsource/playfair-display/latin-400.css';
+import '@fontsource/playfair-display/latin-400-italic.css';
 import '@fontsource-variable/montserrat/wght.css';
 import '../styles/global.css';
 import '../styles/content.css'; // depois do global: as classes de seção vencem as tags tipadas
@@ -45,7 +47,13 @@ const { title, description } = Astro.props;
     <Header />
     <slot />
     <script>
-      import '../scripts/motion/index.ts';
+      // O motion sobe com o navegador ocioso (a entrada do Hero é CSS e não depende dele): o
+      // download e a execução do GSAP não disputam a thread com a pintura do LCP.
+      if (document.documentElement.classList.contains('motion-ready')) {
+        const boot = () => import('../scripts/motion/index.ts');
+        if ('requestIdleCallback' in window) requestIdleCallback(boot, { timeout: 1200 });
+        else setTimeout(boot, 300);
+      }
     </script>
     <script is:inline>
       // Destinos ainda não definidos (src/data/site.ts): o clique não pode navegar para uma URL inválida.

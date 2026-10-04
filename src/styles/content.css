@@ -186,10 +186,6 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
   height: auto;
 }
 
-.signature__flower {
-  display: none;
-}
-
 /* ---------- 04 Criações ---------- */
 .split--criacoes {
   display: grid;

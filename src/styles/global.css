@@ -95,15 +95,6 @@ a {
   padding-inline: var(--layout-gutter);
 }
 
-/* Recuo do eixo esquerdo mesmo em telas largas; o lado direito sangra */
-.bleed-right {
-  padding-left: max(var(--layout-gutter), (100% - var(--layout-max)) / 2);
-}
-
-.bleed-left {
-  padding-right: max(var(--layout-gutter), (100% - var(--layout-max)) / 2);
-}
-
 /* ---------- Tipografia (tags tipadas do wireframe) ---------- */
 .h1,
 .h2 {

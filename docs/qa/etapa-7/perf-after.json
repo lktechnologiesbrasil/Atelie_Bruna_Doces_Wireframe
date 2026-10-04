@@ -1,0 +1,250 @@
+{
+  "desktop": {
+    "fcpMs": 348,
+    "lcpMs": 448,
+    "lcpElement": "IMG. provisional-hero-bg.ByuzkdYq_ZdNxD5.webp",
+    "clsAtLoad": 0.0017,
+    "clsAfterFullScroll": 0.0059,
+    "tbtMs": 0,
+    "longTasks": 0,
+    "longestTaskMs": 118,
+    "tasks": [
+      [
+        40,
+        118
+      ],
+      [
+        177,
+        64
+      ]
+    ],
+    "scriptMs": 241,
+    "taskMs": 1684,
+    "inpApproxMs": 32,
+    "events": [
+      [
+        "pointerover",
+        32
+      ],
+      [
+        "pointerenter",
+        32
+      ],
+      [
+        "pointerenter",
+        32
+      ],
+      [
+        "pointerenter",
+        32
+      ],
+      [
+        "pointerenter",
+        32
+      ],
+      [
+        "pointerenter",
+        32
+      ]
+    ],
+    "transferAtLoad": {
+      "bytes": 357809,
+      "requests": 15
+    },
+    "transferTotal": {
+      "bytes": 868853,
+      "requests": 36
+    },
+    "byType": {
+      "Document": {
+        "n": 1,
+        "bytes": 8872
+      },
+      "Stylesheet": {
+        "n": 1,
+        "bytes": 9362
+      },
+      "Image": {
+        "n": 29,
+        "bytes": 720552
+      },
+      "Script": {
+        "n": 2,
+        "bytes": 47411
+      },
+      "Font": {
+        "n": 3,
+        "bytes": 82656
+      }
+    },
+    "fonts": [
+      "montserrat-latin-wght-normal.l_AIctKy.woff2 38276",
+      "playfair-display-latin-400-normal.CFtfchNt.woff2 22176",
+      "playfair-display-latin-400-italic.LeeEXsx5.woff2 22204"
+    ],
+    "scripts": [
+      "BaseLayout.astro_astro_type_script_index_0_lang.BzyUUvHQ 1213",
+      "motion.DlkTqFo7.js 46198"
+    ],
+    "stylesheets": [
+      "index.BOCqukIj.css 9362"
+    ],
+    "images": [
+      "provisional-logo-wordmark-light.C_ydWNSk_Z1Cq2An.webp 11164",
+      "provisional-logo-wordmark-dark.CHO8wzTt_ZVaRYn.webp 9462",
+      "provisional-hero-bg.ByuzkdYq_ZdNxD5.webp 62192",
+      "provisional-hero-base.BmsEIeHm_27GWHI.webp 13456",
+      "provisional-selo-flor.Bg0Y-BdC_2unhLc.webp 5308",
+      "provisional-manifesto-strip.B6m1luwV_ZadO1R.webp 8732",
+      "provisional-manifesto-base.DMeQmB1F_ZWSdAo.webp 26602",
+      "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp 72592",
+      "provisional-media-manifesto-maos.CcijzFKf_2fkIkl.webp 28138",
+      "provisional-media-manifesto-chocolate.Cs-oV4kd_14ygsC.we 17792",
+      "provisional-assinatura-bruna.oYgqPYBH_Z1MYeq0.webp 19768",
+      "provisional-media-manifesto-brigadeiros.DbgQi8E0_3vkla.w 21784",
+      "provisional-criacoes-base.D5soESNT_Z1oQ24P.webp 21518",
+      "provisional-criacoes-strip.BFMMtd_z_Z2m7i4S.webp 7334",
+      "provisional-media-criacoes-bolo.Du8JBJrW_ZMIEuP.webp 53654",
+      "provisional-flor-linha.CBYFsUgY_1zec6O.webp 10022",
+      "provisional-media-criacoes-fatia.DBAXEL1Z_1SeuPN.webp 10764",
+      "provisional-media-criacoes-cheesecake.ByqkHoyS_ZVvhWp.we 18716",
+      "provisional-historias-mesa.mbfqWAeA_Z1HOfaW.webp 64230",
+      "provisional-media-criacoes-brigadeiros.B5ZzTWCz_G1UU6.we 24046",
+      "provisional-media-jornada-caderno.DDvmyKSC_22bO8n.webp 21938",
+      "provisional-media-jornada-morango.DJIOKPih_Z27NFQl.webp 14530",
+      "provisional-media-jornada-mesa.ajjoLmzV_Z1xdGI3.webp 19424",
+      "provisional-bastidores-confeitando.DUERD-gD_Z1IRXW2.webp 52890",
+      "provisional-media-historias-fatia.HSsIQYIc_Z1Y1uG0.webp 11484",
+      "provisional-cta-celebracao.CU2I-4xn_Z1s581V.webp 45198",
+      "provisional-logo-lockup.Ba3C-VAA_10NY75.webp 11284",
+      "provisional-media-bastidores-peneira.CYaN4Luw_13cvoW.web 19892",
+      "provisional-media-bastidores-laco.C4ZlGuO5_1XV6xo.webp 16638"
+    ],
+    "consoleErrors": [],
+    "wallMs": 11869
+  },
+  "mobile": {
+    "fcpMs": 1196,
+    "lcpMs": 1828,
+    "lcpElement": "IMG. provisional-hero-bg.ByuzkdYq_ZdNxD5.webp",
+    "clsAtLoad": 0,
+    "clsAfterFullScroll": 0,
+    "tbtMs": 410,
+    "longTasks": 3,
+    "longestTaskMs": 286,
+    "tasks": [
+      [
+        1476,
+        286
+      ],
+      [
+        1863,
+        224
+      ],
+      [
+        20684,
+        62
+      ]
+    ],
+    "scriptMs": 970,
+    "taskMs": 6652,
+    "inpApproxMs": 96,
+    "events": [
+      [
+        "pointerup",
+        96
+      ],
+      [
+        "mouseup",
+        96
+      ],
+      [
+        "click",
+        96
+      ],
+      [
+        "pointerout",
+        24
+      ],
+      [
+        "pointerleave",
+        24
+      ],
+      [
+        "pointerleave",
+        24
+      ]
+    ],
+    "transferAtLoad": {
+      "bytes": 293907,
+      "requests": 14
+    },
+    "transferTotal": {
+      "bytes": 800757,
+      "requests": 32
+    },
+    "byType": {
+      "Image": {
+        "n": 25,
+        "bytes": 652456
+      },
+      "Document": {
+        "n": 1,
+        "bytes": 8872
+      },
+      "Stylesheet": {
+        "n": 1,
+        "bytes": 9362
+      },
+      "Script": {
+        "n": 2,
+        "bytes": 47411
+      },
+      "Font": {
+        "n": 3,
+        "bytes": 82656
+      }
+    },
+    "fonts": [
+      "montserrat-latin-wght-normal.l_AIctKy.woff2 38276",
+      "playfair-display-latin-400-normal.CFtfchNt.woff2 22176",
+      "playfair-display-latin-400-italic.LeeEXsx5.woff2 22204"
+    ],
+    "scripts": [
+      "BaseLayout.astro_astro_type_script_index_0_lang.BzyUUvHQ 1213",
+      "motion.DlkTqFo7.js 46198"
+    ],
+    "stylesheets": [
+      "index.BOCqukIj.css 9362"
+    ],
+    "images": [
+      "provisional-media-manifesto-maos-m.DAxk446c_Z1zTxQF.webp 0",
+      "provisional-media-criacoes-bolo-m.Cec_vCY8_Z1lwipa.webp 45486",
+      "provisional-media-jornada-caderno-m.xV2iHhHI_Z1XLFaT.web 17302",
+      "provisional-media-jornada-mesa-m.DcCqN0CY_Z1Xoz4z.webp 0",
+      "provisional-logo-wordmark-light.C_ydWNSk_Z1Cq2An.webp 11164",
+      "provisional-logo-wordmark-dark.CHO8wzTt_ZVaRYn.webp 9462",
+      "provisional-hero-bg.ByuzkdYq_ZdNxD5.webp 62192",
+      "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp 72592",
+      "provisional-media-manifesto-maos-m.DAxk446c_Z1zTxQF.webp 20668",
+      "provisional-assinatura-bruna.oYgqPYBH_Z1MYeq0.webp 19768",
+      "provisional-media-manifesto-brigadeiros.DbgQi8E0_3vkla.w 21784",
+      "provisional-media-manifesto-chocolate.Cs-oV4kd_14ygsC.we 17792",
+      "provisional-media-criacoes-bolo-m.Cec_vCY8_Z1lwipa.webp 45486",
+      "provisional-media-criacoes-brigadeiros.B5ZzTWCz_G1UU6.we 24046",
+      "provisional-media-criacoes-cheesecake.ByqkHoyS_ZVvhWp.we 18716",
+      "provisional-flor-linha.CBYFsUgY_1zec6O.webp 10022",
+      "provisional-media-jornada-caderno-m.xV2iHhHI_Z1XLFaT.web 17302",
+      "provisional-historias-mesa.mbfqWAeA_Z1HOfaW.webp 64230",
+      "provisional-media-jornada-morango.DJIOKPih_Z27NFQl.webp 14530",
+      "provisional-media-jornada-mesa-m.DcCqN0CY_Z1Xoz4z.webp 14012",
+      "provisional-bastidores-confeitando.DUERD-gD_Z1IRXW2.webp 52890",
+      "provisional-cta-celebracao.CU2I-4xn_Z1s581V.webp 45198",
+      "provisional-logo-lockup.Ba3C-VAA_10NY75.webp 11284",
+      "provisional-media-bastidores-peneira.CYaN4Luw_13cvoW.web 19892",
+      "provisional-media-bastidores-laco.C4ZlGuO5_1XV6xo.webp 16638"
+    ],
+    "consoleErrors": [],
+    "wallMs": 21564
+  }
+}

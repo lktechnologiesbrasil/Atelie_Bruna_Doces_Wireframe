@@ -21,24 +21,77 @@
 }
 
 /* ---------- estados iniciais ---------- */
-html.motion-ready .h1:not(.is-split),
 html.motion-ready main .h2:not(.is-split) {
   opacity: 0;
 }
 
 html.motion-ready main .eyebrow,
-html.motion-ready .hero__lead,
-html.motion-ready .hero__inner .btn,
 html.motion-ready main .split__body,
 html.motion-ready main .split__cta,
 html.motion-ready .cta-actions > *,
-html.motion-ready .hero__photo,
-html.motion-ready .hero__seal,
 html.motion-ready .step__num,
 html.motion-ready .step__title,
 html.motion-ready .step__text .t1,
 html.motion-ready .step__flower {
   opacity: 0;
+}
+
+/* A foto do Hero é o elemento do LCP: a entrada é uma animação CSS (roda no primeiro paint,
+   sem esperar o download do JS). Sem a classe motion-ready não há animação. */
+@keyframes hero-photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+html.motion-ready .hero__photo {
+  animation: hero-photo-in 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Entrada do Hero inteira em CSS: nada aqui depende do JS (que sobe ocioso, depois da pintura) */
+@keyframes hero-line-in {
+  from {
+    transform: translateY(125%);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes hero-seal-in {
+  from {
+    opacity: 0;
+    transform: rotate(-8deg);
+  }
+}
+
+html.motion-ready .hero .line {
+  clip-path: inset(-0.14em -100vw -0.28em -0.2em);
+}
+
+html.motion-ready .hero .line__in {
+  animation: hero-line-in 1.15s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+html.motion-ready .hero .line:nth-child(1) .line__in { animation-delay: 0.25s; }
+html.motion-ready .hero .line:nth-child(2) .line__in { animation-delay: 0.38s; }
+html.motion-ready .hero .line:nth-child(3) .line__in { animation-delay: 0.51s; }
+
+html.motion-ready .hero__lead {
+  animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.85s both;
+}
+
+html.motion-ready .hero__inner .btn {
+  animation: hero-fade-up 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) 1.05s both;
+}
+
+html.motion-ready .hero__seal {
+  animation: hero-seal-in 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
 }
 
 html.motion-ready .eyebrow__line {
