@@ -12,7 +12,7 @@ const strict = process.argv.includes('--strict') || process.env.CONTENT_STRICT =
 const site = await import('../src/data/site.ts');
 const { ASSET_SLOTS } = await import('../src/data/images.ts').catch(() => ({ ASSET_SLOTS: [] }));
 
-const findings = { tokens: [], seo: [], html: [], assets: [], robots: [] };
+const findings = { tokens: [], confirm: [], seo: [], html: [], assets: [], robots: [] };
 
 // 1) tokens entre colchetes no contrato (CONTACT, LINKS, ...)
 const walk = (value, path) => {
@@ -21,6 +21,12 @@ const walk = (value, path) => {
   if (value && typeof value === 'object') Object.entries(value).forEach(([k, v]) => walk(v, `${path}.${k}`));
 };
 for (const key of ['CONTACT', 'LINKS']) walk(site[key], key);
+
+// 1b) valores REAIS com fonte, mas ainda não confirmados pela Bruna (PENDING_ITEMS.state = needs-confirmation).
+//     Continuam contando como pendência: real com fonte não é o mesmo que confirmado.
+for (const item of site.PENDING_ITEMS.filter((i) => i.state === 'needs-confirmation')) {
+  findings.confirm.push(`${item.where}: ${item.needs}  [fonte: ${item.source}]`);
+}
 
 // 2) SEO e dados estruturados
 const { SEO, STRUCTURED_DATA, BUSINESS_HOURS } = site;
@@ -39,7 +45,7 @@ if (existsSync(dist)) {
   const visible = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
   const tokens = [...new Set([...visible.matchAll(/\[[A-ZÀ-Ú][A-ZÀ-Ú_\- ]{2,}\]/g)].map((m) => m[0]))];
   if (tokens.length) findings.html.push(`tokens visíveis no HTML: ${tokens.join(' ')}`);
-  const pendingLinks = (html.match(/data-link-status="pending"/g) ?? []).length;
+  const pendingLinks = (visible.match(/<a[^>]*data-link-status="pending"/g) ?? []).length;
   if (pendingLinks) findings.html.push(`${pendingLinks} links ainda pendentes (data-link-status="pending")`);
   const provisional = (html.match(/data-provisional/g) ?? []).length;
   if (provisional) findings.html.push(`${provisional} blocos marcados data-provisional (depoimentos, texto/assinatura da Bruna, claims)`);
@@ -66,7 +72,8 @@ if (existsSync(robots) && /^\s*Disallow:\s*\/\s*$/m.test(readFileSync(robots, 'u
 
 // ---- relatório ----
 const sections = [
-  ['Placeholders em src/data/site.ts', findings.tokens],
+  ['Placeholders em src/data/site.ts (sem valor real)', findings.tokens],
+  ['Dados reais com fonte, AGUARDANDO confirmação da Bruna', findings.confirm],
   ['SEO / indexação', findings.seo],
   ['HTML gerado', findings.html],
   ['Assets provisórios', findings.assets],
@@ -79,7 +86,8 @@ for (const [title, items] of sections) {
   console.log(`${items.length ? '⚠' : '✓'} ${title}${items.length ? ` (${items.length})` : ''}`);
   items.forEach((item) => console.log(`    - ${item}`));
 }
-console.log(`\nPendências do contrato: ${site.PENDING_ITEMS.length} itens em PENDING_ITEMS (src/data/site.ts) e docs/production-checklist.md`);
+const byState = site.PENDING_ITEMS.reduce((acc, i) => ({ ...acc, [i.state]: (acc[i.state] ?? 0) + 1 }), {});
+console.log(`\nPENDING_ITEMS: ${site.PENDING_ITEMS.length} itens (${Object.entries(byState).map(([k, v]) => `${k}: ${v}`).join(', ')}); detalhes em docs/content-audit.md`);
 console.log(total ? `\n${total} pendência(s) detectada(s).` : '\nNenhuma pendência: pronto para o gate de lançamento.');
 if (strict && total) {
   console.error('\nSTRICT: lançamento bloqueado até zerar as pendências acima.');

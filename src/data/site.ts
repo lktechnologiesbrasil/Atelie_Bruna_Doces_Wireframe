@@ -3,9 +3,10 @@
  * Bruna mora aqui (marca, navegação, links, contato, horários, claims,
  * fundadora, depoimentos, SEO e dados estruturados).
  *
- * Convenção: um valor entre colchetes (`[TELEFONE]`) é um PLACEHOLDER visível,
- * nunca um dado fictício. Para lançar, troque o token pelo valor real e rode
- * `npm run check:content` (ver docs/production-checklist.md).
+ * Convenção: um valor entre colchetes (`[E-MAIL]`) é um PLACEHOLDER visível, nunca um
+ * dado fictício. Um valor real sem colchetes só entra com FONTE rastreável e fica
+ * marcado como `needs-confirmation` em PENDING_ITEMS até a Bruna confirmar
+ * (ver docs/content-audit.md). Rode `npm run check:content` para o relatório.
  *
  * Referências: docs/consistency-review.md e docs/master-reference/README.md.
  */
@@ -39,10 +40,10 @@ export const NAV = [
 // Destinos externos (todos pendentes)
 // ---------------------------------------------------------------------------
 export const LINKS = {
-  /** Link de conversa oficial da Bruna (wa.me). Número não validado. */
-  whatsapp: '[WHATSAPP_URL_PLACEHOLDER]',
-  /** Perfil @ateliedocesbruna. URL a validar antes da produção. */
-  instagram: '[INSTAGRAM_URL_A_VALIDAR]',
+  /** wa.me do Linktree público da marca (observado 2026-09-26). A CONFIRMAR com a Bruna. */
+  whatsapp: 'https://wa.me/5535984235184',
+  /** Perfil público da marca (observado 2026-09-26). A CONFIRMAR com a Bruna. */
+  instagram: 'https://www.instagram.com/ateliedocesbruna/',
   /** Não existe catálogo interno definido. */
   criacoes: '[DESTINO A VALIDAR]',
 } as const;
@@ -51,13 +52,25 @@ export const LINKS = {
 // Contato e atendimento (texto exibido no footer)
 // ---------------------------------------------------------------------------
 export const CONTACT = {
-  phone: '[TELEFONE]',
-  instagram: '[INSTAGRAM]',
-  location: '[LOCALIZAÇÃO]',
+  /** Ficha do Google e Linktree convergem (observado 2026-09-26). A CONFIRMAR formato/uso. */
+  phone: '(35) 98423-5184',
+  /** Handle observado no perfil público. A CONFIRMAR. */
+  instagram: '@ateliedocesbruna',
+  /** Só a cidade (Instagram, Google e Yooga concordam). Endereço completo A CONFIRMAR: ver docs/content-audit.md. */
+  location: 'Itapeva, MG',
+  /** Nenhum e-mail real conhecido. */
   email: '[E-MAIL]',
+  /** Horários divergem entre Google, Instagram e Yooga: NÃO escolher sem a Bruna. */
   hours: '[HORÁRIO]',
-  year: '[ANO]',
+  /** Calculado no build: não depende de validação. */
+  year: String(new Date().getFullYear()),
 } as const;
+
+/** Atributos de link: externos abrem em nova aba sem vazar a origem; pendentes ficam desabilitados. */
+export const linkAttrs = (href: string): Record<string, string> => {
+  if (isPending(href)) return { 'data-link-status': 'pending', 'aria-disabled': 'true', rel: 'nofollow' };
+  return /^https?:\/\//.test(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+};
 
 /**
  * Horário em formato estruturado, para os dados estruturados (schema.org
@@ -141,31 +154,36 @@ export const STRUCTURED_DATA = {
 // ---------------------------------------------------------------------------
 // Registro do que falta (usado por `npm run check:content` e docs/production-checklist.md)
 // ---------------------------------------------------------------------------
+export type ContentState = 'placeholder' | 'needs-confirmation' | 'missing';
+
 export interface PendingItem {
   id: string;
   kind: 'dado' | 'link' | 'copy' | 'asset' | 'seo';
+  /** `needs-confirmation` = valor real com fonte, mas ainda não confirmado pela Bruna. */
+  state: ContentState;
   where: string;
   needs: string;
+  /** Fonte do valor real (só quando state = needs-confirmation). */
+  source?: string;
 }
 
 export const PENDING_ITEMS: PendingItem[] = [
-  { id: 'whatsapp', kind: 'link', where: 'LINKS.whatsapp', needs: 'Link wa.me oficial (CTAs do Hero, Encomendas, CTA final e header)' },
-  { id: 'instagram-url', kind: 'link', where: 'LINKS.instagram', needs: 'URL do perfil @ateliedocesbruna' },
-  { id: 'criacoes-destino', kind: 'link', where: 'LINKS.criacoes', needs: 'Destino de "Descubra as criações" (catálogo/página) ou remover o CTA' },
-  { id: 'telefone', kind: 'dado', where: 'CONTACT.phone', needs: 'Telefone/WhatsApp de atendimento' },
-  { id: 'instagram-handle', kind: 'dado', where: 'CONTACT.instagram', needs: '@ validado' },
-  { id: 'localizacao', kind: 'dado', where: 'CONTACT.location', needs: 'Endereço ou região atendida (e decidir se aparece)' },
-  { id: 'email', kind: 'dado', where: 'CONTACT.email', needs: 'E-mail de contato' },
-  { id: 'horario', kind: 'dado', where: 'CONTACT.hours / BUSINESS_HOURS', needs: 'Horário de atendimento (texto e estruturado)' },
-  { id: 'ano', kind: 'dado', where: 'CONTACT.year', needs: 'Ano do copyright (pode ser calculado no build)' },
-  { id: 'tagline', kind: 'copy', where: 'BRAND.tagline', needs: 'Confirmar a tagline do footer' },
-  { id: 'claims', kind: 'copy', where: 'CLAIMS', needs: 'Validar "feito à mão · ingredientes reais · histórias verdadeiras"' },
-  { id: 'founder-text', kind: 'copy', where: 'FOUNDER.paragraphs', needs: 'Texto em 1ª pessoa aprovado pela Bruna' },
-  { id: 'testimonials', kind: 'copy', where: 'TESTIMONIALS', needs: 'Depoimentos reais e autorizados' },
-  { id: 'seo-description', kind: 'seo', where: 'SEO.description', needs: 'Descrição aprovada (≈155 caracteres)' },
-  { id: 'seo-url', kind: 'seo', where: 'SEO.siteUrl / env SITE_URL', needs: 'URL final (canonical, og:url, sitemap)' },
-  { id: 'seo-og', kind: 'seo', where: 'SEO.ogImage', needs: 'Imagem social oficial 1200×630' },
-  { id: 'favicon', kind: 'asset', where: 'SEO.favicon', needs: 'Favicon oficial' },
-  { id: 'indexing', kind: 'seo', where: 'SEO.allowIndexing + public/robots.txt', needs: 'Ligar a indexação só no lançamento' },
-  { id: 'structured-data', kind: 'seo', where: 'STRUCTURED_DATA.enabled', needs: 'Ligar com dados reais (src/lib/structured-data.ts)' },
+  { id: 'whatsapp', kind: 'link', state: 'needs-confirmation', where: 'LINKS.whatsapp', needs: 'Bruna confirmar que este é o WhatsApp oficial (CTAs do Hero, Encomendas, CTA final e header)', source: 'Linktree público linktr.ee/ateliedocesbruna (2026-09-26); mesmo número da ficha do Google' },
+  { id: 'instagram-url', kind: 'link', state: 'needs-confirmation', where: 'LINKS.instagram', needs: 'Confirmar o perfil oficial', source: 'instagram.com/ateliedocesbruna (observado 2026-09-26)' },
+  { id: 'criacoes-destino', kind: 'link', state: 'placeholder', where: 'LINKS.criacoes', needs: 'DECISÃO: "Descubra as criações" abre o cardápio Yooga (público), um catálogo próprio ou some' },
+  { id: 'telefone', kind: 'dado', state: 'needs-confirmation', where: 'CONTACT.phone', needs: 'Confirmar o número e se é também o WhatsApp', source: 'Ficha do Google e Linktree (2026-09-26)' },
+  { id: 'instagram-handle', kind: 'dado', state: 'needs-confirmation', where: 'CONTACT.instagram', needs: 'Confirmar o @', source: 'Perfil público (2026-09-26)' },
+  { id: 'localizacao', kind: 'dado', state: 'needs-confirmation', where: 'CONTACT.location', needs: 'Confirmar cidade e endereço completo (Google: Al. dos Ipês, Itapeva-MG, 37655-000; completo a confirmar) e se o endereço aparece', source: 'Instagram, Google e Yooga: Itapeva/MG (2026-09-26)' },
+  { id: 'email', kind: 'dado', state: 'missing', where: 'CONTACT.email', needs: 'E-mail de contato (nenhum real conhecido; o "atendimento@ateliedocesbruna.com" dos concepts é fictício)' },
+  { id: 'horario', kind: 'dado', state: 'placeholder', where: 'CONTACT.hours / BUSINESS_HOURS', needs: 'Horário de atendimento: Google, Instagram e Yooga divergem; só a Bruna resolve (texto e estruturado)' },
+  { id: 'tagline', kind: 'copy', state: 'placeholder', where: 'BRAND.tagline', needs: 'Confirmar a tagline do footer (concept) ou adotar uma frase real da marca: bio "Doces incríveis para transformar o seu dia!"' },
+  { id: 'claims', kind: 'copy', state: 'placeholder', where: 'CLAIMS', needs: 'Validar "feito à mão · ingredientes reais · histórias verdadeiras" ("histórias verdadeiras" depende de depoimentos reais)' },
+  { id: 'founder-text', kind: 'copy', state: 'placeholder', where: 'FOUNDER.paragraphs', needs: 'Texto em 1ª pessoa aprovado pela Bruna' },
+  { id: 'testimonials', kind: 'copy', state: 'missing', where: 'TESTIMONIALS', needs: 'Depoimentos reais e autorizados (nenhum recebido)' },
+  { id: 'seo-description', kind: 'seo', state: 'missing', where: 'SEO.description', needs: 'Descrição aprovada (≈155 caracteres)' },
+  { id: 'seo-url', kind: 'seo', state: 'missing', where: 'SEO.siteUrl / env SITE_URL', needs: 'URL/domínio final (canonical, og:url, sitemap)' },
+  { id: 'seo-og', kind: 'seo', state: 'missing', where: 'SEO.ogImage', needs: 'Imagem social oficial 1200×630 (precisa de foto/logo real)' },
+  { id: 'favicon', kind: 'asset', state: 'missing', where: 'SEO.favicon', needs: 'Favicon oficial (a partir da logo/ícone floral)' },
+  { id: 'indexing', kind: 'seo', state: 'placeholder', where: 'SEO.allowIndexing + public/robots.txt', needs: 'Ligar a indexação só no lançamento' },
+  { id: 'structured-data', kind: 'seo', state: 'placeholder', where: 'STRUCTURED_DATA.enabled', needs: 'Ligar com endereço estruturado, horário e URL reais (src/lib/structured-data.ts)' },
 ];

@@ -12,13 +12,12 @@
  */
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
-import { NAV, LINKS, isPending } from '../data/site';
+import { NAV, LINKS, linkAttrs } from '../data/site';
 import { IMAGES } from '../data/images';
 
 const { logoWordmarkLight: logoLight, logoWordmarkDark: logoDark } = IMAGES;
 
-const pendingAttrs = (href: string) =>
-  isPending(href) ? { 'data-link-status': 'pending', 'aria-disabled': 'true', rel: 'nofollow' } : {};
+const pendingAttrs = linkAttrs;
 ---
 
 <header class="site-header" data-surface="clear">

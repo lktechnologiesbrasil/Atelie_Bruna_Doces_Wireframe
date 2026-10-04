@@ -7,7 +7,7 @@
  * ficam marcados com data-link-status="pending" e não são indexáveis.
  */
 import Icon from './Icon.astro';
-import { isPending } from '../data/site';
+import { linkAttrs } from '../data/site';
 
 interface Props {
   href: string;
@@ -17,15 +17,12 @@ interface Props {
 }
 
 const { href, variant = 'btn', icon, class: className } = Astro.props;
-const pending = isPending(href);
 ---
 
 <a
   class:list={[variant, className]}
   href={href}
-  data-link-status={pending ? 'pending' : undefined}
-  aria-disabled={pending ? 'true' : undefined}
-  rel={pending ? 'nofollow' : undefined}
+  {...linkAttrs(href)}
 >
   {icon && <Icon name={icon} size={22} />}
   <span><slot /></span>
