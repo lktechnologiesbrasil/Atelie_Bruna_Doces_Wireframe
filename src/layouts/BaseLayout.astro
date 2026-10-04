@@ -9,28 +9,41 @@ import '../styles/content.css'; // depois do global: as classes de seção vence
 import '../styles/responsive.css'; // toda a adaptação tablet/mobile num só lugar
 import '../styles/motion.css'; // estados iniciais do motion (só valem com html.motion-ready)
 import Header from '../components/Header.astro';
+import { BRAND, SEO, STRUCTURED_DATA } from '../data/site';
+import { resolveSeo } from '../lib/seo';
+import { buildStructuredData } from '../lib/structured-data';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  /** Caminho da página (canonical/og:url). */
+  path?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, path } = Astro.props;
+const seo = resolveSeo({ title, description, path, site: Astro.site });
+const jsonLd = STRUCTURED_DATA.enabled ? buildStructuredData(seo.siteUrl, seo.ogImage) : null;
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={BRAND.locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <!-- Wireframe com assets e textos provisórios: fora dos buscadores até haver conteúdo real -->
-    <meta name="robots" content="noindex, nofollow" />
-    <!-- sem favicon até haver a marca oficial (evita o 404 do navegador) -->
-    <link rel="icon" href="data:," />
-    <!-- Motion é aprimoramento progressivo: sem JS ou com movimento reduzido a classe nunca entra
-         e a página aparece completa. Se o módulo não subir em 3,5s, ela sai e tudo é mostrado. -->
+    <title>{seo.title}</title>
+    {seo.description && <meta name="description" content={seo.description} />}
+    {/* Enquanto houver assets/textos/dados provisórios a página fica fora dos buscadores
+         (SEO.allowIndexing em src/data/site.ts; robots.txt de staging em public/) */}
+    <meta name="robots" content={seo.robots} />
+    {seo.canonical && <link rel="canonical" href={seo.canonical} />}
+    <meta name="theme-color" content={SEO.themeColor} />
+    {/* sem favicon oficial o ícone é vazio (evita o 404 do navegador) */}
+    <link rel="icon" href={seo.favicon} />
+    {Object.entries(seo.og).map(([property, content]) => <meta property={property} content={content} />)}
+    {Object.entries(seo.twitter).map(([name, content]) => <meta name={name} content={content} />)}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {/* Motion é aprimoramento progressivo: sem JS ou com movimento reduzido a classe nunca entra
+         e a página aparece completa. Se o módulo não subir em 3,5s, ela sai e tudo é mostrado. */}
     <script is:inline>
       (function () {
         var root = document.documentElement;
@@ -54,6 +67,31 @@ const { title, description } = Astro.props;
         if ('requestIdleCallback' in window) requestIdleCallback(boot, { timeout: 1200 });
         else setTimeout(boot, 300);
       }
+    </script>
+    <script>
+      // Trilhos horizontais do mobile (scroll-snap): precisam ser alcançáveis pelo teclado e ter nome.
+      // No desktop não rolam, então não entram na ordem de foco.
+      const rails: Array<[string, string]> = [
+        ['.collage--criacoes', 'Fotos de criações: use as setas para ver as próximas'],
+        ['.quotes', 'Depoimentos: use as setas para ver os próximos'],
+      ];
+      const mq = window.matchMedia('(max-width: 899px)');
+      const applyRails = () =>
+        rails.forEach(([selector, label]) => {
+          const el = document.querySelector<HTMLElement>(selector);
+          if (!el) return;
+          if (mq.matches) {
+            el.tabIndex = 0;
+            el.setAttribute('role', 'group');
+            el.setAttribute('aria-label', label);
+          } else {
+            el.removeAttribute('tabindex');
+            el.removeAttribute('role');
+            el.removeAttribute('aria-label');
+          }
+        });
+      applyRails();
+      mq.addEventListener('change', applyRails);
     </script>
     <script is:inline>
       // Destinos ainda não definidos (src/data/site.ts): o clique não pode navegar para uma URL inválida.

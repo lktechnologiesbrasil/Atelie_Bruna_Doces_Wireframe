@@ -24,6 +24,7 @@ const pending = isPending(href);
   class:list={[variant, className]}
   href={href}
   data-link-status={pending ? 'pending' : undefined}
+  aria-disabled={pending ? 'true' : undefined}
   rel={pending ? 'nofollow' : undefined}
 >
   {icon && <Icon name={icon} size={22} />}

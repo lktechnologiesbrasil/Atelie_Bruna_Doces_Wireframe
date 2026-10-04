@@ -1,0 +1,327 @@
+{
+  "390": {
+    "doc": {
+      "lang": "pt-BR",
+      "title": "Ateliê Doces Bruna",
+      "robots": "noindex, nofollow",
+      "h1": 1,
+      "skipLink": true,
+      "skipTarget": true
+    },
+    "landmarks": [
+      "banner",
+      "nav \"Principal\"",
+      "nav \"Menu\"",
+      "nav \"Rodapé\"",
+      "main",
+      "contentinfo",
+      "dialog \"Menu\""
+    ],
+    "headings": [
+      "h1 Mais que doces, momentos inesquecí",
+      "h2 Cada criação carrega afeto, cuidad",
+      "h2 A delicadeza da marca começa em qu",
+      "h2 Criações que começam nos olhos e f",
+      "h2 Cada celebração começa com uma ide",
+      "h3 Converse",
+      "h3 Criamos",
+      "h3 Celebre",
+      "h2 Quem viveu, lembra com doçura.",
+      "h2 O cuidado que transforma ingredien",
+      "h2 o seu momento.",
+      "h2 Navegação",
+      "h2 Contato",
+      "h2 Atendimento"
+    ],
+    "headingJumps": [],
+    "images": {
+      "total": 30,
+      "noAlt": [],
+      "emptyAlt": 16
+    },
+    "names": [],
+    "dupIds": [],
+    "ariaControls": [],
+    "pending": [
+      {
+        "text": "Instagram",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "WhatsApp",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Encomendar",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Encomendar",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Instagram",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Descubra as criações",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Começar uma encomenda",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Começar uma encomenda",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Acompanhar no Instagram",
+        "ariaDisabled": "true"
+      }
+    ],
+    "contrast": {
+      "fail": [],
+      "overMedia": 4,
+      "checked": 78
+    }
+  },
+  "768": {
+    "doc": {
+      "lang": "pt-BR",
+      "title": "Ateliê Doces Bruna",
+      "robots": "noindex, nofollow",
+      "h1": 1,
+      "skipLink": true,
+      "skipTarget": true
+    },
+    "landmarks": [
+      "banner",
+      "nav \"Principal\"",
+      "nav \"Menu\"",
+      "nav \"Rodapé\"",
+      "main",
+      "contentinfo",
+      "dialog \"Menu\""
+    ],
+    "headings": [
+      "h1 Mais que doces, momentos inesquecí",
+      "h2 Cada criação carrega afeto, cuidad",
+      "h2 A delicadeza da marca começa em qu",
+      "h2 Criações que começam nos olhos e f",
+      "h2 Cada celebração começa com uma ide",
+      "h3 Converse",
+      "h3 Criamos",
+      "h3 Celebre",
+      "h2 Quem viveu, lembra com doçura.",
+      "h2 O cuidado que transforma ingredien",
+      "h2 o seu momento.",
+      "h2 Navegação",
+      "h2 Contato",
+      "h2 Atendimento"
+    ],
+    "headingJumps": [],
+    "images": {
+      "total": 30,
+      "noAlt": [],
+      "emptyAlt": 16
+    },
+    "names": [],
+    "dupIds": [],
+    "ariaControls": [],
+    "pending": [
+      {
+        "text": "Instagram",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "WhatsApp",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Encomendar",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Encomendar",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Instagram",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Descubra as criações",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Começar uma encomenda",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Começar uma encomenda",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Acompanhar no Instagram",
+        "ariaDisabled": "true"
+      }
+    ],
+    "contrast": {
+      "fail": [],
+      "overMedia": 4,
+      "checked": 78
+    }
+  },
+  "1440": {
+    "doc": {
+      "lang": "pt-BR",
+      "title": "Ateliê Doces Bruna",
+      "robots": "noindex, nofollow",
+      "h1": 1,
+      "skipLink": true,
+      "skipTarget": true
+    },
+    "landmarks": [
+      "banner",
+      "nav \"Principal\"",
+      "nav \"Menu\"",
+      "nav \"Rodapé\"",
+      "main",
+      "contentinfo",
+      "dialog \"Menu\""
+    ],
+    "headings": [
+      "h1 Mais que doces, momentos inesquecí",
+      "h2 Cada criação carrega afeto, cuidad",
+      "h2 A delicadeza da marca começa em qu",
+      "h2 Criações que começam nos olhos e f",
+      "h2 Cada celebração começa com uma ide",
+      "h3 Converse",
+      "h3 Criamos",
+      "h3 Celebre",
+      "h2 Quem viveu, lembra com doçura.",
+      "h2 O cuidado que transforma ingredien",
+      "h2 o seu momento.",
+      "h2 Navegação",
+      "h2 Contato",
+      "h2 Atendimento"
+    ],
+    "headingJumps": [],
+    "images": {
+      "total": 30,
+      "noAlt": [],
+      "emptyAlt": 16
+    },
+    "names": [],
+    "dupIds": [],
+    "ariaControls": [],
+    "pending": [
+      {
+        "text": "Instagram",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "WhatsApp",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Encomendar",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Encomendar",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Instagram",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Descubra as criações",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Começar uma encomenda",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Começar uma encomenda",
+        "ariaDisabled": "true"
+      },
+      {
+        "text": "Acompanhar no Instagram",
+        "ariaDisabled": "true"
+      }
+    ],
+    "contrast": {
+      "fail": [
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "A Marca",
+          "cls": "lnk",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        },
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "Bruna",
+          "cls": "lnk",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        },
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "Criações",
+          "cls": "lnk",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        },
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "Encomendas",
+          "cls": "lnk",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        },
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "Contato",
+          "cls": "lnk",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        },
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "Instagram",
+          "cls": "SPAN",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        },
+        {
+          "ratio": 1.06,
+          "need": 4.5,
+          "size": 13,
+          "text": "WhatsApp",
+          "cls": "SPAN",
+          "fg": "rgb(255, 250, 246)",
+          "bg": "rgb(251,243,235)"
+        }
+      ],
+      "overMedia": 6,
+      "checked": 83
+    }
+  }
+}

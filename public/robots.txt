@@ -1,0 +1,4 @@
+# STAGING: bloqueia tudo enquanto houver conteúdo provisório (a página também sai com noindex, nofollow).
+# NO LANÇAMENTO (docs/production-checklist.md): trocar por "Allow: /" e acrescentar a linha Sitemap.
+User-agent: *
+Disallow: /

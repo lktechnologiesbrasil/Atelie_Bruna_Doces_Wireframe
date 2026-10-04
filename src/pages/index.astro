@@ -18,64 +18,28 @@ import SectionEyebrow from '../components/SectionEyebrow.astro';
 import CtaButton from '../components/CtaButton.astro';
 import MediaFrame from '../components/MediaFrame.astro';
 import Icon from '../components/Icon.astro';
-import { NAV, LINKS, CONTACT } from '../data/site';
+import { BRAND, NAV, LINKS, CONTACT, CLAIMS, FOUNDER, TESTIMONIALS, SEO } from '../data/site';
+import { IMAGES } from '../data/images';
 
-import heroBg from '../assets/provisional/provisional-hero-bg.webp';
-import manifestoBase from '../assets/provisional/provisional-manifesto-base.webp';
-import brunaRetrato from '../assets/provisional/provisional-bruna-retrato.webp';
-import criacoesBase from '../assets/provisional/provisional-criacoes-base.webp';
-import historiasMesa from '../assets/provisional/provisional-historias-mesa.webp';
-import bastidoresConfeitando from '../assets/provisional/provisional-bastidores-confeitando.webp';
-import manifestoMaosM from '../assets/provisional/provisional-media-manifesto-maos-m.webp';
-import criacoesBoloM from '../assets/provisional/provisional-media-criacoes-bolo-m.webp';
-import jornadaCadernoM from '../assets/provisional/provisional-media-jornada-caderno-m.webp';
-import jornadaMesaM from '../assets/provisional/provisional-media-jornada-mesa-m.webp';
-import heroBase from '../assets/provisional/provisional-hero-base.webp';
-import manifestoStrip from '../assets/provisional/provisional-manifesto-strip.webp';
-import criacoesStrip from '../assets/provisional/provisional-criacoes-strip.webp';
-import ctaCelebracao from '../assets/provisional/provisional-cta-celebracao.webp';
-import assinatura from '../assets/provisional/provisional-assinatura-bruna.png';
-import florLinha from '../assets/provisional/provisional-flor-linha.png';
-import logoLockup from '../assets/provisional/provisional-logo-lockup.png';
-import manifestoMaos from '../assets/provisional/provisional-media-manifesto-maos.webp';
-import manifestoBrigadeiros from '../assets/provisional/provisional-media-manifesto-brigadeiros.webp';
-import manifestoChocolate from '../assets/provisional/provisional-media-manifesto-chocolate.webp';
-import criacoesBolo from '../assets/provisional/provisional-media-criacoes-bolo.webp';
-import criacoesBrigadeiros from '../assets/provisional/provisional-media-criacoes-brigadeiros.webp';
-import criacoesFatia from '../assets/provisional/provisional-media-criacoes-fatia.webp';
-import criacoesCheesecake from '../assets/provisional/provisional-media-criacoes-cheesecake.webp';
-import jornadaCaderno from '../assets/provisional/provisional-media-jornada-caderno.webp';
-import jornadaMorango from '../assets/provisional/provisional-media-jornada-morango.webp';
-import jornadaMesa from '../assets/provisional/provisional-media-jornada-mesa.webp';
-import historiasFatia from '../assets/provisional/provisional-media-historias-fatia.webp';
-import bastidoresPeneira from '../assets/provisional/provisional-media-bastidores-peneira.webp';
-import bastidoresLaco from '../assets/provisional/provisional-media-bastidores-laco.webp';
+// Slots de imagem: troque o arquivo em src/data/images.ts, não aqui.
+const {
+  heroBg, heroBase,
+  manifestoBase, manifestoStrip, manifestoMaos, manifestoMaosM, manifestoBrigadeiros, manifestoChocolate,
+  brunaRetrato, assinatura,
+  criacoesBase, criacoesStrip, criacoesBolo, criacoesBoloM, criacoesBrigadeiros, criacoesFatia, criacoesCheesecake,
+  jornadaCaderno, jornadaCadernoM, jornadaMorango, jornadaMesa, jornadaMesaM,
+  historiasMesa, historiasFatia,
+  bastidoresConfeitando, bastidoresPeneira, bastidoresLaco,
+  ctaCelebracao, florLinha, logoLockup,
+} = IMAGES;
 
-const claims = 'Feito à mão · Ingredientes reais · Histórias verdadeiras';
-
-/** Depoimentos PROVISÓRIOS ([PLACEHOLDER]): só entram em produção com relatos reais e autorizados. */
-const quotes = [
-  {
-    text: ['O bolo ficou ainda', 'mais lindo e delicioso', 'do que eu imaginava.', 'Fez toda a diferença', 'no nosso dia!'],
-    tag: 'Celebração especial',
-  },
-  {
-    text: ['Tudo perfeito,', 'desde o primeiro', 'atendimento até', 'o último detalhe.', 'Dá para sentir', 'o carinho em cada', 'etapa.'],
-    tag: 'Encomenda personalizada',
-  },
-  {
-    text: ['Foi exatamente como eu sonhava.', 'Além de delicioso, trouxe um toque', 'muito especial para a nossa celebração.'],
-    tag: 'Presente afetivo',
-  },
-];
+const claims = CLAIMS.join(' · ');
+const quotes = TESTIMONIALS; // PLACEHOLDER: ver src/data/site.ts
 ---
 
-<BaseLayout
-  title="Ateliê Doces Bruna"
-  description="Ateliê Doces Bruna: confeitaria artesanal para momentos especiais."
->
-  <main id="conteudo">
-    <!-- 01 Hero -->
+<BaseLayout title={SEO.title}>
+  <main id="conteudo" tabindex="-1">
+    {/* 01 Hero */}
     <section class="hero" id="inicio" aria-label="Início">
       <div class="hero__photo" aria-hidden="true">
         <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1200]} sizes="(max-width: 899px) 100vw, 56vw" />
@@ -86,8 +50,8 @@ const quotes = [
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="container hero__inner section__inner">
         <h1 class="h1 hero__title">
-          <span class="line"><span class="line__in">Mais que doces,</span></span>
-          <span class="line h3"><span class="line__in">momentos</span></span>
+          <span class="line"><span class="line__in">Mais que doces,</span></span>{' '}
+          <span class="line h3"><span class="line__in">momentos</span></span>{' '}
           <span class="line"><span class="line__in">inesquecíveis.</span></span>
         </h1>
         <p class="t1 hero__lead">
@@ -98,7 +62,7 @@ const quotes = [
       <div class="hero__seal"><Seal /></div>
     </section>
 
-    <!-- 02 Nossa Essência (A Marca) -->
+    {/* 02 Nossa Essência (A Marca) */}
     <section class="section section--manifesto" id="a-marca" aria-label="Nossa essência">
       <Wave shape="rise" line />
       <div class="claims" data-provisional="claims-nao-validados">
@@ -122,8 +86,8 @@ const quotes = [
         <div class="split__text">
           <SectionEyebrow>Nossa essência</SectionEyebrow>
           <h2 class="h2">
-            <span class="line">Cada criação</span>
-            <span class="line">carrega afeto,</span>
+            <span class="line">Cada criação</span>{' '}
+            <span class="line">carrega afeto,</span>{' '}
             <span class="line h3">cuidado e memória.</span>
           </h2>
           <p class="t1 split__body">
@@ -138,7 +102,7 @@ const quotes = [
       </div>
     </section>
 
-    <!-- 03 Bruna -->
+    {/* 03 Bruna */}
     <section class="section section--bruna" id="bruna" aria-label="Sobre a Bruna">
       <Wave shape="swell" />
       <div class="media2 media2--right" aria-hidden="true">
@@ -148,19 +112,14 @@ const quotes = [
         <div class="split__text">
           <SectionEyebrow>Sobre a Bruna</SectionEyebrow>
           <h2 class="h2">
-            <span class="line">A delicadeza</span>
-            <span class="line">da marca</span>
-            <span class="line">começa em</span>
+            <span class="line">A delicadeza</span>{' '}
+            <span class="line">da marca</span>{' '}
+            <span class="line">começa em</span>{' '}
             <span class="line h3">quem a criou.</span>
           </h2>
-          <!-- [PLACEHOLDER] texto em 1ª pessoa: exige aprovação da Bruna -->
+          {/* [PLACEHOLDER] texto em 1ª pessoa: exige aprovação da Bruna */}
           <div class="split__body split__body--stack" data-provisional="texto-primeira-pessoa">
-            <p class="t1">
-              Sou a Bruna, e cada doce que sai do ateliê carrega um pouco da minha história, do meu olhar atento aos detalhes e do carinho que coloco em tudo o que faço.
-            </p>
-            <p class="t1">
-              Acredito que a confeitaria vai além do sabor: ela tem o poder de aproximar, acolher e transformar momentos simples em lembranças inesquecíveis.
-            </p>
+            {FOUNDER.paragraphs.map((paragraph) => <p class="t1">{paragraph}</p>)}
           </div>
           <div class="signature" data-provisional="assinatura">
             <Image class="signature__name" src={assinatura} alt="" widths={[456]} sizes="(max-width: 899px) 70vw, 32vw" />
@@ -169,7 +128,7 @@ const quotes = [
       </div>
     </section>
 
-    <!-- 04 Criações -->
+    {/* 04 Criações */}
     <section class="section section--criacoes" id="criacoes" aria-label="Nossas criações">
       <Wave shape="dip" />
       <div class="decor-strip decor-strip--criacoes" aria-hidden="true">
@@ -182,9 +141,9 @@ const quotes = [
         <div class="split__text">
           <SectionEyebrow>Nossas criações</SectionEyebrow>
           <h2 class="h2">
-            <span class="line">Criações que</span>
-            <span class="line">começam</span>
-            <span class="line h3">nos olhos e</span>
+            <span class="line">Criações que</span>{' '}
+            <span class="line">começam</span>{' '}
+            <span class="line h3">nos olhos e</span>{' '}
             <span class="line h3">ficam na memória.</span>
           </h2>
           <p class="t1 split__body">
@@ -201,15 +160,15 @@ const quotes = [
       </div>
     </section>
 
-    <!-- 05 Encomendas -->
+    {/* 05 Encomendas */}
     <section class="section section--encomendas" id="encomendas" aria-label="Encomendas">
       <Wave shape="soft" />
       <div class="container section__inner split split--encomendas">
         <div class="split__text">
           <SectionEyebrow>Encomendas</SectionEyebrow>
           <h2 class="h2">
-            <span class="line">Cada celebração</span>
-            <span class="line">começa com</span>
+            <span class="line">Cada celebração</span>{' '}
+            <span class="line">começa com</span>{' '}
             <span class="line h3">uma ideia só sua.</span>
           </h2>
           <p class="t1 split__body">
@@ -221,10 +180,10 @@ const quotes = [
 
         <div class="journey">
           <svg class="journey__line" viewBox="0 0 899 883" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <!-- um único traço contínuo (os trechos retos ficam atrás das fotos): o scroll o desenha de 01 a 03 -->
+            {/* um único traço contínuo (os trechos retos ficam atrás das fotos): o scroll o desenha de 01 a 03 */}
             <path pathLength="100" d="M282 96 C318 74 372 70 410 92 L500 262 C330 340 190 380 200 470 C206 530 330 520 352 470 L372 640 C430 600 520 600 590 590" />
           </svg>
-          <!-- traço vertical (tablet e mobile): mesma linha orgânica, adaptada à leitura em coluna -->
+          {/* traço vertical (tablet e mobile): mesma linha orgânica, adaptada à leitura em coluna */}
           <svg class="journey__line journey__line--m" viewBox="0 0 390 1600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
             <path pathLength="100" d="M14 24 C14 250 378 210 378 580 C378 930 14 900 14 1260 C14 1500 370 1480 378 1596" />
           </svg>
@@ -259,7 +218,7 @@ const quotes = [
       </div>
     </section>
 
-    <!-- 06 Histórias Reais -->
+    {/* 06 Histórias Reais */}
     <section class="section section--historias" id="historias" aria-label="Histórias reais">
       <Wave shape="swell" />
       <div class="media2 media2--left" aria-hidden="true">
@@ -270,15 +229,15 @@ const quotes = [
         <div class="historias__intro">
           <SectionEyebrow>Histórias reais</SectionEyebrow>
           <h2 class="h2">
-            <span class="line">Quem viveu,</span>
-            <span class="line">lembra com</span>
+            <span class="line">Quem viveu,</span>{' '}
+            <span class="line">lembra com</span>{' '}
             <span class="line h3">doçura.</span>
           </h2>
           <p class="t1 split__body">
             Mais do que bolos e doces, cada criação do Ateliê faz parte de histórias, encontros e celebrações que ficam na memória.
           </p>
         </div>
-        <!-- [PLACEHOLDER] depoimentos: não são relatos reais -->
+        {/* [PLACEHOLDER] depoimentos: não são relatos reais */}
         <div class="quotes">
           {quotes.map((q, i) => (
             <figure class={`quote quote--${i + 1}`} data-provisional="depoimento">
@@ -297,7 +256,7 @@ const quotes = [
       </div>
     </section>
 
-    <!-- 07 Bastidores -->
+    {/* 07 Bastidores */}
     <section class="section2 section2--bastidores" id="bastidores" aria-label="Por trás de cada detalhe">
       <Wave shape="dark-rise" />
       <div class="media2 media2--right" aria-hidden="true">
@@ -307,9 +266,9 @@ const quotes = [
         <div class="split__text">
           <SectionEyebrow>Por trás de cada detalhe</SectionEyebrow>
           <h2 class="h2">
-            <span class="line">O cuidado</span>
-            <span class="line">que transforma</span>
-            <span class="line h3">ingredientes</span>
+            <span class="line">O cuidado</span>{' '}
+            <span class="line">que transforma</span>{' '}
+            <span class="line h3">ingredientes</span>{' '}
             <span class="line h3">em memórias.</span>
           </h2>
           <p class="t1 split__body">
@@ -323,7 +282,7 @@ const quotes = [
       </div>
     </section>
 
-    <!-- 08 CTA final (Contato) -->
+    {/* 08 CTA final (Contato) */}
     <section class="section2 section2--cta" id="contato" aria-label="Encomende">
       <Wave shape="dark-band" band line />
       <div class="media2 media2--right" aria-hidden="true">
@@ -333,7 +292,7 @@ const quotes = [
         <div class="split__text">
           <SectionEyebrow>Agora falta apenas</SectionEyebrow>
           <h2 class="h2 h2--cta">
-            <span class="line h3 h3--light">o seu</span>
+            <span class="line h3 h3--light">o seu</span>{' '}
             <span class="line h3">momento.</span>
           </h2>
           <p class="t1 split__body">
@@ -348,13 +307,13 @@ const quotes = [
     </section>
   </main>
 
-  <!-- Footer -->
+  {/* Footer */}
   <footer class="section3">
     <Wave shape="footer" />
     <div class="container section__inner footer">
       <div class="footer__brand">
-        <Image class="footer__logo" src={logoLockup} alt="Ateliê Doces Bruna" widths={[220]} sizes="220px" />
-        <p class="t3 footer__tagline">Confeitaria artesanal<br />para momentos especiais</p>
+        <Image class="footer__logo" src={logoLockup} alt={BRAND.name} widths={[220]} sizes="220px" />
+        <p class="t3 footer__tagline">{BRAND.tagline[0]}<br />{BRAND.tagline[1]}</p>
       </div>
       <nav class="footer__col footer__nav" aria-label="Rodapé">
         <h2 class="t3 footer__title">Navegação</h2>

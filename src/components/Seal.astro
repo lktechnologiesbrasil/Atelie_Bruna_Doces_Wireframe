@@ -5,7 +5,9 @@
  * Decorativo: o nome da marca já está no logo do header.
  */
 import { Image } from 'astro:assets';
-import flor from '../assets/provisional/provisional-selo-flor.png';
+import { IMAGES } from '../data/images';
+
+const flor = IMAGES.seloFlor;
 ---
 
 <div class="seal" aria-hidden="true">

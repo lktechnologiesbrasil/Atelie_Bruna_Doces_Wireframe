@@ -1,64 +1,60 @@
 {
   "desktop": {
-    "fcpMs": 348,
+    "fcpMs": 364,
     "lcpMs": 448,
     "lcpElement": "IMG. provisional-hero-bg.ByuzkdYq_ZdNxD5.webp",
-    "clsAtLoad": 0.0017,
-    "clsAfterFullScroll": 0.0059,
+    "clsAtLoad": 0.0007,
+    "clsAfterFullScroll": 0.0047,
     "tbtMs": 0,
     "longTasks": 0,
-    "longestTaskMs": 118,
+    "longestTaskMs": 126,
     "tasks": [
       [
-        40,
-        118
-      ],
-      [
-        177,
-        64
+        35,
+        126
       ]
     ],
-    "scriptMs": 241,
-    "taskMs": 1684,
-    "inpApproxMs": 32,
+    "scriptMs": 193,
+    "taskMs": 1293,
+    "inpApproxMs": 16,
     "events": [
       [
         "pointerover",
-        32
+        16
       ],
       [
         "pointerenter",
-        32
+        16
       ],
       [
         "pointerenter",
-        32
+        16
       ],
       [
         "pointerenter",
-        32
+        16
       ],
       [
         "pointerenter",
-        32
+        16
       ],
       [
         "pointerenter",
-        32
+        16
       ]
     ],
     "transferAtLoad": {
-      "bytes": 357809,
+      "bytes": 357599,
       "requests": 15
     },
     "transferTotal": {
-      "bytes": 868853,
+      "bytes": 868643,
       "requests": 36
     },
     "byType": {
       "Document": {
         "n": 1,
-        "bytes": 8872
+        "bytes": 8662
       },
       "Stylesheet": {
         "n": 1,
@@ -87,7 +83,7 @@
       "motion.DlkTqFo7.js 46198"
     ],
     "stylesheets": [
-      "index.BOCqukIj.css 9362"
+      "index.BbPAGPdX.css 9362"
     ],
     "images": [
       "provisional-logo-wordmark-light.C_ydWNSk_Z1Cq2An.webp 11164",
@@ -121,76 +117,76 @@
       "provisional-media-bastidores-laco.C4ZlGuO5_1XV6xo.webp 16638"
     ],
     "consoleErrors": [],
-    "wallMs": 11869
+    "wallMs": 11855
   },
   "mobile": {
-    "fcpMs": 1196,
-    "lcpMs": 1828,
+    "fcpMs": 928,
+    "lcpMs": 1096,
     "lcpElement": "IMG. provisional-hero-bg.ByuzkdYq_ZdNxD5.webp",
     "clsAtLoad": 0,
     "clsAfterFullScroll": 0,
-    "tbtMs": 410,
+    "tbtMs": 144,
     "longTasks": 3,
-    "longestTaskMs": 286,
+    "longestTaskMs": 136,
     "tasks": [
       [
-        1476,
-        286
+        1341,
+        108
       ],
       [
-        1863,
-        224
+        1472,
+        136
       ],
       [
-        20684,
-        62
+        20432,
+        51
       ]
     ],
-    "scriptMs": 970,
-    "taskMs": 6652,
-    "inpApproxMs": 96,
+    "scriptMs": 854,
+    "taskMs": 5979,
+    "inpApproxMs": 80,
     "events": [
       [
-        "pointerup",
-        96
+        "pointerover",
+        80
       ],
       [
-        "mouseup",
-        96
+        "pointerenter",
+        80
       ],
       [
-        "click",
-        96
+        "pointerenter",
+        80
       ],
       [
-        "pointerout",
-        24
+        "pointerenter",
+        80
       ],
       [
-        "pointerleave",
-        24
+        "pointerenter",
+        80
       ],
       [
-        "pointerleave",
-        24
+        "pointerenter",
+        80
       ]
     ],
     "transferAtLoad": {
-      "bytes": 293907,
+      "bytes": 328377,
       "requests": 14
     },
     "transferTotal": {
-      "bytes": 800757,
+      "bytes": 835227,
       "requests": 32
     },
     "byType": {
       "Image": {
         "n": 25,
-        "bytes": 652456
+        "bytes": 687136
       },
       "Document": {
         "n": 1,
-        "bytes": 8872
+        "bytes": 8662
       },
       "Stylesheet": {
         "n": 1,
@@ -215,13 +211,13 @@
       "motion.DlkTqFo7.js 46198"
     ],
     "stylesheets": [
-      "index.BOCqukIj.css 9362"
+      "index.BbPAGPdX.css 9362"
     ],
     "images": [
-      "provisional-media-manifesto-maos-m.DAxk446c_Z1zTxQF.webp 0",
+      "provisional-media-manifesto-maos-m.DAxk446c_Z1zTxQF.webp 20668",
       "provisional-media-criacoes-bolo-m.Cec_vCY8_Z1lwipa.webp 45486",
       "provisional-media-jornada-caderno-m.xV2iHhHI_Z1XLFaT.web 17302",
-      "provisional-media-jornada-mesa-m.DcCqN0CY_Z1Xoz4z.webp 0",
+      "provisional-media-jornada-mesa-m.DcCqN0CY_Z1Xoz4z.webp 14012",
       "provisional-logo-wordmark-light.C_ydWNSk_Z1Cq2An.webp 11164",
       "provisional-logo-wordmark-dark.CHO8wzTt_ZVaRYn.webp 9462",
       "provisional-hero-bg.ByuzkdYq_ZdNxD5.webp 62192",
@@ -245,6 +241,6 @@
       "provisional-media-bastidores-laco.C4ZlGuO5_1XV6xo.webp 16638"
     ],
     "consoleErrors": [],
-    "wallMs": 21564
+    "wallMs": 21300
   }
 }

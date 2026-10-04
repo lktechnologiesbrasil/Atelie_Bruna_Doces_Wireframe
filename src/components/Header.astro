@@ -13,11 +13,12 @@
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import { NAV, LINKS, isPending } from '../data/site';
-import logoLight from '../assets/provisional/provisional-logo-wordmark-light.png';
-import logoDark from '../assets/provisional/provisional-logo-wordmark-dark.png';
+import { IMAGES } from '../data/images';
+
+const { logoWordmarkLight: logoLight, logoWordmarkDark: logoDark } = IMAGES;
 
 const pendingAttrs = (href: string) =>
-  isPending(href) ? { 'data-link-status': 'pending', rel: 'nofollow' } : {};
+  isPending(href) ? { 'data-link-status': 'pending', 'aria-disabled': 'true', rel: 'nofollow' } : {};
 ---
 
 <header class="site-header" data-surface="clear">

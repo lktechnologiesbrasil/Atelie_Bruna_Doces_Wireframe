@@ -6,7 +6,7 @@
 | `docs/wireframe/wireframe-pre-skill.txt` | **SUPERSEDED**: gerado antes de o workflow canônico `img-to-html`/`to-wireframe` estar disponível. Serve só para comparação |
 
 **Etapa 1 (wireframe + plano):** `APPROVED`.
-**Etapa atual:** 6 (responsividade refinada + motion) executada, aguardando revisão. QA em `docs/qa/etapa-2/`, `etapa-3-4/`, `etapa-5/` e `etapa-6/`. GSAP + ScrollTrigger instalados (Etapa 6B), com `prefers-reduced-motion` respeitado.
+**Etapa atual:** 7 (performance, acessibilidade, SEO técnico e preparação de produção) executada, aguardando revisão. Pronto para receber conteúdo real; NÃO publicável (ver `docs/production-checklist.md`). QA em `docs/qa/etapa-2/` … `etapa-7/`.
 
 ### Decisões do projeto sobre o `img-to-html` (aprovadas na Etapa 1)
 

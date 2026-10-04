@@ -580,7 +580,7 @@ main .h2 { font-size: calc(var(--text-h2) * var(--h2-scale, 1)); }
   display: block;
   margin-top: 2px;
   font-size: 0.8125rem;
-  color: rgb(74 64 59 / 0.6);
+  color: rgb(74 64 59 / 0.8); /* ≥ 4,5:1 sobre o creme */
 }
 
 .footer__bar {

@@ -1,5 +1,7 @@
 # Assets PROVISÓRIOS
 
+> Cada arquivo é usado por um **slot** de `src/data/images.ts` (que também lista o asset real necessário em `ASSET_SLOTS`). Para trocar por um asset real, altere só o `import` do slot lá.
+
 > **Nada nesta pasta é conteúdo real ou arte final.** São recortes da Master Reference (imagem gerada, aprovada só como direção visual) usados para construção, posicionamento, proporção, composição e QA de fidelidade.
 >
 > Todos serão substituídos por material real: fotos da Bruna, produtos, bastidores, embalagem e logo oficial.
