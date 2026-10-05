@@ -51,6 +51,8 @@ export interface Product {
   promotionalPriceCents: number | null;
   /** URL da imagem no CDN do Yooga (≤ 500 px; nenhuma foi baixada); null quando o produto não tem imagem. */
   imageUrl: string | null;
+  /** Dimensões reais da imagem (para width/height e evitar salto de layout); null sem imagem. */
+  imageSize: { width: number; height: number } | null;
   availability: Availability;
   categoryId: string;
   optionGroups: ProductOptionGroup[];
@@ -105,6 +107,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 3900,
         promotionalPriceCents: 3700,
         imageUrl: "https://cdn-production.yooga.com.br/c4d63e9233c3a380c81e565741bd12cc.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-453111",
         optionGroups: [],
@@ -129,6 +135,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/d8cca77bd8665514da0eee6f8636e77e.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441882",
         optionGroups: [
@@ -160,6 +170,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1500,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/e050c256b22dc660a252fcc2c347a259.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441882",
         optionGroups: [
@@ -191,6 +205,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1500,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/b5352c095d6f4f1aa082ff8a47ad0966.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441882",
         optionGroups: [
@@ -222,6 +240,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/046e14fb4254c7799730336d0115b2d7.jpeg",
+        imageSize: {
+          width: 281,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441882",
         optionGroups: [
@@ -253,6 +275,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/716ee9e66ed58e075c56b21f575a2dca.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441882",
         optionGroups: [
@@ -284,6 +310,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/768320cad0d2ffac42b74fd45cf252b4.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441882",
         optionGroups: [],
@@ -308,6 +338,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/7cfe9730e2dc460884db4d9a70e23d99.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438417",
         optionGroups: [],
@@ -322,6 +356,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/9c2f0932b6617fe6b4aba95dabe7ab5d.jpeg",
+        imageSize: {
+          width: 281,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438417",
         optionGroups: [],
@@ -346,6 +384,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/dd4ce04ca3ea7df0b6057ccd9f9f4db8.jpeg",
+        imageSize: {
+          width: 300,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438420",
         optionGroups: [],
@@ -360,6 +402,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/d604bf159c3a9a9ec9025b5c4bdfe62a.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438420",
         optionGroups: [],
@@ -374,6 +420,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/95b56a584346968f8c80c1d212a64797.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438420",
         optionGroups: [],
@@ -388,6 +438,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/31a40ce902e5437088212b63cacd0813.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438420",
         optionGroups: [],
@@ -402,6 +456,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 899,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/ccb4a79a5bd4623c2efbd6b1a8e731d4.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438420",
         optionGroups: [],
@@ -416,6 +474,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1800,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/9e3e0647bdef50168374426bb6519e60.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438420",
         optionGroups: [],
@@ -440,6 +502,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2400,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/fc2ce19f307250909edaed3f2a9e91a7.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-578913",
         optionGroups: [
@@ -467,6 +533,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2400,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/aaff3ea46fda622db5b45fced62cd29a.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-578913",
         optionGroups: [],
@@ -481,6 +551,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2400,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/efa2efedb4347578afd4b8b980d242b1.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-578913",
         optionGroups: [],
@@ -495,6 +569,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2400,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/a3e285b1c01d4a85e6ab66f6874f63ee.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-578913",
         optionGroups: [],
@@ -509,6 +587,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2400,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/835fa13b2e2b75c672407f808749543d.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-578913",
         optionGroups: [],
@@ -523,6 +605,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2800,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/4b004c94601bd7d9a4d5fb53a3e92d4b.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-578913",
         optionGroups: [],
@@ -547,6 +633,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2900,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/778df72cf7b3c8a7e48813d36267eac4.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-746352",
         optionGroups: [],
@@ -561,6 +651,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 3100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/aec435115a9c8397029ce71069d3cbe0.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-746352",
         optionGroups: [],
@@ -575,6 +669,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2500,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/00ffa4eed400a7631278a9b64df42d09.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-746352",
         optionGroups: [],
@@ -589,6 +687,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2890,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/9fdaacb7877bbc6f05ff30f78ddf2983.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-746352",
         optionGroups: [],
@@ -613,6 +715,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2300,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/d426aa30b60bd3516dc94a3e636ddd11.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441886",
         optionGroups: [],
@@ -627,6 +733,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/efc2190e71af338f16f3f597c12caf5f.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441886",
         optionGroups: [],
@@ -651,6 +761,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/034f557ecdb934a9ad8bc383a0c331c0.jpeg",
+        imageSize: {
+          width: 242,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -665,6 +779,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/35c7d3ce5d2ed825b59fb3030e269976.jpeg",
+        imageSize: {
+          width: 299,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -679,6 +797,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1900,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/6743d634f57efb54fd2ee58b47d588c8.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -693,6 +815,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2000,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/3e148b04514aa477b5d84d0eff8a74bb.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -707,6 +833,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2300,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/22b5009017e15397caeda563495c60eb.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -721,6 +851,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/0c706e49160695f7e4125f8182adf4f1.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -735,6 +869,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/5481936d65656e67afe81d9b31ffa454.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438418",
         optionGroups: [],
@@ -759,6 +897,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2100,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/9a2d9239ef7f68bcdbcb413baebd85cb.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-746329",
         optionGroups: [],
@@ -773,6 +915,7 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 2000,
         promotionalPriceCents: null,
         imageUrl: null,
+        imageSize: null,
         availability: "unknown",
         categoryId: "cat-746329",
         optionGroups: [],
@@ -797,6 +940,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/76666f636dadd1f611093d19e28f2c6c.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-900001",
         optionGroups: [
@@ -866,6 +1013,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 12000,
         promotionalPriceCents: 11400,
         imageUrl: "https://cdn-production.yooga.com.br/01a4afef39dc3ef7c64dde16bf092a57.jpeg",
+        imageSize: {
+          width: 296,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-865789",
         optionGroups: [],
@@ -880,6 +1031,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/663664731d269890b94fb0a6df8cf2fe.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-865789",
         optionGroups: [],
@@ -894,6 +1049,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/a9b69bb5272d19762cb79847030c4058.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-865789",
         optionGroups: [],
@@ -908,6 +1067,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/7c878ad4bbc8046c678f2cafaef609e5.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-865789",
         optionGroups: [],
@@ -922,6 +1085,7 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1200,
         promotionalPriceCents: null,
         imageUrl: null,
+        imageSize: null,
         availability: "unknown",
         categoryId: "cat-865789",
         optionGroups: [],
@@ -946,6 +1110,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: 1500,
         imageUrl: "https://cdn-production.yooga.com.br/95e66412d883d17112f83f17fbff0c0e.jpeg",
+        imageSize: {
+          width: 231,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438419",
         optionGroups: [],
@@ -960,6 +1128,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1600,
         promotionalPriceCents: 1490,
         imageUrl: "https://cdn-production.yooga.com.br/fe9871fb7bb9456f472c6dd4750be3fd.jpeg",
+        imageSize: {
+          width: 281,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438419",
         optionGroups: [],
@@ -984,6 +1156,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 800,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/c6ab9be564ca018df3270e58253f85ce.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438421",
         optionGroups: [],
@@ -998,6 +1174,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 800,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/abfc4ee77774ac08206d61c2cf643eee.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-438421",
         optionGroups: [],
@@ -1022,6 +1202,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 7000,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/ed6ba0b566fc694bfc585d4a12c7f94e.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-923026",
         optionGroups: [],
@@ -1046,6 +1230,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 500,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/fd04f27360f7f35fff4cec53fa1e8768.jpeg",
+        imageSize: {
+          width: 500,
+          height: 411
+        },
         availability: "unknown",
         categoryId: "cat-441887",
         optionGroups: [],
@@ -1060,6 +1248,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 500,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/0e8649fd0861e4463c4f6e5afc387279.png",
+        imageSize: {
+          width: 350,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441887",
         optionGroups: [],
@@ -1074,6 +1266,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 500,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/9372752cf0fccbfdd76241376f3c414f.png",
+        imageSize: {
+          width: 326,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441887",
         optionGroups: [],
@@ -1088,6 +1284,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 800,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/a23f104ba5cc0f9018d476ff8ecbe655.png",
+        imageSize: {
+          width: 412,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441887",
         optionGroups: [],
@@ -1102,6 +1302,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 800,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/8b6a8170c20c9efea69dc87aba7e0ca0.png",
+        imageSize: {
+          width: 490,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-441887",
         optionGroups: [],
@@ -1126,6 +1330,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 1,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/fc8a04bc913c13c2bcb33c92bf614f9a.png",
+        imageSize: {
+          width: 500,
+          height: 351
+        },
         availability: "unknown",
         categoryId: "cat-442641",
         optionGroups: [],
@@ -1150,6 +1358,10 @@ export const CATEGORIES: ProductCategory[] = [
         priceCents: 200,
         promotionalPriceCents: null,
         imageUrl: "https://cdn-production.yooga.com.br/aebc03fdd58f2a9310e0ccf9a50c01c3.jpeg",
+        imageSize: {
+          width: 375,
+          height: 500
+        },
         availability: "unknown",
         categoryId: "cat-773392",
         optionGroups: [],

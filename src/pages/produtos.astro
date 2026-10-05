@@ -1,0 +1,265 @@
+---
+/**
+ * /produtos: catálogo do Ateliê (camada de descoberta; o pedido acontece no cardápio Yooga).
+ *
+ * Duas fontes de verdade:
+ *   VISUAL  Concept 09 aprovado (docs/qa/products-page/concept-09.webp)
+ *   FATUAL  src/data/products.ts (snapshot auditado do Yooga). NADA factual é escrito aqui.
+ *
+ * - Todos os 54 produtos vêm dos dados, agrupados por categoria. Categorias `utility` (garfinho)
+ *   e `gift` (cartão presente) têm tratamento próprio, mas continuam no catálogo e na busca.
+ * - Busca e filtros rodam no cliente (src/scripts/products.ts) sobre o HTML já renderizado:
+ *   sem JS o catálogo inteiro e a navegação por âncoras funcionam.
+ * - Menu de Bolos NÃO foi auditado (CAKES_MENU.status = 'pending'): o bloco "Bolos por encomenda"
+ *   não lista nenhum bolo, preço ou sabor.
+ * - Provisório: imagem do bloco de bolos (recorte da Master). Textos institucionais: PRODUCTS_PAGE
+ *   em src/data/site.ts (precisam de aprovação da Bruna).
+ */
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import SectionEyebrow from '../components/SectionEyebrow.astro';
+import CtaButton from '../components/CtaButton.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Icon from '../components/Icon.astro';
+import Wave from '../components/Wave.astro';
+import Seal from '../components/Seal.astro';
+import { BRAND, LINKS, PRODUCTS_PAGE, isPending, linkAttrs } from '../data/site';
+import { CAKES_MENU, type ProductCategory } from '../data/products';
+import { IMAGES } from '../data/images';
+import {
+  PRODUCTS,
+  buildSearchIndex,
+  formatBRL,
+  getCatalogStats,
+  getCategories,
+  getCategoryDisplayName,
+  getNavigableCategories,
+  getProductDescription,
+  getProductDisplayName,
+} from '../lib/catalog';
+import '../styles/products.css';
+
+const page = PRODUCTS_PAGE;
+const stats = getCatalogStats();
+const categories = getCategories();
+const railCategories = getNavigableCategories();
+const searchText = new Map(buildSearchIndex().map((entry) => [entry.id, entry.text]));
+
+// seções por papel: o catálogo principal (food/drink), o bloco de presente e o serviço do pedido
+const mainGroups = categories.filter((c) => c.kind === 'food' || c.kind === 'drink');
+const giftGroups = categories.filter((c) => c.kind === 'gift');
+const utilityGroups = categories.filter((c) => c.kind === 'utility');
+
+const count = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+const thumbOf = (category: ProductCategory) => category.products.find((p) => p.imageUrl && p.imageSize);
+
+// fotos do Hero: escolha editorial; as imagens vêm dos dados (não ampliadas: ≤ 500 px de altura)
+const HERO_IDS = [3415240, 4672088, 7103479, 3415251];
+const heroPhotos = HERO_IDS.map((id) => PRODUCTS.find((p) => p.sourceProductId === id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p?.imageUrl && p.imageSize));
+
+// Menu de Bolos: enquanto não houver arquivo público auditado, o CTA vai para o WhatsApp (documentado)
+const menuReady = CAKES_MENU.status === 'audited' && !isPending(LINKS.menuBolos);
+const cakesHref = menuReady ? LINKS.menuBolos : LINKS.whatsapp;
+const cakesLabel = menuReady ? page.cakes.ctaMenu : page.cakes.ctaFallback;
+---
+
+<BaseLayout title={`${page.title} | ${BRAND.name}`} path="/produtos" header={{ current: 'produtos', base: '/', solid: true }}>
+  <main id="conteudo" tabindex="-1" class="products-page">
+    {/* 01 Hero curto */}
+    <section class="phero" aria-labelledby="produtos-titulo">
+      <div class="phero__photos" aria-hidden="true">
+        {heroPhotos.map((p, i) => (
+          <div class="phero__photo" style={`--i:${i}`}>
+            <img
+              src={p.imageUrl}
+              width={p.imageSize!.width}
+              height={p.imageSize!.height}
+              alt=""
+              loading={i < 3 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
+      <div class="container phero__inner">
+        <SectionEyebrow>{page.eyebrow}</SectionEyebrow>
+        <h1 class="h1 phero__title" id="produtos-titulo">
+          <span class="line"><span class="line__in">{page.heroTitle[0]}</span></span>{' '}
+          <span class="line"><span class="line__in">{page.heroTitle[1]}</span></span>{' '}
+          <span class="line h3"><span class="line__in">{page.heroTitle[2]}</span></span>
+        </h1>
+        <p class="t1 phero__lead">{page.heroLead}</p>
+      </div>
+    </section>
+
+    {/* 02 Busca + trilho de categorias */}
+    <div class="psearch container" data-search-wrap hidden>
+      <form class="psearch__form" role="search" aria-label="Buscar nos produtos" data-search-form novalidate>
+        <Icon name="search" size={22} />
+        <label class="sr-only" for="produtos-busca">Buscar doce, sabor ou produto</label>
+        <input
+          id="produtos-busca"
+          class="psearch__input"
+          type="search"
+          name="q"
+          placeholder={page.searchPlaceholder}
+          autocomplete="off"
+          enterkeyhint="search"
+          data-search-input
+        />
+        <button class="psearch__go" type="submit" aria-label="Buscar"><Icon name="arrow" size={22} /></button>
+      </form>
+    </div>
+
+    <nav class="prail" aria-label="Categorias do cardápio">
+      <ul class="prail__list" role="list" data-rail>
+        <li>
+          <a class="prail__item prail__item--all" href="#catalogo" data-rail-link="all" aria-current="true">
+            <span class="prail__thumb"><Icon name="grid" size={26} /></span>
+            <span class="prail__label">Todos</span>
+          </a>
+        </li>
+        {railCategories.map((category) => {
+          const thumb = thumbOf(category);
+          return (
+            <li>
+              <a class="prail__item" href={`#${category.slug}`} data-rail-link={category.slug}>
+                <span class="prail__thumb">
+                  {thumb && <img src={thumb.imageUrl!} width={thumb.imageSize!.width} height={thumb.imageSize!.height} alt="" loading="lazy" decoding="async" />}
+                </span>
+                <span class="prail__label">{getCategoryDisplayName(category)}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+
+    {/* 03 Catálogo */}
+    <section class="pcatalog" aria-label="Catálogo de produtos">
+      <div class="container pintro" id="catalogo">
+        <div class="pintro__title">
+          <SectionEyebrow>{page.catalogEyebrow}</SectionEyebrow>
+          <h2 class="h2">
+            <span class="line">{page.catalogTitle[0]}</span>{' '}
+            <span class="line h3">{page.catalogTitle[1]}</span>
+          </h2>
+        </div>
+        <p class="t1 pintro__lead">{page.catalogLead}</p>
+        <p class="pintro__stats">
+          <strong>{count(stats.products, 'produto', 'produtos')}</strong>
+          <span>em {count(stats.categories, 'categoria', 'categorias')}</span>
+        </p>
+      </div>
+
+      <div class="container pcatalog__body">
+        <p class="presults" data-results role="status" aria-live="polite" hidden></p>
+        <div class="pempty" data-empty hidden>
+          <p class="pempty__title">Nenhuma criação encontrada.</p>
+          <button class="pempty__btn" type="button" data-reset>Ver todos os produtos</button>
+        </div>
+
+        {mainGroups.map((category) => (
+          <section class:list={['pgroup', `pgroup--${category.kind}`]} id={category.slug} aria-labelledby={`g-${category.slug}`} data-group data-count={category.products.length}>
+            <div class="pgroup__head">
+              <h2 class="pgroup__title" id={`g-${category.slug}`}>{getCategoryDisplayName(category)}</h2>
+              <p class="pgroup__count">{count(category.products.length, 'produto', 'produtos')}</p>
+            </div>
+            <ul class="pgroup__grid" role="list">
+              {category.products.map((product) => (
+                <li data-search={searchText.get(product.id)}>
+                  <ProductCard product={product} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        {/* Presentear: categoria `gift`, com tratamento editorial; o produto continua vindo dos dados */}
+        {giftGroups.map((category) => (
+          <section class="pgroup pgift" id={category.slug} aria-labelledby={`g-${category.slug}`} data-group data-count={category.products.length}>
+            <div class="pgroup__head pgift__head">
+              <h2 class="pgift__title" id={`g-${category.slug}`}>{getCategoryDisplayName(category)}</h2>
+            </div>
+            <ul class="pgroup__grid pgift__grid" role="list">
+              {category.products.map((product) => (
+                <li data-search={searchText.get(product.id)}>
+                  <ProductCard product={product} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        {/* Serviço do pedido (`utility`): fora da navegação e sem peso de seção; continua nos dados e na busca */}
+        {utilityGroups.map((category) => (
+          <aside class="putility" aria-label="Serviço do pedido" data-group>
+            <ul role="list">
+              {category.products.map((product) => (
+                <li data-search={searchText.get(product.id)}>
+                  <p class="putility__name">
+                    <span>{getProductDisplayName(product)}</span>
+                    <strong>{formatBRL(product.priceCents)}</strong>
+                  </p>
+                  {getProductDescription(product) && <p class="putility__text">{getProductDescription(product)}</p>}
+                </li>
+              ))}
+            </ul>
+          </aside>
+        ))}
+      </div>
+    </section>
+
+    {/* 04 Bolos por encomenda: CAKES_MENU.status = 'pending' → nenhum bolo, preço ou sabor listado */}
+    <section class="pcakes" aria-labelledby="bolos-titulo">
+      <div class="container">
+        <div class="pcakes__band" data-provisional="imagem-bolos-provisoria">
+          <div class="pcakes__photo" aria-hidden="true">
+            <Image src={IMAGES.criacoesBolo} alt="" widths={[480, 751]} sizes="(max-width: 899px) 100vw, 30vw" />
+          </div>
+          <div class="pcakes__text">
+            <SectionEyebrow>{page.cakes.eyebrow}</SectionEyebrow>
+            <h2 class="h2 pcakes__h2" id="bolos-titulo">
+              <span class="line">{page.cakes.title[0]}</span>{' '}
+              <span class="line h3">{page.cakes.title[1]}</span>
+            </h2>
+            <p class="t1 pcakes__lead">{page.cakes.text}</p>
+            <a class="pbtn" href={cakesHref} {...linkAttrs(cakesHref)} data-cakes-cta={menuReady ? 'menu' : 'whatsapp-fallback'}>
+              <span>{cakesLabel}</span><Icon name="arrow" size={20} />
+            </a>
+          </div>
+          <div class="pcakes__side">
+            <div class="pcakes__seal"><Seal /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 05 CTA final */}
+    <section class="section2 pcta" aria-labelledby="cta-titulo">
+      <Wave shape="dark-band" band line />
+      <div class="container section__inner pcta__inner">
+        <div class="pcta__text">
+          <SectionEyebrow>{page.cta.eyebrow}</SectionEyebrow>
+          <h2 class="h2 pcta__h2" id="cta-titulo">
+            <span class="line">{page.cta.title[0]}</span>{' '}
+            <span class="line h3">{page.cta.title[1]}</span>
+          </h2>
+          <p class="t1 pcta__lead">{page.cta.text}</p>
+        </div>
+        <div class="cta-actions pcta__actions">
+          <CtaButton href={LINKS.cardapio}>{page.cta.order}</CtaButton>
+          <CtaButton href={LINKS.whatsapp} variant="btn3" icon="whatsapp">{page.cta.whatsapp}</CtaButton>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer base="/" />
+
+  <script>
+    import '../scripts/products';
+  </script>
+</BaseLayout>

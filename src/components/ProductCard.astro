@@ -1,0 +1,92 @@
+---
+/**
+ * Card de produto do catálogo (/produtos). Tudo vem de `Product` (src/data/products.ts):
+ * nada de preço, nome ou opção é escrito aqui.
+ *
+ * - Imagem do CDN do Yooga (≤ 500 px de altura): usada pequena, com width/height reais e lazy.
+ *   Sem imagem, um fallback da marca (superfície creme + flor + nome), sem fingir ser foto.
+ * - Preço: normal; promoção = original riscado + promocional + "Oferta" (texto, não só cor);
+ *   produto com opção obrigatória mostra "A partir de" com o menor valor efetivamente comprável.
+ * - "Possui opções" só indica; as opções não são listadas.
+ * - CTA: o cardápio do Yooga (ainda não existe deep-link por item).
+ * Estilos: src/styles/products.css.
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { LINKS, linkAttrs } from '../data/site';
+import { IMAGES } from '../data/images';
+import type { Product } from '../data/products';
+import {
+  formatBRL,
+  hasPromotion,
+  hasOptions,
+  hasRequiredOptions,
+  getEffectivePrice,
+  getMinimumPurchasablePrice,
+  getProductDisplayName,
+  getProductDescription,
+} from '../lib/catalog';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const name = getProductDisplayName(product);
+const description = getProductDescription(product);
+const promo = hasPromotion(product);
+const fromPrice = hasRequiredOptions(product);
+---
+
+<article class="pcard" data-product-id={product.id} data-promo={promo ? '' : undefined}>
+  <div class:list={['pcard__media', !product.imageUrl && 'pcard__media--empty']}>
+    {
+      product.imageUrl && product.imageSize ? (
+        <img
+          src={product.imageUrl}
+          width={product.imageSize.width}
+          height={product.imageSize.height}
+          alt={name}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <div class="pcard__fallback" aria-hidden="true">
+          <Image class="pcard__flower" src={IMAGES.florLinha} alt="" width={44} />
+          <span class="pcard__fallback-name">{name}</span>
+        </div>
+      )
+    }
+    {promo && <span class="pcard__badge">Oferta</span>}
+  </div>
+
+  <div class="pcard__body">
+    <h3 class="pcard__name">{name}</h3>
+    {description && <p class="pcard__desc">{description}</p>}
+    {hasOptions(product) && <p class="pcard__opts">Possui opções</p>}
+
+    <div class="pcard__foot">
+      <p class="pcard__price">
+        {
+          fromPrice ? (
+            <>
+              <span class="pcard__from">A partir de</span>
+              <strong class="pcard__now">{formatBRL(getMinimumPurchasablePrice(product))}</strong>
+            </>
+          ) : promo ? (
+            <>
+              <s class="pcard__was"><span class="sr-only">Preço original </span>{formatBRL(product.priceCents)}</s>
+              <strong class="pcard__now pcard__now--promo"><span class="sr-only">Preço promocional </span>{formatBRL(getEffectivePrice(product))}</strong>
+            </>
+          ) : (
+            <strong class="pcard__now">{formatBRL(product.priceCents)}</strong>
+          )
+        }
+      </p>
+      <a class="pcard__cta" href={LINKS.cardapio} {...linkAttrs(LINKS.cardapio)}>
+        <span class="pcard__cta-label">Ver no cardápio<span class="sr-only">: {name} (abre o cardápio em nova aba)</span></span>
+        <Icon name="arrow" size={18} />
+      </a>
+    </div>
+  </div>
+</article>
