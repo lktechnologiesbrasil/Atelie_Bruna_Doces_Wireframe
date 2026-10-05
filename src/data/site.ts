@@ -26,15 +26,29 @@ export const BRAND = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// Navegação (âncoras internas: header, menu e footer usam a mesma lista)
+// Navegação (header, menu e footer usam a mesma lista)
+//
+// `href` começando com "#" é uma âncora da Home: nas outras páginas o Header/Footer
+// prefixam "/". Um item com `page` é uma página própria (`href` absoluto) e marca o
+// estado ativo quando `<Header current="...">` recebe o mesmo valor.
 // ---------------------------------------------------------------------------
-export const NAV = [
+export interface NavItem {
+  label: string;
+  href: string;
+  page?: 'produtos';
+}
+
+export const NAV: readonly NavItem[] = [
   { label: 'A Marca', href: '#a-marca' },
   { label: 'Bruna', href: '#bruna' },
+  { label: 'Produtos', href: '/produtos', page: 'produtos' },
   { label: 'Criações', href: '#criacoes' },
   { label: 'Encomendas', href: '#encomendas' },
   { label: 'Contato', href: '#contato' },
-] as const;
+];
+
+/** Resolve o href de um item de NAV para a página atual (`base` = '' na Home, '/' nas demais). */
+export const navHref = (item: NavItem, base: string): string => (item.href.startsWith('#') ? base + item.href : item.href);
 
 // ---------------------------------------------------------------------------
 // Destinos externos (todos pendentes)
@@ -46,6 +60,43 @@ export const LINKS = {
   instagram: 'https://www.instagram.com/ateliedocesbruna/',
   /** Não existe catálogo interno definido. */
   criacoes: '[DESTINO A VALIDAR]',
+  /** Cardápio de delivery no Yooga (link público do Linktree, observado 2026-09-26). Não há deep-link por produto. A CONFIRMAR. */
+  cardapio: 'https://delivery.yooga.app/ateliedocesbruna',
+  /**
+   * Menu de Bolos: o link do Linktree é um arquivo do Google Drive que EXIGE LOGIN, então não serve ao
+   * público. Enquanto for pendente, a página de produtos manda para o WhatsApp (ver PRODUCTS_PAGE.cakes).
+   */
+  menuBolos: '[MENU DE BOLOS A DISPONIBILIZAR]',
+} as const;
+
+// ---------------------------------------------------------------------------
+// Página /produtos: textos. Os dados dos produtos vêm de src/data/products.ts (nunca daqui).
+// O texto abaixo é institucional e neutro, mas AINDA PRECISA DE APROVAÇÃO da Bruna.
+// ---------------------------------------------------------------------------
+export const PRODUCTS_PAGE = {
+  title: 'Produtos',
+  eyebrow: 'Nossas criações',
+  heroTitle: ['Tem sempre', 'algo para', 'a sua vontade.'],
+  heroLead: 'Doces, salgados, sobremesas e criações artesanais para diferentes momentos do seu dia.',
+  searchPlaceholder: 'Buscar doce, sabor ou produto...',
+  catalogEyebrow: 'Nossos produtos',
+  catalogTitle: ['Uma seleção de sabores', 'para cada momento.'],
+  catalogLead: 'O cardápio do Ateliê reunido em um só lugar, para você escolher o que combina com o seu momento.',
+  cakes: {
+    eyebrow: 'Bolos por encomenda',
+    title: ['Bolos que tornam', 'momentos ainda mais especiais.'],
+    text: 'Para aniversários, celebrações e tudo o que merece ser inesquecível. Fale com o Ateliê para encomendar.',
+    /** Enquanto LINKS.menuBolos for pendente, o CTA vai para o WhatsApp com este rótulo. */
+    ctaMenu: 'Ver menu de bolos',
+    ctaFallback: 'Pedir o menu de bolos',
+  },
+  cta: {
+    eyebrow: 'A doçura sempre por perto',
+    title: ['Encontrou', 'a sua vontade?'],
+    text: 'Faça o seu pedido pelo cardápio ou fale com o Ateliê pelo WhatsApp.',
+    order: 'Encomendar agora',
+    whatsapp: 'Falar pelo WhatsApp',
+  },
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -171,6 +222,9 @@ export const PENDING_ITEMS: PendingItem[] = [
   { id: 'whatsapp', kind: 'link', state: 'needs-confirmation', where: 'LINKS.whatsapp', needs: 'Bruna confirmar que este é o WhatsApp oficial (CTAs do Hero, Encomendas, CTA final e header)', source: 'Linktree público linktr.ee/ateliedocesbruna (2026-09-26); mesmo número da ficha do Google' },
   { id: 'instagram-url', kind: 'link', state: 'needs-confirmation', where: 'LINKS.instagram', needs: 'Confirmar o perfil oficial', source: 'instagram.com/ateliedocesbruna (observado 2026-09-26)' },
   { id: 'criacoes-destino', kind: 'link', state: 'placeholder', where: 'LINKS.criacoes', needs: 'DECISÃO: "Descubra as criações" abre o cardápio Yooga (público), um catálogo próprio ou some' },
+  { id: 'cardapio-yooga', kind: 'link', state: 'needs-confirmation', where: 'LINKS.cardapio', needs: 'Confirmar que o cardápio Yooga é o canal oficial de pedidos (CTAs da página /produtos)', source: 'Linktree público linktr.ee/ateliedocesbruna (2026-09-26)' },
+  { id: 'menu-bolos-link', kind: 'link', state: 'placeholder', where: 'LINKS.menuBolos / CAKES_MENU', needs: 'Menu de Bolos exige login Google: a Bruna enviar o arquivo ou liberar o link público; só então auditar e listar. Hoje o CTA da página de produtos usa o WhatsApp' },
+  { id: 'products-copy', kind: 'copy', state: 'placeholder', where: 'PRODUCTS_PAGE', needs: 'Textos institucionais da página /produtos aprovados pela Bruna' },
   { id: 'telefone', kind: 'dado', state: 'needs-confirmation', where: 'CONTACT.phone', needs: 'Confirmar o número e se é também o WhatsApp', source: 'Ficha do Google e Linktree (2026-09-26)' },
   { id: 'instagram-handle', kind: 'dado', state: 'needs-confirmation', where: 'CONTACT.instagram', needs: 'Confirmar o @', source: 'Perfil público (2026-09-26)' },
   { id: 'localizacao', kind: 'dado', state: 'needs-confirmation', where: 'CONTACT.location', needs: 'Confirmar cidade e endereço completo (Google: Al. dos Ipês, Itapeva-MG, 37655-000; completo a confirmar) e se o endereço aparece', source: 'Instagram, Google e Yooga: Itapeva/MG (2026-09-26)' },

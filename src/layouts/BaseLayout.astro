@@ -18,9 +18,11 @@ interface Props {
   description?: string;
   /** Caminho da página (canonical/og:url). */
   path?: string;
+  /** Opções do Header em páginas internas (ver Header.astro). */
+  header?: { current?: 'produtos'; base?: string; solid?: boolean };
 }
 
-const { title, description, path } = Astro.props;
+const { title, description, path, header = {} } = Astro.props;
 const seo = resolveSeo({ title, description, path, site: Astro.site });
 const jsonLd = STRUCTURED_DATA.enabled ? buildStructuredData(seo.siteUrl, seo.ogImage) : null;
 ---
@@ -57,7 +59,7 @@ const jsonLd = STRUCTURED_DATA.enabled ? buildStructuredData(seo.siteUrl, seo.og
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-    <Header />
+    <Header {...header} />
     <slot />
     <script>
       // O motion sobe com o navegador ocioso (a entrada do Hero é CSS e não depende dele): o

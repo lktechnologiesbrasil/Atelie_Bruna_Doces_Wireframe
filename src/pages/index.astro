@@ -17,8 +17,8 @@ import Seal from '../components/Seal.astro';
 import SectionEyebrow from '../components/SectionEyebrow.astro';
 import CtaButton from '../components/CtaButton.astro';
 import MediaFrame from '../components/MediaFrame.astro';
-import Icon from '../components/Icon.astro';
-import { BRAND, NAV, LINKS, CONTACT, CLAIMS, FOUNDER, TESTIMONIALS, SEO } from '../data/site';
+import Footer from '../components/Footer.astro';
+import { LINKS, CLAIMS, FOUNDER, TESTIMONIALS, SEO } from '../data/site';
 import { IMAGES } from '../data/images';
 
 // Slots de imagem: troque o arquivo em src/data/images.ts, não aqui.
@@ -30,7 +30,7 @@ const {
   jornadaCaderno, jornadaCadernoM, jornadaMorango, jornadaMesa, jornadaMesaM,
   historiasMesa, historiasFatia,
   bastidoresConfeitando, bastidoresPeneira, bastidoresLaco,
-  ctaCelebracao, florLinha, logoLockup,
+  ctaCelebracao, florLinha,
 } = IMAGES;
 
 const claims = CLAIMS.join(' · ');
@@ -308,42 +308,5 @@ const quotes = TESTIMONIALS; // PLACEHOLDER: ver src/data/site.ts
     </section>
   </main>
 
-  {/* Footer */}
-  <footer class="section3">
-    <Wave shape="footer" />
-    <div class="container section__inner footer">
-      <div class="footer__brand">
-        <Image class="footer__logo" src={logoLockup} alt={BRAND.name} widths={[220]} sizes="220px" />
-        <p class="t3 footer__tagline">{BRAND.tagline[0]}<br />{BRAND.tagline[1]}</p>
-      </div>
-      <nav class="footer__col footer__nav" aria-label="Rodapé">
-        <h2 class="t3 footer__title">Navegação</h2>
-        <ul role="list">
-          {NAV.map((item) => <li><a class="lnk" href={item.href}>{item.label}</a></li>)}
-        </ul>
-      </nav>
-      <div class="footer__col">
-        <h2 class="t3 footer__title">Contato</h2>
-        <ul role="list" class="footer__contact">
-          <li><Icon name="whatsapp" size={22} /><span class="t1">{CONTACT.phone}</span></li>
-          <li>
-            <Icon name="instagram" size={22} />
-            <span class="t1">{CONTACT.instagram}<small class="t2">Acompanhe no Instagram</small></span>
-          </li>
-          <li><Icon name="pin" size={22} /><span class="t1">{CONTACT.location}</span></li>
-          <li><Icon name="mail" size={22} /><span class="t1">{CONTACT.email}</span></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h2 class="t3 footer__title">Atendimento</h2>
-        <ul role="list" class="footer__contact">
-          <li><Icon name="clock" size={22} /><span class="t1">{CONTACT.hours}</span></li>
-        </ul>
-      </div>
-      <div class="footer__bar">
-        <p class="t2">© {CONTACT.year} Ateliê Doces Bruna. Todos os direitos reservados.</p>
-        <p class="t3">Feito com cuidado. Sempre.</p>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </BaseLayout>

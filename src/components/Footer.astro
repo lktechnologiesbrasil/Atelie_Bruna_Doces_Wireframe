@@ -1,0 +1,56 @@
+---
+/**
+ * Rodapé do site (`section3` no wireframe): compartilhado entre a Home e as páginas internas.
+ * `base` = '' na Home (âncoras locais) e '/' nas demais. Estilos: content.css / responsive.css.
+ */
+import { Image } from 'astro:assets';
+import Wave from './Wave.astro';
+import Icon from './Icon.astro';
+import { BRAND, NAV, CONTACT, navHref } from '../data/site';
+import { IMAGES } from '../data/images';
+
+interface Props {
+  base?: string;
+}
+
+const { base = '' } = Astro.props;
+const { logoLockup } = IMAGES;
+---
+
+<footer class="section3">
+  <Wave shape="footer" />
+  <div class="container section__inner footer">
+    <div class="footer__brand">
+      <Image class="footer__logo" src={logoLockup} alt={BRAND.name} widths={[220]} sizes="220px" />
+      <p class="t3 footer__tagline">{BRAND.tagline[0]}<br />{BRAND.tagline[1]}</p>
+    </div>
+    <nav class="footer__col footer__nav" aria-label="Rodapé">
+      <h2 class="t3 footer__title">Navegação</h2>
+      <ul role="list">
+        {NAV.map((item) => <li><a class="lnk" href={navHref(item, base)}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="footer__col">
+      <h2 class="t3 footer__title">Contato</h2>
+      <ul role="list" class="footer__contact">
+        <li><Icon name="whatsapp" size={22} /><span class="t1">{CONTACT.phone}</span></li>
+        <li>
+          <Icon name="instagram" size={22} />
+          <span class="t1">{CONTACT.instagram}<small class="t2">Acompanhe no Instagram</small></span>
+        </li>
+        <li><Icon name="pin" size={22} /><span class="t1">{CONTACT.location}</span></li>
+        <li><Icon name="mail" size={22} /><span class="t1">{CONTACT.email}</span></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h2 class="t3 footer__title">Atendimento</h2>
+      <ul role="list" class="footer__contact">
+        <li><Icon name="clock" size={22} /><span class="t1">{CONTACT.hours}</span></li>
+      </ul>
+    </div>
+    <div class="footer__bar">
+      <p class="t2">© {CONTACT.year} Ateliê Doces Bruna. Todos os direitos reservados.</p>
+      <p class="t3">Feito com cuidado. Sempre.</p>
+    </div>
+  </div>
+</footer>
