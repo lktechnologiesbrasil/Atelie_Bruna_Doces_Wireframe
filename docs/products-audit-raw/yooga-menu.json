@@ -1,0 +1,1291 @@
+[
+ {
+  "id": 453111,
+  "name": "COMBO DO DIA 😍😋",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 6255243,
+    "idi": 90546,
+    "name": "COXINHA DE FRANGO+ COCA LATA zero  + COXINHA BELGA",
+    "description": "combo perfeito.",
+    "price": 39,
+    "promotional_price": 37,
+    "promotional_percentage": 5.13,
+    "img": "https://cdn-production.yooga.com.br/c4d63e9233c3a380c81e565741bd12cc.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 39,
+    "min_value_promotional": 37,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 441882,
+  "name": "SALGADOS DELICIOSOS  😍",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3443815,
+    "idi": 90546,
+    "name": "Empada de frango",
+    "description": "Massa que derrete na boca,  com frango cremoso desfiado e requeijão.",
+    "price": 16,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/d8cca77bd8665514da0eee6f8636e77e.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": [
+     {
+      "id": 4472069,
+      "name": "Adicionais",
+      "required": 0,
+      "min": 0,
+      "max": 2,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 32269431,
+        "name": "ketchup",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       },
+       {
+        "id": 32269432,
+        "name": "Maionese",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4397996,
+    "idi": 90546,
+    "name": "Coxinha de Costela c/ cream cheese",
+    "description": "Coxinha recheada com costela desfiada e cream cheese original.\n",
+    "price": 15,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/e050c256b22dc660a252fcc2c347a259.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 15,
+    "min_value_promotional": 0,
+    "featured": [
+     {
+      "id": 170561,
+      "store_item_id": 4397996,
+      "featured_type": "MOST_ORDERS"
+     }
+    ],
+    "choices": [
+     {
+      "id": 4472067,
+      "name": "Adicionais",
+      "required": 0,
+      "min": 0,
+      "max": 2,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 32269427,
+        "name": "ketchup",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       },
+       {
+        "id": 32269428,
+        "name": "Maionese",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4441576,
+    "idi": 90546,
+    "name": "Coxinha de frango c/ catupiry ",
+    "description": "Coxinha de frango com catupiry Original crocante.",
+    "price": 15,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/b5352c095d6f4f1aa082ff8a47ad0966.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 15,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": [
+     {
+      "id": 4472068,
+      "name": "Adicionais",
+      "required": 0,
+      "min": 0,
+      "max": 2,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 32269429,
+        "name": "ketchup",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       },
+       {
+        "id": 32269430,
+        "name": "Maionese",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5829904,
+    "idi": 90546,
+    "name": "Enrroladinho de salchicha",
+    "description": "massa crocante, com salchica",
+    "price": 12,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/046e14fb4254c7799730336d0115b2d7.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 12,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": [
+     {
+      "id": 4472070,
+      "name": "Adicionais",
+      "required": 0,
+      "min": 0,
+      "max": 2,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 32269433,
+        "name": "ketchup",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       },
+       {
+        "id": 32269434,
+        "name": "Maionese",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7252226,
+    "idi": 90546,
+    "name": "Esfiha de carne",
+    "description": "Nossa massa bem fofinha, recheada com carne temperada, ideal para o seu lanche da tarde. \n",
+    "price": 11,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/716ee9e66ed58e075c56b21f575a2dca.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 11,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": [
+     {
+      "id": 4472073,
+      "name": "Adicionais",
+      "required": 0,
+      "min": 0,
+      "max": 2,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 32269439,
+        "name": "ketchup",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       },
+       {
+        "id": 32269440,
+        "name": "Maionese",
+        "description": null,
+        "max": 5,
+        "price": 0.1,
+        "img": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8632823,
+    "idi": 90546,
+    "name": "Esfiha de Frango com Catupiry",
+    "description": "Massa fofinha com recheio de frango desfiado e catupiry.",
+    "price": 11,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/768320cad0d2ffac42b74fd45cf252b4.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 11,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 438417,
+  "name": "FATIAS",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3415238,
+    "idi": 90546,
+    "name": "Fatia brownie Ninho com Nutella",
+    "description": "Nosso delicioso brownie coberto com muito creme de ninho e nutella purinha.",
+    "price": 21,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/7cfe9730e2dc460884db4d9a70e23d99.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 21,
+    "min_value_promotional": 0,
+    "featured": [
+     {
+      "id": 175224,
+      "store_item_id": 3415238,
+      "featured_type": "MOST_ORDERS"
+     }
+    ],
+    "choices": []
+   },
+   {
+    "id": 5830601,
+    "idi": 90546,
+    "name": "Fatia Brownie brigadeiro",
+    "description": "Nosso delicioso brownie molhadinho, com muito brigadeiro de cacau 50% cremosinho , finalizado com granulado belga.",
+    "price": 21,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/9c2f0932b6617fe6b4aba95dabe7ab5d.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 21,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 438420,
+  "name": "COXINHAS DOCES ;)",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3415249,
+    "idi": 90546,
+    "name": "Coxinha de Ferrero",
+    "description": "Massa de brigadeiro 50% cacau, morango selecionado envolto de castanha finalizada com\nnutella.",
+    "price": 16,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/dd4ce04ca3ea7df0b6057ccd9f9f4db8.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 3415250,
+    "idi": 90546,
+    "name": "Coxinha de Ninho com Nutella",
+    "description": "Massa de brigadeiro de ninho, morango selecionado finalizado com Nutella.\n",
+    "price": 16,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/d604bf159c3a9a9ec9025b5c4bdfe62a.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 3415251,
+    "idi": 90546,
+    "name": "Coxinha Belga",
+    "description": "Massa de brigadeiro 50% cacau, com morango selecionado envolto com granulado belga 110grs de pura delicia\n",
+    "price": 16,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/95b56a584346968f8c80c1d212a64797.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 5777324,
+    "idi": 90546,
+    "name": "brigadeirão belga",
+    "description": "brigadeiro cremoso envolto com granulado belga 80gramas",
+    "price": 16,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/31a40ce902e5437088212b63cacd0813.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8271723,
+    "idi": 90546,
+    "name": "Alfajor doce de leite",
+    "description": "Aquele doce de leite que vocês amam, + a combinação perfeita do chocolate nobre.\nDerrete na boca. ",
+    "price": 8.99,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/ccb4a79a5bd4623c2efbd6b1a8e731d4.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 8.99,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8801925,
+    "idi": 90546,
+    "name": "Bombom cravejado",
+    "description": "brigadeiro de ninho, morango selecionado , chocolate nobre branco com lascas de caramelo.",
+    "price": 18,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/9e3e0647bdef50168374426bb6519e60.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 18,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 578913,
+  "name": "FATIAS DE BOLO✨",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 4672088,
+    "idi": 90546,
+    "name": "Fatia Chocolatuda ",
+    "description": "Massa cacau 50% molhadinha, brigadeiro ao leite cremoso finalizada com granulado belga.\n**(Acrescentar calda, para garantr seu bolo matlda))**",
+    "price": 24,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/fc2ce19f307250909edaed3f2a9e91a7.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 24,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": [
+     {
+      "id": 4343414,
+      "name": "Calda extra (matilda)",
+      "required": 0,
+      "min": 0,
+      "max": 5,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 31350106,
+        "name": "Calda EXTRA de chocolate (matilda)",
+        "description": null,
+        "max": 5,
+        "price": 4,
+        "img": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4679019,
+    "idi": 90546,
+    "name": "Fatia Maracolate",
+    "description": "massa cacau 50%, brigadeiro ao leite, brigadeiro de maracujá bem cremosinhooo. \nFatia serve até 2 pessoas.",
+    "price": 24,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/aaff3ea46fda622db5b45fced62cd29a.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 24,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 4679020,
+    "idi": 90546,
+    "name": "Fatia DUO com morango",
+    "description": "Massa de cacau 50% molhadinha, brigadeiro de ninho, brigadeiro ao leite morangos finalizada com belga ",
+    "price": 24,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/efa2efedb4347578afd4b8b980d242b1.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 24,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 4748080,
+    "idi": 90546,
+    "name": "Fatia nutelluda",
+    "description": "Massa de cacau molhadinha, brigadeiro cremoso de ninho e nutella pura. ",
+    "price": 24,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/a3e285b1c01d4a85e6ab66f6874f63ee.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 24,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8181132,
+    "idi": 90546,
+    "name": "Fatia Limão siciliano c/ frutas vermelhas",
+    "description": "Massa de baunilha molhadinha, brigadeiro de limão siciliano com geleia de frutas vermelhas\n",
+    "price": 24,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/835fa13b2e2b75c672407f808749543d.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 24,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8819556,
+    "idi": 90546,
+    "name": "Fatia matilda",
+    "description": "Massa de chocolate 50% cacau, com 5 camadas de ganache de chocolate blend, acompanha caldinha.",
+    "price": 28,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/4b004c94601bd7d9a4d5fb53a3e92d4b.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 28,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 746352,
+  "name": "CASEIRINHOS😍🥰",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 6223177,
+    "idi": 90546,
+    "name": "- Caseirinho Ninho com nutella",
+    "description": "Massa de chocolate bem molhadinha, nutella e creme de ninho.\n(serve 2 pessoas )",
+    "price": 29,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/778df72cf7b3c8a7e48813d36267eac4.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 29,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 6245599,
+    "idi": 90546,
+    "name": "- Caseirinho ninho nutella e morango",
+    "description": "Massa de chocolate molhadinha, morango no meio com nutella, coberto com creme de ninho delicioso, finalizado com nutella e morango. (serve 2 pessoas )*",
+    "price": 31,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/aec435115a9c8397029ce71069d3cbe0.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 31,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 6275769,
+    "idi": 90546,
+    "name": "- Caseirinho de cenoura com cobertura de chocolate",
+    "description": "Massa de cenoura, com cobertura de brigadeiro de chocolate finalizado com granulado belga.\nPerfeito para o seu café da tarde .",
+    "price": 25,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/00ffa4eed400a7631278a9b64df42d09.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 25,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 6551804,
+    "idi": 90546,
+    "name": "- Caseirinho de brigadeiro",
+    "description": "Massa de chocolate cacau 50% bem molhadinha, com um delicioso brigadeiro cremoso, finalizado com granulado belga.\n*Serve 2 pessoas",
+    "price": 28.9,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/9fdaacb7877bbc6f05ff30f78ddf2983.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 28.9,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 441886,
+  "name": "EXCLUSIVOS 🍫🍫",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 7103479,
+    "idi": 90546,
+    "name": "Cheesecake frutas vermelhas",
+    "description": "Uma fatia irresistível de cheesecake artesanal, com base de biscoito, recheio cremoso e suave de cream cheese, coberta com uma generosa camada de geleia de frutas vermelhas. Finalizada com morango fresco. ",
+    "price": 23,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/d426aa30b60bd3516dc94a3e636ddd11.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 23,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 7584407,
+    "idi": 90546,
+    "name": "Cheesecake maracujá",
+    "description": "Base de bolacha amategada, creme de queijo com maracuja, finalizado com geleia de maracuja.",
+    "price": 21,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/efc2190e71af338f16f3f597c12caf5f.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 21,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 438418,
+  "name": "DOSES DA FELICIDADE🍫",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3415240,
+    "idi": 90546,
+    "name": "Copo Ninho com Morango",
+    "description": "O copo é composto pelo nosso maravilhoso recheio de ninho, intercalando com mousse de\nninho, brownie molhadinho morangos selecionados.\n",
+    "price": 22,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/034f557ecdb934a9ad8bc383a0c331c0.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 22,
+    "min_value_promotional": 0,
+    "featured": [
+     {
+      "id": 175225,
+      "store_item_id": 3415240,
+      "featured_type": "MOST_ORDERS"
+     }
+    ],
+    "choices": []
+   },
+   {
+    "id": 3415241,
+    "idi": 90546,
+    "name": "Copo Ninho com Nutella",
+    "description": "O copo é composto pelo nosso maravilhoso recheio de ninho, intercalando com mousse de\nninho, brownie molhadinho e Nutella pura.\n",
+    "price": 22,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/35c7d3ce5d2ed825b59fb3030e269976.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 22,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 4579548,
+    "idi": 90546,
+    "name": "Torta de limão",
+    "description": "biscoito amanteigado, mousse de limão finalizado com chantininho.",
+    "price": 19,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/6743d634f57efb54fd2ee58b47d588c8.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 19,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 5937243,
+    "idi": 90546,
+    "name": "Supremo maracuja✨",
+    "description": "Trufa de maracujá, , brownie denso e molhadinho, creme 4 leites finalizado com chantininho e geleia de maracujá.",
+    "price": 20,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/3e148b04514aa477b5d84d0eff8a74bb.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 20,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 7876302,
+    "idi": 90546,
+    "name": "Copo ferrero",
+    "description": "Creme de danette, mousse de chocolate, amendoim triturado, brownie denso e molhadinho Nutella e bombom ferrero. ",
+    "price": 23,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/22b5009017e15397caeda563495c60eb.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 23,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8664774,
+    "idi": 90546,
+    "name": "Copo DUO com morangos",
+    "description": "Brigadeiro de ninho cremoso, brigadeiro ao leite, brownie molhado no morangos frescos. Perfeito para o seu dia! ",
+    "price": 22,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/0c706e49160695f7e4125f8182adf4f1.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 22,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8977203,
+    "idi": 90546,
+    "name": "Copo Danette com morango",
+    "description": "Creme de danette, mousse de chocolate brownie, morangos frescos.",
+    "price": 22,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/5481936d65656e67afe81d9b31ffa454.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 22,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 746329,
+  "name": "Quentinhos, combinam!",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 6902111,
+    "idi": 90546,
+    "name": "Cookie Nutella",
+    "description": "Nosso cookie americano recheado com pedaços de chocolate ao leite e nutella pura . 110gr",
+    "price": 21,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/9a2d9239ef7f68bcdbcb413baebd85cb.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 21,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 8835730,
+    "idi": 90546,
+    "name": "Cookie tradicional",
+    "description": "Cookie tradicional americano com gotas de chocolate nobre ao leite.",
+    "price": 20,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": null,
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 20,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 900001,
+  "name": "🟣AÇAÍ 🍦✨",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 7734662,
+    "idi": 90546,
+    "name": "Açai 350ml ",
+    "description": "Açai na bandeija, 350 ml puro.",
+    "price": 16,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/76666f636dadd1f611093d19e28f2c6c.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 19.5,
+    "min_value_promotional": 3.5,
+    "featured": [],
+    "choices": [
+     {
+      "id": 4384154,
+      "name": "Complementos",
+      "required": 1,
+      "min": 1,
+      "max": 5,
+      "use_greater_option_price": 0,
+      "options": [
+       {
+        "id": 31645119,
+        "name": "Creme de ninho",
+        "description": null,
+        "max": 5,
+        "price": 4.5,
+        "img": null
+       },
+       {
+        "id": 31645120,
+        "name": "Nutella pura",
+        "description": null,
+        "max": 5,
+        "price": 8,
+        "img": null
+       },
+       {
+        "id": 31645122,
+        "name": "Morangos selecionados",
+        "description": null,
+        "max": 5,
+        "price": 4,
+        "img": null
+       },
+       {
+        "id": 31645123,
+        "name": "Paçoca",
+        "description": null,
+        "max": 5,
+        "price": 4,
+        "img": null
+       },
+       {
+        "id": 31645124,
+        "name": "Confete",
+        "description": null,
+        "max": 5,
+        "price": 4,
+        "img": null
+       },
+       {
+        "id": 31645125,
+        "name": "Leite ninho (pó)",
+        "description": null,
+        "max": 5,
+        "price": 3.5,
+        "img": null
+       },
+       {
+        "id": 31645126,
+        "name": "Leite condensado",
+        "description": null,
+        "max": 5,
+        "price": 4,
+        "img": null
+       },
+       {
+        "id": 31645137,
+        "name": "Granola",
+        "description": null,
+        "max": 5,
+        "price": 4,
+        "img": null
+       },
+       {
+        "id": 31654159,
+        "name": "Brownie",
+        "description": null,
+        "max": 5,
+        "price": 5,
+        "img": null
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": 865789,
+  "name": "GELADINHOS / PICOLÉ🍦😍✨",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 7498098,
+    "idi": 90546,
+    "name": "COMBO FAMILIA  10 GELADINHOS ",
+    "description": "Sabores sortidos, ou você pode escolher aqui nas observações os sabores desejados.\n",
+    "price": 120,
+    "promotional_price": 114,
+    "promotional_percentage": 5,
+    "img": "https://cdn-production.yooga.com.br/01a4afef39dc3ef7c64dde16bf092a57.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 120,
+    "min_value_promotional": 114,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 7383565,
+    "idi": 90546,
+    "name": "Geladinho Ninho com nutella",
+    "description": null,
+    "price": 12,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/663664731d269890b94fb0a6df8cf2fe.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 12,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 7383568,
+    "idi": 90546,
+    "name": "Geladinho Pudim",
+    "description": null,
+    "price": 12,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/a9b69bb5272d19762cb79847030c4058.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 12,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 7401609,
+    "idi": 90546,
+    "name": "Geladinho Cappuccino",
+    "description": null,
+    "price": 12,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/7c878ad4bbc8046c678f2cafaef609e5.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 12,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 7455768,
+    "idi": 90546,
+    "name": "Geladinho Sensação",
+    "description": null,
+    "price": 12,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": null,
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 12,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 438419,
+  "name": "BOLOS DE POTE",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3415245,
+    "idi": 90546,
+    "name": "Bolo de Pote de Prestígio",
+    "description": "Massa de chocolate 50% cacau, creme de coco finalizado com o maravilhoso brigadeiro\ncremoso.",
+    "price": 16,
+    "promotional_price": 15,
+    "promotional_percentage": 6.25,
+    "img": "https://cdn-production.yooga.com.br/95e66412d883d17112f83f17fbff0c0e.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 15,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 3415246,
+    "idi": 90546,
+    "name": "Bolo de Pote de Danette",
+    "description": "Massa de chocolate 50% cacau, com camadas brigadeiro cremoso.\n",
+    "price": 16,
+    "promotional_price": 14.9,
+    "promotional_percentage": 6.87,
+    "img": "https://cdn-production.yooga.com.br/fe9871fb7bb9456f472c6dd4750be3fd.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 16,
+    "min_value_promotional": 14.9,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 438421,
+  "name": "CONE TRUFADO",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3415255,
+    "idi": 90546,
+    "name": "Cone Trufado de Brigadeiro",
+    "description": "Casquinha crocante banhada no chocolate, com um cremoso brigadeiro 50% cacau.\n",
+    "price": 8,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/c6ab9be564ca018df3270e58253f85ce.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 8,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 3415256,
+    "idi": 90546,
+    "name": "Cone Trufado de Maracujá",
+    "description": "Casquinha crocante banhada no chocolate, com o delicioso brigadeiro de maracujá (da fruta).\n",
+    "price": 8,
+    "promotional_price": null,
+    "promotional_percentage": 0,
+    "img": "https://cdn-production.yooga.com.br/abfc4ee77774ac08206d61c2cf643eee.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 8,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 923026,
+  "name": "TAMANHO FAMILIA",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 7986915,
+    "idi": 90546,
+    "name": "Bolo de cenoura ",
+    "description": "bolo de cenoura com cobertura de brigadeiro cremoso, fofinho e perfeito para o lanche da tarde. \nServe 8 a 10 pessoas.",
+    "price": 70,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/ed6ba0b566fc694bfc585d4a12c7f94e.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 70,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 441887,
+  "name": "BEBIDAS",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3443838,
+    "idi": 90546,
+    "name": "Coca cola 200ml",
+    "description": "Garrafinha",
+    "price": 5,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/fd04f27360f7f35fff4cec53fa1e8768.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 5,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 5776524,
+    "idi": 90546,
+    "name": "Água",
+    "description": null,
+    "price": 5,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/0e8649fd0861e4463c4f6e5afc387279.png",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 5,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 5776525,
+    "idi": 90546,
+    "name": "Água com gás",
+    "description": null,
+    "price": 5,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/9372752cf0fccbfdd76241376f3c414f.png",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 5,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 5776526,
+    "idi": 90546,
+    "name": "Coca LATA",
+    "description": "lata 350ml",
+    "price": 8,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/a23f104ba5cc0f9018d476ff8ecbe655.png",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 8,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   },
+   {
+    "id": 5997251,
+    "idi": 90546,
+    "name": "Coca Zero 350ml",
+    "description": "zero",
+    "price": 8,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/8b6a8170c20c9efea69dc87aba7e0ca0.png",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 8,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 442641,
+  "name": "ATENÇÂO🔴",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 3474953,
+    "idi": 90546,
+    "name": "Adicionar garfinho no pedido",
+    "description": "*Se precisar de garfinho adicione aqui**",
+    "price": 0.01,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/fc8a04bc913c13c2bcb33c92bf614f9a.png",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 0.01,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ },
+ {
+  "id": 773392,
+  "name": "🥰PRESENTEAR PODE & DEVE!",
+  "menu_id": 33518,
+  "schedule_available": "1111111",
+  "schedule_type": 0,
+  "has_multiple_selection": 0,
+  "items": [
+   {
+    "id": 6470540,
+    "idi": 90546,
+    "name": "CARTÃO PRESENTE",
+    "description": "Você pode escrever sua mensagem na observação e colocar o nome de quem vai receber.",
+    "price": 2,
+    "promotional_price": null,
+    "promotional_percentage": null,
+    "img": "https://cdn-production.yooga.com.br/aebc03fdd58f2a9310e0ccf9a50c01c3.jpeg",
+    "schedule_available": "1111111",
+    "schedule_type": 0,
+    "min_value": 2,
+    "min_value_promotional": 0,
+    "featured": [],
+    "choices": []
+   }
+  ]
+ }
+]
