@@ -13,6 +13,7 @@ Estado atual (auditoria em `docs/content-audit.md`, pedido pronto em `docs/bruna
 - [ ] `LINKS.criacoes`: destino de "Descubra as criações" (ou remover o CTA)
 - [ ] `CONTACT.phone` e `.location` (cidade): **confirmar**; `.email` e `.hours`: obter da Bruna (horários públicos se contradizem); `.year` já é calculado
 - [ ] `BUSINESS_HOURS` estruturado (para o JSON-LD)
+- [ ] Página `/produtos` (docs/qa/products-page/README.md): `LINKS.cardapio` (Yooga) confirmado como canal oficial; `PRODUCTS_PAGE` (textos) aprovado; Menu de Bolos recebido, auditado e listado (`LINKS.menuBolos`, `CAKES_MENU`; hoje o CTA vai ao WhatsApp); fotos próprias no lugar das do Yooga (≤ 500 px) e imagem real no bloco de bolos; `displayName` definitivo (`src/data/products-display.ts`)
 - [ ] `BRAND.tagline` e `CLAIMS` confirmados
 - [ ] `FOUNDER.paragraphs` aprovados em 1ª pessoa
 - [ ] `TESTIMONIALS` reais e **autorizados** (ou remover a seção/ocultar)
@@ -52,6 +53,7 @@ Hoje: `noindex, nofollow` + `public/robots.txt` bloqueando tudo. Tudo é control
 - [ ] `npm run check:content:strict` com saída 0
 - [ ] `node tools/qa-check.mjs` (layout, overflow, menu, teclado) em 1440 → 360
 - [ ] `node tools/qa-motion.mjs` (motion, reduced-motion, sem JS, resize)
+- [ ] `node docs/qa/products-page/qa-products.mjs` (catálogo: 54 produtos, busca, categorias, teclado, overflow, sem JS)
 - [ ] `node tools/qa-a11y.mjs` (estrutura, nomes, contraste)
 - [ ] `node tools/qa-perf.mjs` contra `npm run preview` (referência: LCP mobile ≈ 1,1 s, TBT ≈ 190 ms, CLS ≈ 0 no ambiente local com throttling)
 - [ ] Revisão visual com os assets reais em 1440 / 768 / 390 (os crops e os recortes creme foram desenhados para as fotos provisórias)

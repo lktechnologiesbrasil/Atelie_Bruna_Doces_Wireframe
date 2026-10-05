@@ -3,8 +3,8 @@
 //   npm run check:content          relatório (sempre sai com 0: não quebra o desenvolvimento)
 //   npm run check:content:strict   gate de lançamento (sai com 1 se restar QUALQUER pendência)
 //
-// Lê o contrato (src/data/site.ts, src/data/images.ts), o HTML gerado (dist/index.html,
-// se existir) e public/robots.txt. Não inventa nada: só detecta e lista.
+// Lê o contrato (src/data/site.ts, src/data/images.ts), o HTML gerado (todas as páginas em dist/,
+// se existirem) e public/robots.txt. Não inventa nada: só detecta e lista.
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -38,25 +38,32 @@ if (!SEO.allowIndexing) findings.seo.push('SEO.allowIndexing = false (noindex, n
 if (!STRUCTURED_DATA.enabled) findings.seo.push('STRUCTURED_DATA.enabled = false (nenhum JSON-LD)');
 if (!BUSINESS_HOURS) findings.seo.push('BUSINESS_HOURS = null (horário estruturado pendente)');
 
-// 3) HTML gerado
-const dist = 'dist/index.html';
-if (existsSync(dist)) {
-  const html = readFileSync(dist, 'utf8');
+// 3) HTML gerado (TODAS as páginas: dist/index.html e dist/<rota>/index.html)
+const pages = [];
+if (existsSync('dist')) {
+  if (existsSync('dist/index.html')) pages.push(['/', 'dist/index.html']);
+  for (const entry of readdirSync('dist', { withFileTypes: true })) {
+    if (entry.isDirectory() && existsSync(`dist/${entry.name}/index.html`)) pages.push([`/${entry.name}`, `dist/${entry.name}/index.html`]);
+  }
+}
+if (!pages.length) findings.html.push('dist/index.html não existe: rode `npm run build` antes para checar o HTML');
+const seenAssets = new Set();
+for (const [route, file] of pages) {
+  const tag = pages.length > 1 ? `[${route}] ` : '';
+  const html = readFileSync(file, 'utf8');
   const visible = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
   const tokens = [...new Set([...visible.matchAll(/\[[A-ZÀ-Ú][A-ZÀ-Ú_\- ]{2,}\]/g)].map((m) => m[0]))];
-  if (tokens.length) findings.html.push(`tokens visíveis no HTML: ${tokens.join(' ')}`);
+  if (tokens.length) findings.html.push(`${tag}tokens visíveis no HTML: ${tokens.join(' ')}`);
   const pendingLinks = (visible.match(/<a[^>]*data-link-status="pending"/g) ?? []).length;
-  if (pendingLinks) findings.html.push(`${pendingLinks} links ainda pendentes (data-link-status="pending")`);
+  if (pendingLinks) findings.html.push(`${tag}${pendingLinks} links ainda pendentes (data-link-status="pending")`);
   const provisional = (html.match(/data-provisional/g) ?? []).length;
-  if (provisional) findings.html.push(`${provisional} blocos marcados data-provisional (depoimentos, texto/assinatura da Bruna, claims)`);
-  const assets = [...new Set([...html.matchAll(/provisional-[a-z0-9-]+/g)].map((m) => m[0]))];
-  if (assets.length) findings.assets.push(`${assets.length} assets provisional-* servidos no HTML`);
-  if (/<meta name="robots" content="[^"]*noindex/.test(html)) findings.html.push('meta robots = noindex');
-  if (!/<link rel="canonical"/.test(html)) findings.html.push('sem <link rel="canonical">');
-  if (!/name="description"/.test(html)) findings.html.push('sem <meta name="description">');
-} else {
-  findings.html.push('dist/index.html não existe: rode `npm run build` antes para checar o HTML');
+  if (provisional) findings.html.push(`${tag}${provisional} blocos marcados data-provisional (depoimentos, texto/assinatura da Bruna, claims, imagens provisórias)`);
+  [...html.matchAll(/provisional-[a-z0-9-]+/g)].forEach((m) => seenAssets.add(m[0]));
+  if (/<meta name="robots" content="[^"]*noindex/.test(html)) findings.html.push(`${tag}meta robots = noindex`);
+  if (!/<link rel="canonical"/.test(html)) findings.html.push(`${tag}sem <link rel="canonical">`);
+  if (!/name="description"/.test(html)) findings.html.push(`${tag}sem <meta name="description">`);
 }
+if (seenAssets.size) findings.assets.push(`${seenAssets.size} assets provisional-* servidos no HTML`);
 
 // 4) arquivos provisional-* ainda no repositório
 const dir = 'src/assets/provisional';

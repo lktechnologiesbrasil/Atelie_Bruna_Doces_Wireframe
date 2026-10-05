@@ -1,0 +1,312 @@
+{
+  "url": "http://localhost:4332/produtos",
+  "passed": 61,
+  "failed": 0,
+  "results": [
+    {
+      "name": "17 grupos no DOM (14 comida + bebidas + presente + serviço)",
+      "ok": true,
+      "detail": "groups=17"
+    },
+    {
+      "name": "53 cards + 1 item de serviço = 54 produtos",
+      "ok": true,
+      "detail": "cards=53 items=54"
+    },
+    {
+      "name": "stats derivados dos dados: \"54 produtos em 17 categorias\"",
+      "ok": true,
+      "detail": "54 produtosem 17 categorias"
+    },
+    {
+      "name": "trilho: Todos + 16 categorias (sem utility)",
+      "ok": true,
+      "detail": "rail=17"
+    },
+    {
+      "name": "4 promoções (original riscado + promocional)",
+      "ok": true,
+      "detail": "Coxinha de frango + Coca-Cola lata zero + Coxinha belga | Combo Família 10 geladinhos | Bolo de Pote de Prestígio | Bolo de Pote de Danette"
+    },
+    {
+      "name": "7 produtos com \"Possui opções\"",
+      "ok": true,
+      "detail": "opts=7"
+    },
+    {
+      "name": "Açaí: \"A partir de R$ 19,50\" (derivado dos grupos) e com opções",
+      "ok": true,
+      "detail": "A partir deR$ 19,50"
+    },
+    {
+      "name": "2 fallbacks de imagem (Cookie tradicional, Geladinho Sensação)",
+      "ok": true,
+      "detail": "Cookie tradicional | Geladinho Sensação"
+    },
+    {
+      "name": "todos os CTAs → cardápio Yooga geral, nova aba, noopener",
+      "ok": true,
+      "detail": "https://delivery.yooga.app/ateliedocesbruna n=53"
+    },
+    {
+      "name": "garfinho (utility) continua na página",
+      "ok": true,
+      "detail": "Adicionar garfinho no pedidoR$ 0,01Se precisar de garfinho adicione aqui"
+    },
+    {
+      "name": "cartão presente (gift) vem dos dados",
+      "ok": true,
+      "detail": "Presentear pode & deve!Cartão presenteVocê pode escrever sua mensagem na observação e colocar o nome de quem vai receber.R$ 2,00Ver no cardá"
+    },
+    {
+      "name": "Menu de Bolos pendente: nenhum preço/bolo listado, CTA = WhatsApp (documentado)",
+      "ok": true,
+      "detail": "whatsapp-fallback https://wa.me/5535984235184"
+    },
+    {
+      "name": "noindex, nofollow mantido",
+      "ok": true,
+      "detail": "noindex, nofollow"
+    },
+    {
+      "name": "título \"Produtos | Ateliê Doces Bruna\"",
+      "ok": true,
+      "detail": "Produtos | Ateliê Doces Bruna"
+    },
+    {
+      "name": "Header: Produtos ativo (aria-current=page)",
+      "ok": true,
+      "detail": "Produtos"
+    },
+    {
+      "name": "Header/Footer: âncoras da Home prefixadas com \"/\"",
+      "ok": true,
+      "detail": "/#a-marca /#bruna /produtos /#criacoes /#encomendas /#contato"
+    },
+    {
+      "name": "um único h1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "imagens com width/height, lazy nos cards, alt presente, nenhuma quebrada",
+      "ok": true,
+      "detail": "semTamanho=0 lazy=53 semAlt=0 quebradas=0"
+    },
+    {
+      "name": "reduced-motion: cards visíveis, motion-ready ausente",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "busca visível com JS",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "busca \"acai\" (sem acento) acha o Açaí",
+      "ok": true,
+      "detail": "Açaí 350 ml"
+    },
+    {
+      "name": "busca \"AÇAÍ\" (maiúsculas/acento) acha o Açaí",
+      "ok": true,
+      "detail": "Açaí 350 ml"
+    },
+    {
+      "name": "busca por descrição (\"nutella\")",
+      "ok": true,
+      "detail": "10 resultados"
+    },
+    {
+      "name": "busca por categoria/nome (\"geladinho\")",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "busca pelo nome de exibição corrigido (\"enroladinho\")",
+      "ok": true,
+      "detail": "Enroladinho de salsicha"
+    },
+    {
+      "name": "busca pela grafia de origem (\"salchicha\") também acha",
+      "ok": true,
+      "detail": "Enroladinho de salsicha"
+    },
+    {
+      "name": "busca acha o item de serviço (\"garfinho\")",
+      "ok": true,
+      "detail": "Adicionar garfinho no pedido"
+    },
+    {
+      "name": "busca: mensagem de resultados",
+      "ok": true,
+      "detail": "Resultados para “garfinho”: 1 criação"
+    },
+    {
+      "name": "0 resultados: \"Nenhuma criação encontrada.\" + botão",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "\"Ver todos os produtos\" restaura os 54 e limpa a busca",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Esc limpa a busca",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "categoria: rola até a seção e marca o item atual",
+      "ok": true,
+      "detail": "{\"top\":176,\"cur\":\"fatias-de-bolo\",\"hash\":\"#fatias-de-bolo\"}"
+    },
+    {
+      "name": "categoria durante a busca: limpa a busca e rola",
+      "ok": true,
+      "detail": "{\"q\":\"\",\"vis\":54,\"top\":176}"
+    },
+    {
+      "name": "\"Todos\" volta ao topo do catálogo",
+      "ok": true,
+      "detail": "{\"top\":176,\"cur\":\"all\"}"
+    },
+    {
+      "name": "teclado: busca e trilho entram na ordem de foco, com foco visível",
+      "ok": true,
+      "detail": "skip-link > site-header__logo > lnk > lnk > lnk > lnk > lnk > lnk > lnk > lnk > btn > produtos-busca > psearch__go > rail:all > rail:combo-do-dia > rail:salgados-deliciosos > rail:fatias > rail:coxinhas-doces > rail:fatias-de-bolo > rail:caseirinhos > rail:exclusivos > rail:doses-da-felicidade > rail:quentinhos-combinam > rail:acai > rail:geladinhos-picole > rail:bolos-de-pote > rail:cone-trufado > rail:tamanho-familia > rail:bebidas > rail:presentear-pode-e-deve > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta"
+    },
+    {
+      "name": "1440px: sem overflow horizontal",
+      "ok": true,
+      "detail": "scrollWidth=1440 innerWidth=1440"
+    },
+    {
+      "name": "1440px: alvos interativos ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1440px: texto ≥ 12px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1024px: sem overflow horizontal",
+      "ok": true,
+      "detail": "scrollWidth=1024 innerWidth=1024"
+    },
+    {
+      "name": "1024px: alvos interativos ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1024px: texto ≥ 12px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "768px: sem overflow horizontal",
+      "ok": true,
+      "detail": "scrollWidth=768 innerWidth=768"
+    },
+    {
+      "name": "768px: alvos interativos ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "768px: texto ≥ 12px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "430px: sem overflow horizontal",
+      "ok": true,
+      "detail": "scrollWidth=430 innerWidth=430"
+    },
+    {
+      "name": "430px: alvos interativos ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "430px: texto ≥ 12px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "390px: sem overflow horizontal",
+      "ok": true,
+      "detail": "scrollWidth=390 innerWidth=390"
+    },
+    {
+      "name": "390px: alvos interativos ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "390px: texto ≥ 12px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "360px: sem overflow horizontal",
+      "ok": true,
+      "detail": "scrollWidth=360 innerWidth=360"
+    },
+    {
+      "name": "360px: alvos interativos ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "360px: texto ≥ 12px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sem JS: catálogo completo visível, trilho por âncoras, busca oculta",
+      "ok": true,
+      "detail": "{\"cards\":53,\"vis\":53,\"searchHidden\":true,\"anchors\":17}"
+    },
+    {
+      "name": "motion: ligado (motion-ready + motion-live)",
+      "ok": true,
+      "detail": "{\"ready\":true,\"live\":true,\"hidden\":53}"
+    },
+    {
+      "name": "motion: cards nascem recolhidos e nenhum fica preso invisível após rolar",
+      "ok": true,
+      "detail": "inicial escondidos=53, presos=0"
+    },
+    {
+      "name": "motion: títulos revelados (nenhum h2 invisível)",
+      "ok": true,
+      "detail": "{\"stuck\":0,\"h2Hidden\":0,\"lines\":0,\"cls\":0}"
+    },
+    {
+      "name": "CLS (com rolagem completa) < 0,02",
+      "ok": true,
+      "detail": "cls=0"
+    },
+    {
+      "name": "console sem erros (motion)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "resize 1440 → 390 → 1440 sem overflow e sem erro",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "motion → reduced com a página aberta: tudo visível",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

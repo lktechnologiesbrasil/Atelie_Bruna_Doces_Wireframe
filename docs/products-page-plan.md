@@ -1,6 +1,6 @@
 # Plano da futura página `/produtos`
 
-> **Só planejamento.** Nada disso está implementado: não existe a rota, nem `ProductCard`, nem navegação nova, e a Home não mudou. O próximo passo é o **concept visual**, que precisa ser aprovado antes de qualquer interface. O site segue `noindex, nofollow`.
+> **Status:** o concept visual (Concept 09) foi aprovado e a página foi implementada em `src/pages/produtos.astro`. Registro da implementação, QA e diferenças para o Concept: `docs/qa/products-page/README.md`. Este documento continua sendo o plano de origem. O site segue `noindex, nofollow`.
 
 ## Fundação de dados (já pronta)
 
