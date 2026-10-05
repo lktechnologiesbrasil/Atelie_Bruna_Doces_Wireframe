@@ -27,7 +27,7 @@ const ASSETS = [
   // 02 Manifesto: base decorativa (tecido + cerâmica)
   { name: 'provisional-manifesto-base', rect: { left: 0, top: 1680, width: 650, height: 320 } },
   // 03 Bruna: retrato (media2)
-  { name: 'provisional-bruna-retrato', rect: { left: 620, top: 2000, width: 820, height: 980 } },
+  // o retrato da seção Bruna saiu daqui: agora é src/assets/founder/bruna-about-approved.webp (APPROVED_GENERATED_ASSET)
   // 04 Criações: base decorativa (tecido + cerâmica)
   { name: 'provisional-criacoes-base', rect: { left: 0, top: 3870, width: 555, height: 290 } },
   // 06 Histórias Reais: mesa de celebração (media2). Contém o inset gravado;

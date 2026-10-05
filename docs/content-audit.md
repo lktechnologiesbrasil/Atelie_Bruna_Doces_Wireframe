@@ -38,7 +38,7 @@ Coluna "Atual" = o que está no site (sempre `PROVISIONAL`). "Candidato real" = 
 |---|---|---|---|---|---|
 | brand.logo (header claro/escuro, footer) | recortes da Master | PUB-001: PNG 1100×696 da capa do cardápio Yooga | `REAL_BUT_NOT_SUITABLE` (como encaixe direto) | não | Pedir arquivo original (ver abaixo) |
 | brand.flower (selo, linha) | recortes da Master | só dentro da logo | `MISSING` | não | Sai do arquivo vetorial da logo |
-| founder.portrait | pessoa gerada | PUB-010 (mulher de touca; identidade **não confirmada**) | `MISSING` utilizável | não | Foto real da Bruna |
+| founder.portrait | **ANTES:** recorte provisório da Master (pessoa gerada genérica, `provisional-bruna-retrato.webp`). **DEPOIS (2026-10-05):** `src/assets/founder/bruna-about-approved.webp`, `APPROVED_GENERATED_ASSET` | PUB-010 (mulher de touca; identidade **não confirmada**) | `MISSING` utilizável (foto real) | não | Imagem gerada e **aprovada visualmente** para a seção; **não** é `VERIFIED_REAL` nem fotografia documental. Segue valendo pedir a **fotografia profissional real da Bruna** para substituí-la, se existir |
 | founder.signature | gerada | nenhum | `MISSING` | não | Assinatura em arquivo, se ela quiser |
 | hero.photo (+ base) | crop da Master | PUB-014, 016, 017 | `REAL_BUT_NOT_SUITABLE` (direção de arte) | não | Nova foto (ver pedido) |
 | manifesto.hands | crop | nenhum (mão salpicando) | `MISSING` | não | Foto de processo |
@@ -138,3 +138,12 @@ O 25 → 24 é só o ano; as outras 5 viraram "real aguardando confirmação" e 
 ## QA
 
 Mudanças só em dados/links: 1440, 1024, 768 e 390 sem overflow, 0 erros de console, menu e teclado ok, motion (21 / 1 ScrollTriggers, CLS ≤ 0,002, reduced-motion, sem JS) ok. Regressão visual contra a Etapa 7: alturas idênticas (8470 / 10187 px), pior faixa 0,52 (1440) e 1,26 (390; texto do footer). Artefatos: `docs/qa/etapa-8/` (`impl-1440.webp`, `footer-1440.webp`, `footer-390.webp`, JSONs).
+
+## Atualização 2026-10-05: retrato da seção Sobre a Bruna
+
+- **Antes:** `provisional-bruna-retrato.webp` (recorte da Master, pessoa gerada genérica, 820×980).
+- **Depois:** `src/assets/founder/bruna-about-approved.webp` (1122×1402, WebP, 214 KB; arquivo recebido usado sem recompressão), slot `brunaRetrato` em `src/data/images.ts`.
+- **Classificação:** `APPROVED_GENERATED_ASSET` (novo estado no manifesto: `AssetStatus`). Criada para representar a Bruna na direção artística aprovada; **não** é `VERIFIED_REAL`.
+- **Não muda:** o gate de conteúdo real. Não há foto real da Bruna, nem autorização geral dos assets; `check:content` segue com as mesmas 24 pendências (o contador de arquivos `provisional-*` caiu de 33 para 32 só porque o arquivo provisório deixou de existir). `noindex, nofollow` mantido.
+- **Alt:** "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna" (não afirma ser fotografia documental).
+- **Substituição futura:** fotografia profissional real da Bruna, com autorização (passa a `VERIFIED_REAL`).

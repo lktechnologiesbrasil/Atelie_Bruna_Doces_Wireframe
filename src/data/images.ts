@@ -1,8 +1,9 @@
 /**
  * Manifesto de imagens: cada SLOT da página aponta para UM arquivo.
  *
- * Hoje todos vêm de `src/assets/provisional/` (recortes da Master Reference,
- * sem IA, prefixo `provisional-`). Para trocar por um asset real:
+ * Quase todos vêm de `src/assets/provisional/` (recortes da Master Reference,
+ * sem IA, prefixo `provisional-`). Exceção: o retrato da seção Bruna é um
+ * APPROVED_GENERATED_ASSET em `src/assets/founder/` (ver `ASSET_STATUS`). Para trocar por um asset real:
  *
  *   1. coloque o arquivo na pasta do slot (coluna `folder` em ASSET_SLOTS);
  *   2. troque APENAS o `import` correspondente aqui;
@@ -20,7 +21,7 @@ import manifestoMaos from '../assets/provisional/provisional-media-manifesto-mao
 import manifestoMaosM from '../assets/provisional/provisional-media-manifesto-maos-m.webp';
 import manifestoBrigadeiros from '../assets/provisional/provisional-media-manifesto-brigadeiros.webp';
 import manifestoChocolate from '../assets/provisional/provisional-media-manifesto-chocolate.webp';
-import brunaRetrato from '../assets/provisional/provisional-bruna-retrato.webp';
+import brunaRetrato from '../assets/founder/bruna-about-approved.webp';
 import assinatura from '../assets/provisional/provisional-assinatura-bruna.png';
 import criacoesBase from '../assets/provisional/provisional-criacoes-base.webp';
 import criacoesStrip from '../assets/provisional/provisional-criacoes-strip.webp';
@@ -61,6 +62,15 @@ export const IMAGES = {
 /** Pasta de destino dos assets reais (convenção; só é criada quando o primeiro arquivo chegar). */
 export type AssetFolder = 'brand' | 'founder' | 'products' | 'process' | 'social-proof';
 
+/**
+ * Estado de um asset:
+ *   VERIFIED_REAL            foto/arquivo real, autorizado
+ *   APPROVED_GENERATED_ASSET imagem gerada e aprovada visualmente para o slot; NÃO é documental
+ *                            nem conta como asset real para o gate de produção
+ *   PROVISIONAL              recorte da Master (prefixo provisional-)
+ */
+export type AssetStatus = 'VERIFIED_REAL' | 'APPROVED_GENERATED_ASSET' | 'PROVISIONAL';
+
 export interface AssetSlot {
   /** Imagens (chaves de IMAGES) que este slot usa. */
   slots: Array<keyof typeof IMAGES>;
@@ -69,12 +79,25 @@ export interface AssetSlot {
   real: string;
   /** Proporção/tamanho que o layout espera (px em 1440). */
   ratio: string;
+  /** Só nos slots que já têm um estado diferente de PROVISIONAL. */
+  status?: AssetStatus;
+  description?: string;
+  futureReplacement?: string;
 }
 
 export const ASSET_SLOTS: AssetSlot[] = [
   { slots: ['heroBg', 'heroBase'], folder: 'products', real: 'Foto de produto-estrela (bolo de chocolate sobre pedestal, flores, tecido), fundo escuro à esquerda para o texto', ratio: 'hero-bg 800×800; hero-base 700×192 (tecido/tigela, desktop)' },
   { slots: ['manifestoMaos', 'manifestoMaosM', 'manifestoBrigadeiros', 'manifestoChocolate', 'manifestoBase', 'manifestoStrip'], folder: 'process', real: 'Mãos confeitando, brigadeiros em prato, chocolate e cacau; tecido/cerâmica decorativos', ratio: '703×460 (+ variante mobile 549×390), 377×338, 313×411' },
-  { slots: ['brunaRetrato', 'assinatura'], folder: 'founder', real: 'Retrato REAL da Bruna no ateliê + assinatura em arquivo (PNG/SVG transparente)', ratio: 'retrato 820×980 (rosto à direita, esquerda limpa); assinatura 456×140' },
+  {
+    slots: ['brunaRetrato'],
+    folder: 'founder',
+    real: 'Retrato REAL da Bruna no ateliê (vertical, rosto à direita, esquerda limpa)',
+    ratio: 'retrato 1122×1402 (≈ 4:5; box de 821×1016 no desktop)',
+    status: 'APPROVED_GENERATED_ASSET',
+    description: 'Imagem aprovada para a seção Sobre a Bruna (src/assets/founder/bruna-about-approved.webp). Gerada para a direção artística do site; não é fotografia documental da Bruna.',
+    futureReplacement: 'Pode ser substituída por fotografia profissional real da Bruna, se disponível (aí passa a VERIFIED_REAL, com autorização).',
+  },
+  { slots: ['assinatura'], folder: 'founder', real: 'Assinatura em arquivo (PNG/SVG transparente)', ratio: 'assinatura 456×140' },
   { slots: ['criacoesBolo', 'criacoesBoloM', 'criacoesBrigadeiros', 'criacoesFatia', 'criacoesCheesecake', 'criacoesBase', 'criacoesStrip'], folder: 'products', real: 'Fotos reais do portfólio: bolo, brigadeiros, fatia, cheesecake', ratio: '751×540 (+ mobile 751×430), 463×309, 156×398 (≥ 312px recomendado), 345×365' },
   { slots: ['jornadaCaderno', 'jornadaCadernoM', 'jornadaMorango', 'jornadaMesa', 'jornadaMesaM'], folder: 'process', real: 'Briefing/caderno de ideias; mão finalizando bolo; bolo na mesa posta', ratio: '487×409 (+ mobile 400×340), 262×418, 631×247 (+ mobile 420×219)' },
   { slots: ['historiasMesa', 'historiasFatia'], folder: 'social-proof', real: 'Foto de celebração AUTORIZADA (clientes/mesa) e fatia de bolo', ratio: '780×940 (sem inset gravado), 286×355' },

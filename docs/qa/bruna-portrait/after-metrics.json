@@ -1,0 +1,92 @@
+{
+  "360": {
+    "top": 1788.609375,
+    "height": 1149.5625,
+    "overflowX": 0,
+    "img": {
+      "w": "1122",
+      "h": "1402",
+      "nat": "360x450",
+      "box": "360x450",
+      "loading": "eager",
+      "src": "bruna-about-approved.DWUo7cc0_uN4xs.webp",
+      "pos": "50% 12%",
+      "alt": "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna"
+    }
+  },
+  "390": {
+    "top": 1829.4375,
+    "height": 1181.796875,
+    "overflowX": 0,
+    "img": {
+      "w": "1122",
+      "h": "1402",
+      "nat": "390x487",
+      "box": "390x488",
+      "loading": "eager",
+      "src": "bruna-about-approved.DWUo7cc0_uN4xs.webp",
+      "pos": "50% 12%",
+      "alt": "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna"
+    }
+  },
+  "430": {
+    "top": 1961.890625,
+    "height": 1262.609375,
+    "overflowX": 0,
+    "img": {
+      "w": "1122",
+      "h": "1402",
+      "nat": "430x537",
+      "box": "430x538",
+      "loading": "eager",
+      "src": "bruna-about-approved.DWUo7cc0_uN4xs.webp",
+      "pos": "50% 12%",
+      "alt": "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna"
+    }
+  },
+  "768": {
+    "top": 2998.71875,
+    "height": 1846.15625,
+    "overflowX": 0,
+    "img": {
+      "w": "1122",
+      "h": "1402",
+      "nat": "767x959",
+      "box": "768x960",
+      "loading": "eager",
+      "src": "bruna-about-approved.DWUo7cc0_uN4xs.webp",
+      "pos": "50% 12%",
+      "alt": "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna"
+    }
+  },
+  "1024": {
+    "top": 1435.8125,
+    "height": 754.078125,
+    "overflowX": 0,
+    "img": {
+      "w": "1122",
+      "h": "1402",
+      "nat": "583x729",
+      "box": "584x754",
+      "loading": "eager",
+      "src": "bruna-about-approved.DWUo7cc0_uN4xs.webp",
+      "pos": "50% 20%",
+      "alt": "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna"
+    }
+  },
+  "1440": {
+    "top": 2000.140625,
+    "height": 1015.5,
+    "overflowX": 0,
+    "img": {
+      "w": "1122",
+      "h": "1402",
+      "nat": "820x1025",
+      "box": "821x1016",
+      "loading": "eager",
+      "src": "bruna-about-approved.DWUo7cc0_Z2n9NB7.webp",
+      "pos": "50% 20%",
+      "alt": "Representação visual de Bruna finalizando um bolo no Ateliê Doces Bruna"
+    }
+  }
+}

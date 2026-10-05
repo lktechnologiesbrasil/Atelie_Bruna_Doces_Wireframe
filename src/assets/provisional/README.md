@@ -14,7 +14,6 @@
 |---|---|---|---|
 | `provisional-hero-bg.webp` | 640, 110, 800 × 750 | Foto de fundo do `hero` | Selo e fim de "doces," desfocados; resta um vestígio sutil do anel do selo |
 | `provisional-manifesto-base.webp` | 0, 1680, 650 × 320 | Base decorativa (tecido + cerâmica) do Manifesto | — |
-| `provisional-bruna-retrato.webp` | 620, 2000, 820 × 980 | `media2` da seção Bruna | A pessoa gerada **não é a Bruna** |
 | `provisional-criacoes-base.webp` | 0, 3870, 555 × 290 | Base decorativa de Criações | — |
 | `provisional-historias-mesa.webp` | 0, 5310, 780 × 940 | `media2` de Histórias Reais | Contém o inset (fatia) gravado; o `media` real cobre essa área na Etapa 4 |
 | `provisional-bastidores-confeitando.webp` | 680, 6320, 760 × 670 | `media2` de Bastidores | Logo no avental não é arte final |

@@ -1,0 +1,92 @@
+{
+  "360": {
+    "top": 1788.609375,
+    "height": 1149.5625,
+    "overflowX": 0,
+    "img": {
+      "w": "820",
+      "h": "980",
+      "nat": "360x430",
+      "box": "360x450",
+      "loading": "eager",
+      "src": "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp",
+      "pos": "50% 12%",
+      "alt": ""
+    }
+  },
+  "390": {
+    "top": 1829.4375,
+    "height": 1181.796875,
+    "overflowX": 0,
+    "img": {
+      "w": "820",
+      "h": "980",
+      "nat": "390x466",
+      "box": "390x488",
+      "loading": "eager",
+      "src": "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp",
+      "pos": "50% 12%",
+      "alt": ""
+    }
+  },
+  "430": {
+    "top": 1961.890625,
+    "height": 1262.609375,
+    "overflowX": 0,
+    "img": {
+      "w": "820",
+      "h": "980",
+      "nat": "430x513",
+      "box": "430x538",
+      "loading": "eager",
+      "src": "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp",
+      "pos": "50% 12%",
+      "alt": ""
+    }
+  },
+  "768": {
+    "top": 2998.71875,
+    "height": 1846.15625,
+    "overflowX": 0,
+    "img": {
+      "w": "820",
+      "h": "980",
+      "nat": "767x917",
+      "box": "768x960",
+      "loading": "eager",
+      "src": "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp",
+      "pos": "50% 12%",
+      "alt": ""
+    }
+  },
+  "1024": {
+    "top": 1435.8125,
+    "height": 754.078125,
+    "overflowX": 0,
+    "img": {
+      "w": "820",
+      "h": "980",
+      "nat": "583x697",
+      "box": "584x754",
+      "loading": "eager",
+      "src": "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp",
+      "pos": "50% 20%",
+      "alt": ""
+    }
+  },
+  "1440": {
+    "top": 2000.140625,
+    "height": 1015.5,
+    "overflowX": 0,
+    "img": {
+      "w": "820",
+      "h": "980",
+      "nat": "820x980",
+      "box": "821x1016",
+      "loading": "eager",
+      "src": "provisional-bruna-retrato._K9SCdN5_Z2l99b.webp",
+      "pos": "50% 20%",
+      "alt": ""
+    }
+  }
+}
