@@ -47,6 +47,13 @@ export const NAV: readonly NavItem[] = [
   { label: 'Contato', href: '#contato' },
 ];
 
+/**
+ * Navegação do HEADER: só o que representa uma página real (`page`). Regra: entra no Header uma página
+ * real do site, um destino externo relevante (Instagram, WhatsApp) ou uma ação principal (Encomendar).
+ * Não usar o Header como índice das seções da Home; `NAV` completo segue no Footer.
+ */
+export const HEADER_NAV: readonly NavItem[] = NAV.filter((item) => item.page);
+
 /** Resolve o href de um item de NAV para a página atual (`base` = '' na Home, '/' nas demais). */
 export const navHref = (item: NavItem, base: string): string => (item.href.startsWith('#') ? base + item.href : item.href);
 

@@ -105,5 +105,6 @@ Aceito (`ASSET-LIMITED DEVIATION`): Hero com 4 fotos pequenas do Yooga em vez de
 ## Integração com o site
 
 - **"Descubra as criações" (Home) → `/produtos`**: resolvido (`LINKS.criacoes = '/produtos'`); o item `criacoes-destino` saiu de `PENDING_ITEMS`.
-- Navegação: `NAV` único em `src/data/site.ts`; `navHref` prefixa `/` nas âncoras da Home quando a página é interna (`/#bruna`, `/#encomendas`, `/#contato`); a logo vai para `/`; "Produtos" tem `aria-current="page"` em `/produtos`.
+- Navegação: `NAV` em `src/data/site.ts` (Footer, com `navHref` prefixando `/` nas âncoras da Home em páginas internas) e `HEADER_NAV` (Header: só páginas reais). A logo vai para `/`; "Produtos" tem `aria-current="page"` em `/produtos`.
+- **Regra do Header**: entra uma página real do site, um destino externo relevante (Instagram, WhatsApp) ou uma ação principal (Encomendar). O Header não é índice das seções da Home (A Marca, Bruna, Criações, Encomendas, Contato continuam na página e no Footer). Breakpoint do menu mobile: abaixo de 1024 px.
 - Menu de Bolos segue pendente (arquivo exige login Google): o CTA usa o WhatsApp, documentado em `LINKS.menuBolos` e `PRODUCTS_PAGE.cakes`.

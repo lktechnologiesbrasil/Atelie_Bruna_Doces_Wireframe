@@ -5,10 +5,12 @@
  * - Sobre o Hero: transparente, texto claro, logo claro.
  * - Depois do Hero: superfície creme, texto escuro, logo escuro
  *   (`data-surface="solid"`, ligado por IntersectionObserver).
- * - Abaixo de 1280px: logo + CTA + botão de menu; o menu abre um painel
+ * - Itens: só páginas reais (HEADER_NAV), Instagram, WhatsApp e a ação Encomendar; as seções da Home
+ *   não entram aqui (regra em src/data/site.ts).
+ * - Abaixo de 1024px: logo + CTA + botão de menu; o menu abre um painel
  *   modal (Esc fecha, foco preso, resto da página `inert`, fecha ao navegar).
  *
- * Páginas internas (ex.: /produtos): `base="/"` leva as âncoras da Home para "/#…", `current` marca
+ * Páginas internas (ex.: /produtos): `base="/"` torna a logo um link para "/", `current` marca
  * o item ativo (aria-current) e `solid` fixa a superfície sólida (a página não tem Hero escuro,
  * então o observador de superfície nem é necessário).
  *
@@ -16,7 +18,7 @@
  */
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
-import { NAV, LINKS, linkAttrs, navHref, type NavItem } from '../data/site';
+import { HEADER_NAV, LINKS, linkAttrs, navHref, type NavItem } from '../data/site';
 import { IMAGES } from '../data/images';
 
 interface Props {
@@ -45,7 +47,7 @@ const pendingAttrs = linkAttrs;
 
     <nav class="site-nav" aria-label="Principal">
       <ul role="list">
-        {NAV.map((item) => (
+        {HEADER_NAV.map((item) => (
           <li><a class="lnk" href={navHref(item, base)} aria-current={item.page && item.page === current ? 'page' : undefined}>{item.label}</a></li>
         ))}
       </ul>
@@ -84,7 +86,7 @@ const pendingAttrs = linkAttrs;
     </div>
     <nav class="site-menu__nav container" aria-label="Menu">
       <ul role="list">
-        {NAV.map((item) => (
+        {HEADER_NAV.map((item) => (
           <li><a href={navHref(item, base)} aria-current={item.page && item.page === current ? 'page' : undefined}>{item.label}</a></li>
         ))}
       </ul>
@@ -94,6 +96,9 @@ const pendingAttrs = linkAttrs;
         </a>
         <a class="lnk" href={LINKS.instagram} {...pendingAttrs(LINKS.instagram)}>
           <Icon name="instagram" size={22} /><span>Instagram</span>
+        </a>
+        <a class="lnk" href={LINKS.whatsapp} {...pendingAttrs(LINKS.whatsapp)}>
+          <Icon name="whatsapp" size={22} /><span>WhatsApp</span>
         </a>
       </div>
     </nav>
@@ -174,7 +179,7 @@ const pendingAttrs = linkAttrs;
     if ((event.target as HTMLElement).closest('a')) closeMenu({ restoreFocus: false });
   });
   // Ao voltar para o layout desktop, o menu não pode ficar aberto
-  window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
     if (e.matches) closeMenu({ restoreFocus: false });
   });
 </script>
@@ -257,6 +262,13 @@ const pendingAttrs = linkAttrs;
     gap: clamp(14px, 1.5vw, 22px);
   }
 
+  /* poucos itens: o bloco de navegação junta-se às ações, à direita da logo */
+  @media (min-width: 1024px) {
+    .site-nav {
+      margin-left: auto;
+    }
+  }
+
   .lnk {
     display: inline-flex;
     align-items: center;
@@ -298,7 +310,6 @@ const pendingAttrs = linkAttrs;
     display: flex;
     align-items: center;
     gap: clamp(12px, 1.3vw, 20px);
-    margin-left: auto;
   }
 
   .site-header__sep {
@@ -364,7 +375,7 @@ const pendingAttrs = linkAttrs;
   .site-menu__nav ul {
     display: grid;
     gap: 4px;
-    padding-block: 32px;
+    padding-block: 32px 28px;
   }
 
   .site-menu__nav ul li {
@@ -385,9 +396,7 @@ const pendingAttrs = linkAttrs;
     flex-wrap: wrap;
     align-items: center;
     gap: 16px 28px;
-    padding-block: 8px 40px;
-    border-top: 1px solid var(--color-line);
-    padding-top: 28px;
+    padding-block: 0 40px;
   }
 
   .site-menu__actions .btn {
@@ -400,7 +409,11 @@ const pendingAttrs = linkAttrs;
   }
 
   /* ---------- Compacto ---------- */
-  @media (max-width: 1279px) {
+  @media (max-width: 1023px) {
+    .site-header__actions {
+      margin-left: auto;
+    }
+
     .site-nav,
     .site-header__social,
     .site-header__sep {
