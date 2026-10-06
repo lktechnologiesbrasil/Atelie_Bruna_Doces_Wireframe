@@ -6,11 +6,11 @@
 
 ## 1. Dados reais (`src/data/site.ts`)
 
-Estado atual (auditoria em `docs/content-audit.md`, pedido pronto em `docs/bruna-content-request.md`): **WhatsApp, Instagram, telefone, @handle e cidade já estão no site com valores públicos rastreáveis**, mas como `needs-confirmation` (continuam contando no `check:content`). Só e-mail, horário e destino de "Descubra as criações" são placeholders; o ano é calculado no build. Quando a Bruna confirmar, mude o item para resolvido removendo-o de `PENDING_ITEMS`. A lista completa e viva está em `PENDING_ITEMS`.
+Estado atual (auditoria em `docs/content-audit.md`, pedido pronto em `docs/bruna-content-request.md`): **WhatsApp, Instagram, telefone, @handle e cidade já estão no site com valores públicos rastreáveis**, mas como `needs-confirmation` (continuam contando no `check:content`). Só e-mail e horário são placeholders (o destino de "Descubra as criações" já está resolvido: `/produtos`); o ano é calculado no build. Quando a Bruna confirmar, mude o item para resolvido removendo-o de `PENDING_ITEMS`. A lista completa e viva está em `PENDING_ITEMS`.
 
 - [ ] `LINKS.whatsapp`: **confirmar** `wa.me/5535984235184` (alimenta 5 CTAs e o header)
 - [ ] `LINKS.instagram` e `CONTACT.instagram`: **confirmar** o perfil público
-- [ ] `LINKS.criacoes`: destino de "Descubra as criações" (ou remover o CTA)
+- [x] `LINKS.criacoes`: "Descubra as criações" → `/produtos` (resolvido)
 - [ ] `CONTACT.phone` e `.location` (cidade): **confirmar**; `.email` e `.hours`: obter da Bruna (horários públicos se contradizem); `.year` já é calculado
 - [ ] `BUSINESS_HOURS` estruturado (para o JSON-LD)
 - [ ] Página `/produtos` (docs/qa/products-page/README.md): `LINKS.cardapio` (Yooga) confirmado como canal oficial; `PRODUCTS_PAGE` (textos) aprovado; Menu de Bolos recebido, auditado e listado (`LINKS.menuBolos`, `CAKES_MENU`; hoje o CTA vai ao WhatsApp); fotos próprias no lugar das do Yooga (≤ 500 px) e imagem real no bloco de bolos; `displayName` definitivo (`src/data/products-display.ts`)

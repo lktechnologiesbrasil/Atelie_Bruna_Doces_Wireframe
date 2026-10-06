@@ -101,3 +101,9 @@ Corrigido (alta percepção):
 - **Presentear**: painel suave rosado, como no Concept.
 
 Aceito (`ASSET-LIMITED DEVIATION`): Hero com 4 fotos pequenas do Yooga em vez de foto cheia; cards sem a faixa panorâmica de alta resolução; sem textos por categoria nem "Ver todos →" (não existem nos dados).
+
+## Integração com o site
+
+- **"Descubra as criações" (Home) → `/produtos`**: resolvido (`LINKS.criacoes = '/produtos'`); o item `criacoes-destino` saiu de `PENDING_ITEMS`.
+- Navegação: `NAV` único em `src/data/site.ts`; `navHref` prefixa `/` nas âncoras da Home quando a página é interna (`/#bruna`, `/#encomendas`, `/#contato`); a logo vai para `/`; "Produtos" tem `aria-current="page"` em `/produtos`.
+- Menu de Bolos segue pendente (arquivo exige login Google): o CTA usa o WhatsApp, documentado em `LINKS.menuBolos` e `PRODUCTS_PAGE.cakes`.

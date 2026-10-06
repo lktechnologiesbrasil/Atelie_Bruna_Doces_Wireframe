@@ -58,8 +58,8 @@ export const LINKS = {
   whatsapp: 'https://wa.me/5535984235184',
   /** Perfil público da marca (observado 2026-09-26). A CONFIRMAR com a Bruna. */
   instagram: 'https://www.instagram.com/ateliedocesbruna/',
-  /** Não existe catálogo interno definido. */
-  criacoes: '[DESTINO A VALIDAR]',
+  /** "Descubra as criações" (Home) → página interna de produtos. Resolvido. */
+  criacoes: '/produtos',
   /** Cardápio de delivery no Yooga (link público do Linktree, observado 2026-09-26). Não há deep-link por produto. A CONFIRMAR. */
   cardapio: 'https://delivery.yooga.app/ateliedocesbruna',
   /**
@@ -221,7 +221,6 @@ export interface PendingItem {
 export const PENDING_ITEMS: PendingItem[] = [
   { id: 'whatsapp', kind: 'link', state: 'needs-confirmation', where: 'LINKS.whatsapp', needs: 'Bruna confirmar que este é o WhatsApp oficial (CTAs do Hero, Encomendas, CTA final e header)', source: 'Linktree público linktr.ee/ateliedocesbruna (2026-09-26); mesmo número da ficha do Google' },
   { id: 'instagram-url', kind: 'link', state: 'needs-confirmation', where: 'LINKS.instagram', needs: 'Confirmar o perfil oficial', source: 'instagram.com/ateliedocesbruna (observado 2026-09-26)' },
-  { id: 'criacoes-destino', kind: 'link', state: 'placeholder', where: 'LINKS.criacoes', needs: 'DECISÃO: "Descubra as criações" abre o cardápio Yooga (público), um catálogo próprio ou some' },
   { id: 'cardapio-yooga', kind: 'link', state: 'needs-confirmation', where: 'LINKS.cardapio', needs: 'Confirmar que o cardápio Yooga é o canal oficial de pedidos (CTAs da página /produtos)', source: 'Linktree público linktr.ee/ateliedocesbruna (2026-09-26)' },
   { id: 'menu-bolos-link', kind: 'link', state: 'placeholder', where: 'LINKS.menuBolos / CAKES_MENU', needs: 'Menu de Bolos exige login Google: a Bruna enviar o arquivo ou liberar o link público; só então auditar e listar. Hoje o CTA da página de produtos usa o WhatsApp' },
   { id: 'products-copy', kind: 'copy', state: 'placeholder', where: 'PRODUCTS_PAGE', needs: 'Textos institucionais da página /produtos aprovados pela Bruna' },

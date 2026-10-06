@@ -104,7 +104,7 @@ Fontes (todas observadas em 2026-09-26): Instagram, Linktree, Yooga, ficha do Go
 | SEO | description | nenhuma | **ausente** | candidata: bio do Instagram, a aprovar |
 | SEO | social image | nenhuma | **ausente** | depende de logo/foto reais |
 | CTA | "Encomendar" (Hero, Encomendas, CTA final, header) | WhatsApp acima | precisa confirmação | o fluxo Converse → Criamos → Celebre também é **não validado** (prazos, sinal, antecedência) |
-| CTA | "Descubra as criações" | `[DESTINO A VALIDAR]` | placeholder | **decisão**: abrir o cardápio Yooga (público, `delivery.yooga.app/ateliedocesbruna`), um catálogo próprio, ou remover o CTA |
+| CTA | "Descubra as criações" | `/produtos` | **resolvido** | página interna de produtos aprovada (Concept 09) |
 
 ## O que foi integrado
 
