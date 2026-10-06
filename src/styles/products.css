@@ -29,9 +29,9 @@
     radial-gradient(90% 120% at 12% 0%, rgb(254 215 194 / 0.55), transparent 62%),
     var(--color-cream-100);
   /* o header (sólido) sobrepõe o topo da página: o conteúdo começa abaixo dele */
-  padding-top: calc(var(--header-h-compact) + clamp(28px, 3.6vw, 56px));
-  padding-bottom: clamp(88px, 8.5vw, 132px); /* folga para a busca sobrepor o Hero */
-  min-height: clamp(380px, 38vw, 560px);
+  padding-top: calc(var(--header-h-compact) + clamp(24px, 2.8vw, 44px));
+  padding-bottom: clamp(80px, 6.8vw, 108px); /* folga para a busca sobrepor o Hero */
+  min-height: clamp(360px, 31vw, 480px);
 }
 
 .phero__inner {
@@ -40,15 +40,16 @@
 }
 
 main .phero .phero__title {
-  font-size: clamp(2.75rem, 4.9vw, 5.25rem);
+  font-size: clamp(2.75rem, 4.4vw, 4.75rem);
   line-height: 1;
   margin-top: 4px;
 }
 
 .phero__lead {
-  max-width: 24em;
-  margin-top: clamp(18px, 2vw, 28px);
-  font-size: clamp(1rem, 0.86rem + 0.45vw, 1.25rem);
+  max-width: 26em;
+  text-wrap: balance;
+  margin-top: clamp(14px, 1.6vw, 22px);
+  font-size: clamp(1rem, 0.9rem + 0.35vw, 1.125rem);
 }
 
 /* fotos reais do cardápio (CDN do Yooga, ≤ 500 px): usadas pequenas, sem ampliar */
@@ -360,7 +361,7 @@ main .pintro .h2 {
   min-height: 108px;
 }
 
-.pgroup--drink .pcard__media img {
+.pgroup--drink .pcard__media > img {
   position: absolute;
   inset: 0;
 }
@@ -373,24 +374,9 @@ main .pintro .h2 {
   background: #fff;
 }
 
-.pgroup--drink .pcard__media img {
+.pgroup--drink .pcard__media > img {
   object-fit: contain;
   padding: 6px;
-}
-
-/* só a seta (o nome acessível continua no texto oculto), com alvo de toque de 44px */
-.pgroup--drink .pcard__cta {
-  min-width: 44px;
-  justify-content: center;
-}
-
-.pgroup--drink .pcard__cta-label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }
 
 .pgroup--drink .pcard__body {
@@ -420,12 +406,12 @@ main .pintro .h2 {
 
 .pcard__media {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--color-cream-200);
 }
 
-.pcard__media img {
+.pcard__media > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -560,25 +546,34 @@ main .pintro .h2 {
 }
 
 .pcard__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
   margin-left: auto;
+  border: 1px solid var(--card-line);
+  border-radius: 50%;
   color: var(--color-caramel-600);
-  font-size: var(--text-micro);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.pcard__cta svg {
-  transition: transform 0.2s ease;
+.pcard__cta-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
-.pcard__cta:hover svg {
-  transform: translateX(3px);
+@media (hover: hover) {
+  .pcard__cta:hover {
+    border-color: var(--color-caramel-600);
+    background: var(--color-caramel-600);
+    color: var(--color-offwhite);
+  }
 }
 
 .pcard[data-promo] {
@@ -611,8 +606,8 @@ html.motion-ready .pcard:not(.is-in) {
   }
 
   /* a foto preenche a coluna sem definir a altura do card */
-  .pgroup[data-count='1'] .pcard__media img,
-  .pgroup[data-count='2'] .pcard__media img {
+  .pgroup[data-count='1'] .pcard__media > img,
+  .pgroup[data-count='2'] .pcard__media > img {
     position: absolute;
     inset: 0;
   }
@@ -626,6 +621,11 @@ html.motion-ready .pcard:not(.is-in) {
 /* ----- presentear (gift) ----- */
 .pgift {
   align-items: center;
+  margin-block: clamp(14px, 1.6vw, 24px);
+  padding-inline: clamp(18px, 2.4vw, 36px);
+  border: 1px solid var(--card-line);
+  border-radius: 16px;
+  background: linear-gradient(100deg, rgb(254 215 194 / 0.5), rgb(250 231 218 / 0.7));
 }
 
 .pgift__head {
@@ -771,8 +771,8 @@ html.motion-ready .pcard:not(.is-in) {
   height: 100%;
   object-fit: cover;
   object-position: 50% 40%;
-  transform: scale(1.2);
-  transform-origin: 38% 22%;
+  transform: scale(1.32);
+  transform-origin: 30% 0;
 }
 
 .pcakes__text {
@@ -881,6 +881,18 @@ main .pcta .pcta__h2 {
 @media (min-width: 1440px) {
   .prail .prail__list {
     padding-inline: max(var(--pad), calc((100vw - 1392px) / 2));
+  }
+}
+
+@media (min-width: 1200px) {
+  .pgroup[data-count='5'] .pgroup__grid,
+  .pgroup[data-count='6'] .pgroup__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pgroup--food[data-count='5'] .pcard__media,
+  .pgroup--food[data-count='6'] .pcard__media {
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -1019,10 +1031,6 @@ main .pcta .pcta__h2 {
     padding: 12px 12px 8px;
   }
 
-  .pcard__cta {
-    margin-left: 0;
-  }
-
   .psearch__form {
     min-height: 56px;
     gap: 10px;
@@ -1058,7 +1066,7 @@ main .pcta .pcta__h2 {
     min-height: 124px;
   }
 
-  .pcard__media img {
+  .pcard__media > img {
     position: absolute;
     inset: 0;
   }

@@ -86,3 +86,18 @@ Scripts nesta pasta (rodam contra `npm run build && npm run preview -- --port 43
 - `displayName` definitivo (grafias, "c/", marcas de terceiros) com a Bruna.
 - Item de serviço (garfinho) e cartão presente: confirmar se aparecem no site.
 - Indexação, descrição da página e URL final continuam pendentes (`noindex, nofollow`).
+
+## Gate visual final (refino contra o Concept 09)
+
+Comparação: `final-compare-1440.webp` (Concept à esquerda, implementação à direita). Capturas em `gate/final-{1440,1280,1024,768,390,360}.webp`.
+
+Corrigido (alta percepção):
+
+- **Fallback sem imagem**: `.pcard__media img` também atingia a flor decorativa (esticada a 100% e pixelada, nome cortado). Seletor passou a `.pcard__media > img`.
+- **Cards**: CTA vira seta circular de 44 px na mesma linha do preço (rótulo "Ver no cardápio" segue para leitor de tela), como no Concept; foto 16:10.
+- **Grupos de 5–6 produtos**: 3 colunas no desktop largo (sem linha órfã de 1 card).
+- **Hero**: ~100 px mais curto, título e lead menores, busca na posição do Concept; sem palavra órfã no lead.
+- **Bolos por encomenda**: recorte da imagem provisória esconde a moldura da Master.
+- **Presentear**: painel suave rosado, como no Concept.
+
+Aceito (`ASSET-LIMITED DEVIATION`): Hero com 4 fotos pequenas do Yooga em vez de foto cheia; cards sem a faixa panorâmica de alta resolução; sem textos por categoria nem "Ver todos →" (não existem nos dados).
