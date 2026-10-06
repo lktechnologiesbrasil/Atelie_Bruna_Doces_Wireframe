@@ -81,7 +81,7 @@
     {
       "name": "Header/Footer: âncoras da Home prefixadas com \"/\"",
       "ok": true,
-      "detail": "/#a-marca /#bruna /produtos /#criacoes /#encomendas /#contato"
+      "detail": "/produtos"
     },
     {
       "name": "um único h1",
@@ -176,7 +176,7 @@
     {
       "name": "teclado: busca e trilho entram na ordem de foco, com foco visível",
       "ok": true,
-      "detail": "skip-link > site-header__logo > lnk > lnk > lnk > lnk > lnk > lnk > lnk > lnk > btn > produtos-busca > psearch__go > rail:all > rail:combo-do-dia > rail:salgados-deliciosos > rail:fatias > rail:coxinhas-doces > rail:fatias-de-bolo > rail:caseirinhos > rail:exclusivos > rail:doses-da-felicidade > rail:quentinhos-combinam > rail:acai > rail:geladinhos-picole > rail:bolos-de-pote > rail:cone-trufado > rail:tamanho-familia > rail:bebidas > rail:presentear-pode-e-deve > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta"
+      "detail": "skip-link > site-header__logo > lnk > lnk > lnk > btn > produtos-busca > psearch__go > rail:all > rail:combo-do-dia > rail:salgados-deliciosos > rail:fatias > rail:coxinhas-doces > rail:fatias-de-bolo > rail:caseirinhos > rail:exclusivos > rail:doses-da-felicidade > rail:quentinhos-combinam > rail:acai > rail:geladinhos-picole > rail:bolos-de-pote > rail:cone-trufado > rail:tamanho-familia > rail:bebidas > rail:presentear-pode-e-deve > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta > pcard__cta"
     },
     {
       "name": "1440px: sem overflow horizontal",
